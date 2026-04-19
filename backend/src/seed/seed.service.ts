@@ -11,9 +11,7 @@ export class SeedService {
   constructor(private readonly prisma: PrismaService) {}
 
   async seed() {
-    await this.seedTides();
-    await this.seedFuel();
-    await this.seedSeasonalPatterns();
+    await Promise.all([this.seedTides(), this.seedFuel(), this.seedSeasonalPatterns()]);
     this.logger.log('Seeding complete');
   }
 
@@ -21,24 +19,16 @@ export class SeedService {
     const csv = this.readData('tide-tables.csv');
     const rows = this.parseCsv(csv);
     for (const row of rows) {
+      const tideData = {
+        highTime: row.high_time || null,
+        highHeight: row.high_height ? parseFloat(row.high_height) : null,
+        lowTime: row.low_time || null,
+        lowHeight: row.low_height ? parseFloat(row.low_height) : null,
+      };
       await this.prisma.tideEntry.upsert({
-        where: {
-          id: await this.tideUpsertKey(row.district, row.date),
-        },
-        create: {
-          district: row.district,
-          date: new Date(row.date),
-          highTime: row.high_time || null,
-          highHeight: row.high_height ? parseFloat(row.high_height) : null,
-          lowTime: row.low_time || null,
-          lowHeight: row.low_height ? parseFloat(row.low_height) : null,
-        },
-        update: {
-          highTime: row.high_time || null,
-          highHeight: row.high_height ? parseFloat(row.high_height) : null,
-          lowTime: row.low_time || null,
-          lowHeight: row.low_height ? parseFloat(row.low_height) : null,
-        },
+        where: { district_date: { district: row.district, date: new Date(row.date) } },
+        create: { district: row.district, date: new Date(row.date), ...tideData },
+        update: tideData,
       });
     }
     this.logger.log(`Seeded ${rows.length} tide entries`);
@@ -51,50 +41,30 @@ export class SeedService {
       this.logger.warn('No valid fuel price row found in fuel-prices.csv');
       return;
     }
-    const existing = await this.prisma.fuelPrice.findFirst({
+    const priceData = {
+      ron95Price: row.ron95Price,
+      ron95UnsubsidisedPrice: row.ron95UnsubsidisedPrice,
+      dieselPrice: row.dieselPrice,
+      dieselEastMsiaPrice: row.dieselEastMsiaPrice,
+    };
+    await this.prisma.fuelPrice.upsert({
       where: { effectiveDate: row.effectiveDate },
+      create: { effectiveDate: row.effectiveDate, ...priceData },
+      update: priceData,
     });
-    if (!existing) {
-      await this.prisma.fuelPrice.create({
-        data: {
-          effectiveDate: row.effectiveDate,
-          ron95Price: row.ron95Price,
-          ron95UnsubsidisedPrice: row.ron95UnsubsidisedPrice,
-          dieselPrice: row.dieselPrice,
-          dieselEastMsiaPrice: row.dieselEastMsiaPrice,
-        },
-      });
-    }
     this.logger.log('Seeded 1 fuel price entry');
   }
 
   private async seedSeasonalPatterns() {
     const json = JSON.parse(this.readData('seasonal-patterns.json'));
     for (const item of json) {
-      const existing = await this.prisma.seasonalPattern.findFirst({
-        where: { species: item.species, month: item.month, district: item.district },
+      await this.prisma.seasonalPattern.upsert({
+        where: { species_month_district: { species: item.species, month: item.month, district: item.district } },
+        create: { species: item.species, month: item.month, district: item.district, activityLevel: item.activityLevel, notes: item.notes ?? null },
+        update: { activityLevel: item.activityLevel, notes: item.notes ?? null },
       });
-      if (!existing) {
-        await this.prisma.seasonalPattern.create({
-          data: {
-            species: item.species,
-            month: item.month,
-            district: item.district,
-            activityLevel: item.activityLevel,
-            notes: item.notes ?? null,
-          },
-        });
-      }
     }
     this.logger.log(`Seeded ${json.length} seasonal pattern entries`);
-  }
-
-  private async tideUpsertKey(district: string, date: string): Promise<string> {
-    const existing = await this.prisma.tideEntry.findFirst({
-      where: { district, date: new Date(date) },
-      select: { id: true },
-    });
-    return existing?.id ?? crypto.randomUUID();
   }
 
   private readData(filename: string): string {

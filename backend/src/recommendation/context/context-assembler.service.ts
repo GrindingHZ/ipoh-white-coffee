@@ -35,7 +35,7 @@ export class ContextAssemblerService {
       : serverTime.getHours();
 
     const [warnings, forecast, tideInfo, fuelInfo] = await Promise.all([
-      this.weather.getActiveWarnings(this.stateFromDistrict(district)).catch(() => []),
+      this.weather.getActiveWarnings(district).catch(() => []),
       this.weather
         .getForecastForTripWindow(locationId, serverTime, departureHour)
         .catch(() => null),
@@ -49,7 +49,7 @@ export class ContextAssemblerService {
       forecastSlice(forecast, district),
       timeSlice(serverTime, profile.typicalDepartureTime),
       tideSlice(tideInfo, serverTime),
-      fuelSlice(fuelInfo, profile.fuelCapacity ? Number(profile.fuelCapacity) : null, this.fuel),
+      fuelSlice(fuelInfo, profile.fuelCapacity ? Number(profile.fuelCapacity) : null),
       await seasonalSlice(this.prisma, district, profile.targetSpecies, serverTime.getMonth() + 1),
     ];
 
@@ -71,7 +71,4 @@ export class ContextAssemblerService {
     return prompt.trim();
   }
 
-  private stateFromDistrict(_district: string): string {
-    return _district;
-  }
 }

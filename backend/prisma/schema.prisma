@@ -29,12 +29,13 @@ model TideEntry {
   lowTime    String?
   lowHeight  Decimal? @db.Decimal
 
+  @@unique([district, date])
   @@map("tide_entries")
 }
 
 model FuelPrice {
   id                     String   @id @default(uuid()) @db.Uuid
-  effectiveDate          DateTime @db.Date
+  effectiveDate          DateTime @db.Date @unique
   ron95Price             Decimal  @db.Decimal
   ron95UnsubsidisedPrice Decimal? @db.Decimal
   dieselPrice            Decimal  @db.Decimal
@@ -51,6 +52,7 @@ model SeasonalPattern {
   activityLevel String
   notes         String?
 
+  @@unique([species, month, district])
   @@map("seasonal_patterns")
 }
 
@@ -61,5 +63,6 @@ model WeatherCache {
   fetchedAt DateTime @default(now())
   payload   Json
 
+  @@unique([type, district])
   @@map("weather_cache")
 }

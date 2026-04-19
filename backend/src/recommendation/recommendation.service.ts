@@ -26,14 +26,13 @@ export class RecommendationService {
 
     const district = this.resolveDistrict(dto, profile.locality);
     const locationId = (locationMap as Record<string, string>)[district] ?? district;
-    const state = district;
     const serverTime = new Date();
     const departureHour = profile.typicalDepartureTime
       ? parseInt(profile.typicalDepartureTime.split(':')[0], 10)
       : serverTime.getHours();
 
     const safetyResult = await this.safety.check(
-      state,
+      district,
       locationId,
       serverTime,
       departureHour,

@@ -138,8 +138,10 @@ export class WeatherService {
   }
 
   private async upsertCache(type: string, district: string, payload: any) {
-    await this.prisma.weatherCache.create({
-      data: { type, district, payload },
+    await this.prisma.weatherCache.upsert({
+      where: { type_district: { type, district } },
+      create: { type, district, payload },
+      update: { payload, fetchedAt: new Date() },
     });
   }
 
