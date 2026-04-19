@@ -11,7 +11,7 @@ export class SeedService {
   constructor(private readonly prisma: PrismaService) {}
 
   async seed() {
-    await Promise.all([this.seedTides(), this.seedFuel(), this.seedSeasonalPatterns()]);
+    await Promise.all([this.seedTides(), this.seedFuel(), this.seedSeasonalPatterns(), this.seedFishLandings()]);
     this.logger.log('Seeding complete');
   }
 
@@ -65,6 +65,24 @@ export class SeedService {
       });
     }
     this.logger.log(`Seeded ${json.length} seasonal pattern entries`);
+  }
+
+  private async seedFishLandings() {
+    const csv = this.readData('fish_landings.csv');
+    const rows = this.parseCsv(csv);
+    let count = 0;
+    for (const row of rows) {
+      if (row.coast === 'all') continue;
+      const date = new Date(row.date);
+      const landingsKg = parseInt(row.landings, 10);
+      await this.prisma.fishLanding.upsert({
+        where: { date_coast_state: { date, coast: row.coast, state: row.state } },
+        create: { date, coast: row.coast, state: row.state, landingsKg },
+        update: { landingsKg },
+      });
+      count++;
+    }
+    this.logger.log(`Seeded ${count} fish landing entries`);
   }
 
   private readData(filename: string): string {

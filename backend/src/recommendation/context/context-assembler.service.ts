@@ -10,6 +10,7 @@ import { timeSlice } from './slices/time.slice';
 import { tideSlice } from './slices/tide.slice';
 import { fuelSlice } from './slices/fuel.slice';
 import { seasonalSlice } from './slices/seasonal.slice';
+import { landingsSlice } from './slices/landings.slice';
 
 const TOKEN_BUDGET = 1500;
 const AVG_CHARS_PER_TOKEN = 4;
@@ -51,6 +52,7 @@ export class ContextAssemblerService {
       tideSlice(tideInfo, serverTime),
       fuelSlice(fuelInfo, profile.fuelCapacity ? Number(profile.fuelCapacity) : null),
       await seasonalSlice(this.prisma, district, profile.targetSpecies, serverTime.getMonth() + 1),
+      await landingsSlice(this.prisma, district, serverTime.getMonth() + 1),
     ];
 
     return this.applyTokenBudget(slices);

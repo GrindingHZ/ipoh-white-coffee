@@ -56,6 +56,17 @@ model SeasonalPattern {
   @@map("seasonal_patterns")
 }
 
+model FishLanding {
+  id         String   @id @default(uuid()) @db.Uuid
+  date       DateTime @db.Date
+  coast      String
+  state      String
+  landingsKg Int
+
+  @@unique([date, coast, state])
+  @@map("fish_landings")
+}
+
 model WeatherCache {
   id        String   @id @default(uuid()) @db.Uuid
   district  String
