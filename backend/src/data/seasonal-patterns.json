@@ -1,0 +1,18 @@
+[
+  { "species": "Ikan Tenggiri", "month": 1, "district": "Mersing", "activityLevel": "low", "notes": "Northeast monsoon, rough seas" },
+  { "species": "Ikan Tenggiri", "month": 2, "district": "Mersing", "activityLevel": "moderate", "notes": "Transition period" },
+  { "species": "Ikan Tenggiri", "month": 3, "district": "Mersing", "activityLevel": "high", "notes": "Calm seas, good catches" },
+  { "species": "Ikan Tenggiri", "month": 4, "district": "Mersing", "activityLevel": "high", "notes": "Peak season" },
+  { "species": "Ikan Tenggiri", "month": 5, "district": "Mersing", "activityLevel": "high", "notes": "Peak season" },
+  { "species": "Ikan Tenggiri", "month": 6, "district": "Mersing", "activityLevel": "moderate", "notes": "Southwest monsoon begins" },
+  { "species": "Ikan Tenggiri", "month": 7, "district": "Mersing", "activityLevel": "moderate", "notes": "Southwest monsoon" },
+  { "species": "Ikan Tenggiri", "month": 8, "district": "Mersing", "activityLevel": "moderate", "notes": "Southwest monsoon" },
+  { "species": "Ikan Tenggiri", "month": 9, "district": "Mersing", "activityLevel": "high", "notes": "Transition, fish active" },
+  { "species": "Ikan Tenggiri", "month": 10, "district": "Mersing", "activityLevel": "high", "notes": "Good conditions" },
+  { "species": "Ikan Tenggiri", "month": 11, "district": "Mersing", "activityLevel": "low", "notes": "Northeast monsoon approaching" },
+  { "species": "Ikan Tenggiri", "month": 12, "district": "Mersing", "activityLevel": "low", "notes": "Northeast monsoon, rough seas" },
+  { "species": "Ikan Merah", "month": 3, "district": "Kuala Terengganu", "activityLevel": "high", "notes": "Calm inter-monsoon" },
+  { "species": "Ikan Merah", "month": 4, "district": "Kuala Terengganu", "activityLevel": "high", "notes": "Peak season" },
+  { "species": "Ikan Merah", "month": 5, "district": "Kuala Terengganu", "activityLevel": "high", "notes": "Peak season" },
+  { "species": "Ikan Merah", "month": 10, "district": "Kuala Terengganu", "activityLevel": "moderate", "notes": "Inter-monsoon transition" }
+]

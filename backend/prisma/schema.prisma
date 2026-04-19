@@ -33,10 +33,12 @@ model TideEntry {
 }
 
 model FuelPrice {
-  id            String   @id @default(uuid()) @db.Uuid
-  effectiveDate DateTime @db.Date
-  ron95Price    Decimal  @db.Decimal
-  dieselPrice   Decimal  @db.Decimal
+  id                     String   @id @default(uuid()) @db.Uuid
+  effectiveDate          DateTime @db.Date
+  ron95Price             Decimal  @db.Decimal
+  ron95UnsubsidisedPrice Decimal? @db.Decimal
+  dieselPrice            Decimal  @db.Decimal
+  dieselEastMsiaPrice    Decimal? @db.Decimal
 
   @@map("fuel_prices")
 }
