@@ -1,34 +1,52 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import type { MouseEvent } from "react";
 import "./styles.css";
+import heroBg from "./assets/fisheriq-hero.png";
+import {
+  CANVAS_WIDTH,
+  CANVAS_HEIGHT,
+  WAVE_MIN_RADIUS,
+  WAVE_INITIAL_RADIUS,
+  WAVE_SPAWN_COUNT,
+  WAVE_SPAWN_INTERVAL_MS,
+  WAVE_EXPAND_SPEED,
+  WAVE_TIME_STEP,
+  WAVE_HOVER_RADIUS,
+  WAVE_LOADING_SPAWN_INTERVAL_MS,
+  FAKE_BACKEND_DELAY_MS,
+  BURST_INITIAL_RADIUS,
+  BURST_EXPAND_SPEED,
+  BURST_LINE_WIDTH,
+  BURST_COLOR,
+  BURST_INITIAL_ALPHA,
+  BURST_ALPHA_DECAY,
+  CANVAS_BG,
+  RING_STEPS,
+  RING_FADE_START,
+  RING_BASE_ALPHA,
+  RING_FADE_EXPONENT,
+  RING_LINE_WIDTH_BASE,
+  RING_LINE_WIDTH_EXTRA,
+  WAVE_SCALE_MULTIPLIER,
+  WAVE1_FREQ, WAVE1_SPEED, WAVE1_AMP,
+  WAVE2_FREQ, WAVE2_SPEED, WAVE2_AMP,
+  WAVE3_FREQ, WAVE3_SPEED, WAVE3_AMP,
+  COLOR_INNER,
+  COLOR_OUTER,
+  COLOR_LERP_EXPONENT,
+  TRIP_METRICS,
+  BUYER_ROWS,
+  WEEKLY_INSIGHTS,
+} from "./constants";
 
 interface Wave {
   r: number;
 }
 
-interface Metric {
-  label: string;
-  value: string;
-  tone?: "good" | "warn" | "neutral";
+interface Burst {
+  r: number;
+  alpha: number;
 }
-
-const tripMetrics: Metric[] = [
-  { label: "Decision", value: "Go", tone: "good" },
-  { label: "Zone", value: "Pantai Remis", tone: "neutral" },
-  { label: "Expected Net", value: "+RM46", tone: "good" },
-];
-
-const buyerRows = [
-  { name: "Koperasi Jeti", price: "RM9.80/kg", distance: "2.1 km", net: "RM284" },
-  { name: "Pasar Pagi", price: "RM10.40/kg", distance: "7.4 km", net: "RM271" },
-  { name: "Middleman A", price: "RM8.90/kg", distance: "0.8 km", net: "RM252" },
-];
-
-const weeklyInsights = [
-  "Trips after light east wind returned 18% higher net income.",
-  "Fuel cost crossed RM38 on two low-catch days.",
-  "Best margin came from selling ikan kembung before 9:30 AM.",
-];
 
 function lerpColor(
   r1: number,
@@ -48,11 +66,15 @@ function lerpColor(
 
 export default function App() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const wavesRef = useRef<Wave[]>([{ r: 58 }, { r: 150 }, { r: 242 }]);
+  const wavesRef = useRef<Wave[]>([]);
+  const burstsRef = useRef<Burst[]>([]);
   const tRef = useRef(0);
   const animRef = useRef<number>(0);
+  const loadingIntervalRef = useRef<number | null>(null);
   const [hovered, setHovered] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [hasChecked, setHasChecked] = useState(false);
+  const [seeMoreReady, setSeeMoreReady] = useState(false);
   const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
@@ -68,27 +90,26 @@ export default function App() {
     const cy = H / 2;
     const maxR = Math.sqrt(cx * cx + cy * cy) + 30;
 
+
     function drawRing(baseR: number, t: number) {
-      if (baseR < 42) return;
+      if (baseR < WAVE_MIN_RADIUS) return;
       const prog = Math.min(baseR / maxR, 1);
-      const fadeStart = 0.52;
       const alpha =
-        prog < fadeStart
-          ? 0.84
-          : 0.84 * (1 - Math.pow((prog - fadeStart) / (1 - fadeStart), 1.7));
+        prog < RING_FADE_START
+          ? RING_BASE_ALPHA
+          : RING_BASE_ALPHA * (1 - Math.pow((prog - RING_FADE_START) / (1 - RING_FADE_START), RING_FADE_EXPONENT));
 
       if (alpha <= 0.01) return;
 
-      const [r, g, b] = lerpColor(30, 184, 166, 245, 158, 11, Math.pow(prog, 0.75));
-      const steps = 340;
+      const [r, g, b] = lerpColor(...COLOR_INNER, ...COLOR_OUTER, Math.pow(prog, COLOR_LERP_EXPONENT));
 
       ctx.beginPath();
-      for (let s = 0; s <= steps; s += 1) {
-        const angle = (s / steps) * Math.PI * 2;
-        const waveScale = Math.sin(prog * Math.PI) * 1.05;
-        const w1 = Math.sin(angle * 4 + t * 1.8) * waveScale * 14;
-        const w2 = Math.sin(angle * 7 - t * 1.2) * waveScale * 7;
-        const w3 = Math.sin(angle * 2 + t * 0.6) * waveScale * 10;
+      for (let s = 0; s <= RING_STEPS; s += 1) {
+        const angle = (s / RING_STEPS) * Math.PI * 2;
+        const waveScale = Math.sin(prog * Math.PI) * WAVE_SCALE_MULTIPLIER;
+        const w1 = Math.sin(angle * WAVE1_FREQ + t * WAVE1_SPEED) * waveScale * WAVE1_AMP;
+        const w2 = Math.sin(angle * WAVE2_FREQ - t * WAVE2_SPEED) * waveScale * WAVE2_AMP;
+        const w3 = Math.sin(angle * WAVE3_FREQ + t * WAVE3_SPEED) * waveScale * WAVE3_AMP;
         const rad = baseR + w1 + w2 + w3;
         const x = cx + Math.cos(angle) * rad;
         const y = cy + Math.sin(angle) * rad;
@@ -97,26 +118,39 @@ export default function App() {
 
       ctx.closePath();
       ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${alpha.toFixed(3)})`;
-      ctx.lineWidth = 1.4 + (1 - prog) * 1.2;
+      ctx.lineWidth = RING_LINE_WIDTH_BASE + (1 - prog) * RING_LINE_WIDTH_EXTRA;
       ctx.stroke();
+    }
+
+    function drawBurst(burst: Burst) {
+      ctx.beginPath();
+      ctx.arc(cx, cy, burst.r, 0, Math.PI * 2);
+      ctx.strokeStyle = BURST_COLOR;
+      ctx.globalAlpha = burst.alpha;
+      ctx.lineWidth = BURST_LINE_WIDTH;
+      ctx.stroke();
+      ctx.globalAlpha = 1;
     }
 
     function loop() {
       ctx.clearRect(0, 0, W, H);
-      ctx.fillStyle = "rgba(8, 32, 38, 0.72)";
+      ctx.fillStyle = CANVAS_BG;
       ctx.fillRect(0, 0, W, H);
 
       wavesRef.current = wavesRef.current.filter((w) => w.r < maxR);
-      if (wavesRef.current.length < 3) {
-        wavesRef.current.push({ r: 48 });
-      }
-
       for (const w of wavesRef.current) {
         drawRing(w.r, tRef.current);
-        w.r += 0.42;
+        w.r += WAVE_EXPAND_SPEED;
       }
 
-      tRef.current += 0.022;
+      burstsRef.current = burstsRef.current.filter((b) => b.alpha > 0.01);
+      for (const b of burstsRef.current) {
+        drawBurst(b);
+        b.r += BURST_EXPAND_SPEED;
+        b.alpha *= BURST_ALPHA_DECAY;
+      }
+
+      tRef.current += WAVE_TIME_STEP;
       animRef.current = requestAnimationFrame(loop);
     }
 
@@ -124,17 +158,47 @@ export default function App() {
     return () => cancelAnimationFrame(animRef.current);
   }, []);
 
+  function spawnBurst() {
+    burstsRef.current.push({ r: BURST_INITIAL_RADIUS, alpha: BURST_INITIAL_ALPHA });
+  }
+
   function spawnWaves() {
-    for (let i = 0; i < 8; i += 1) {
+    for (let i = 0; i < WAVE_SPAWN_COUNT; i += 1) {
       window.setTimeout(() => {
-        wavesRef.current.push({ r: 48 });
-      }, i * 170);
+        wavesRef.current.push({ r: WAVE_INITIAL_RADIUS });
+      }, i * WAVE_SPAWN_INTERVAL_MS);
     }
   }
 
-  function revealDecision() {
+  function startLoadingRipple() {
+    // Spawn an initial burst then keep adding one ring at a steady interval
+    wavesRef.current.push({ r: WAVE_INITIAL_RADIUS });
+    loadingIntervalRef.current = window.setInterval(() => {
+      wavesRef.current.push({ r: WAVE_INITIAL_RADIUS });
+    }, WAVE_LOADING_SPAWN_INTERVAL_MS);
+  }
+
+  function stopLoadingRipple() {
+    if (loadingIntervalRef.current !== null) {
+      clearInterval(loadingIntervalRef.current);
+      loadingIntervalRef.current = null;
+    }
+  }
+
+  async function fetchDecision() {
+    if (isLoading || hasChecked) return;
+    setIsLoading(true);
+    startLoadingRipple();
+
+    // TODO: replace with real API call — await api.getDecision()
+    await new Promise((resolve) => setTimeout(resolve, FAKE_BACKEND_DELAY_MS));
+
+    stopLoadingRipple();
+    spawnBurst();
+    setIsLoading(false);
     setHasChecked(true);
-    spawnWaves();
+    // Show "See more" after all 3 cards finish floating up (1000ms delay + 1400ms duration + buffer)
+    window.setTimeout(() => setSeeMoreReady(true), 2600);
   }
 
   function handleMouseMove(e: MouseEvent<HTMLCanvasElement>) {
@@ -145,20 +209,17 @@ export default function App() {
     const sy = canvas.height / rect.height;
     const dx = (e.clientX - rect.left) * sx - canvas.width / 2;
     const dy = (e.clientY - rect.top) * sy - canvas.height / 2;
-    setHovered(Math.sqrt(dx * dx + dy * dy) < 58);
+    setHovered(Math.sqrt(dx * dx + dy * dy) < WAVE_HOVER_RADIUS);
   }
 
   function handleStageClick() {
-    if (!hasChecked) {
-      revealDecision();
-      return;
+    if (!hasChecked && !isLoading) {
+      fetchDecision();
     }
-
-    spawnWaves();
   }
 
   return (
-    <main className="app-shell">
+    <main className="app-shell" style={{ "--hero-bg": `url(${heroBg})` } as React.CSSProperties}>
       <nav className="app-bar" aria-label="FisherIQ app bar">
         <button className="icon-button" type="button" aria-label="Open menu">
           <span aria-hidden="true">☰</span>
@@ -185,35 +246,39 @@ export default function App() {
           <div className="signal-stage" onClick={handleStageClick}>
             <canvas
               ref={canvasRef}
-              width={520}
-              height={420}
+              width={CANVAS_WIDTH}
+              height={CANVAS_HEIGHT}
               onMouseMove={handleMouseMove}
               onMouseLeave={() => setHovered(false)}
               className={hovered ? "signal-canvas is-hovered" : "signal-canvas"}
             />
-            <button
-              className={
-                hasChecked
-                  ? "pulse-button is-checked"
-                  : hovered
-                    ? "pulse-button is-hovered"
-                    : "pulse-button"
-              }
-              type="button"
-              onClick={(event) => {
-                event.stopPropagation();
-                revealDecision();
-              }}
-              onMouseEnter={() => setHovered(true)}
-              onMouseLeave={() => setHovered(false)}
-            >
-              <span aria-hidden="true">▶</span>
-              {hasChecked ? "Checked" : "Check"}
-            </button>
+
+            {!hasChecked && (
+              <button
+                className={
+                  isLoading
+                    ? "pulse-button is-loading"
+                    : hovered
+                      ? "pulse-button is-hovered"
+                      : "pulse-button"
+                }
+                type="button"
+                disabled={isLoading}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  fetchDecision();
+                }}
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+              >
+                <span aria-hidden="true">{isLoading ? "⏳" : "▶"}</span>
+                {isLoading ? "Checking…" : "Check"}
+              </button>
+            )}
 
             {hasChecked && (
               <div className="decision-overlay" aria-live="polite">
-                {tripMetrics.map((metric) => (
+                {TRIP_METRICS.map((metric) => (
                   <div className="metric" key={metric.label}>
                     <span>{metric.label}</span>
                     <strong className={metric.tone}>{metric.value}</strong>
@@ -224,7 +289,7 @@ export default function App() {
           </div>
 
           <div className="panel-actions">
-            {hasChecked ? (
+            {seeMoreReady ? (
               <button
                 className="see-more-button"
                 type="button"
@@ -233,75 +298,75 @@ export default function App() {
                 {showMore ? "Hide more" : "See more"}
               </button>
             ) : (
-              <p>Tap Check to see today's fishing decision.</p>
+              <p>{hasChecked ? "\u00a0" : "Tap Check to see today's fishing decision."}</p>
             )}
           </div>
+
+          {showMore && (
+            <div className="details-area">
+              <div className="dashboard-grid">
+                <article className="feature-card">
+                  <div className="card-topline">
+                    <span className="icon-chip">☀</span>
+                    <span>Trip Engine</span>
+                  </div>
+                  <h3>Go fishing at 6:30 AM</h3>
+                  <p>
+                    Low rain risk, moderate fuel cost, and stronger catch history near
+                    Pantai Remis make the trip profitable.
+                  </p>
+                  <div className="profit-strip">
+                    <span>Without FisherIQ</span>
+                    <strong className="warn">-RM12</strong>
+                    <span>With FisherIQ</span>
+                    <strong className="good">+RM46</strong>
+                  </div>
+                </article>
+
+                <article className="feature-card" id="market">
+                  <div className="card-topline">
+                    <span className="icon-chip">RM</span>
+                    <span>Market Engine</span>
+                  </div>
+                  <h3>Best buyer: Koperasi Jeti</h3>
+                  <div className="buyer-table">
+                    {BUYER_ROWS.map((buyer) => (
+                      <div className="buyer-row" key={buyer.name}>
+                        <span>{buyer.name}</span>
+                        <span>{buyer.price}</span>
+                        <span>{buyer.distance}</span>
+                        <strong>{buyer.net}</strong>
+                      </div>
+                    ))}
+                  </div>
+                </article>
+
+                <article className="feature-card log-card" id="insights">
+                  <div className="card-topline">
+                    <span className="icon-chip">✎</span>
+                    <span>Catch Log</span>
+                  </div>
+                  <h3>Natural language input</h3>
+                  <div className="message-bubble">
+                    "Hari ni dapat 18kg kembung, minyak RM42, jual dekat koperasi."
+                  </div>
+                  <p>
+                    GLM turns the message into structured catch, cost, buyer, and income data.
+                  </p>
+                </article>
+              </div>
+
+              <div className="insight-list">
+                {WEEKLY_INSIGHTS.map((insight) => (
+                  <div className="insight-item" key={insight}>
+                    <span aria-hidden="true">✓</span>
+                    <p>{insight}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </aside>
-
-        {showMore && (
-          <div className="details-area">
-            <div className="dashboard-grid">
-              <article className="feature-card">
-                <div className="card-topline">
-                  <span className="icon-chip">☀</span>
-                  <span>Trip Engine</span>
-                </div>
-                <h3>Go fishing at 6:30 AM</h3>
-                <p>
-                  Low rain risk, moderate fuel cost, and stronger catch history near
-                  Pantai Remis make the trip profitable.
-                </p>
-                <div className="profit-strip">
-                  <span>Without FisherIQ</span>
-                  <strong className="warn">-RM12</strong>
-                  <span>With FisherIQ</span>
-                  <strong className="good">+RM46</strong>
-                </div>
-              </article>
-
-              <article className="feature-card" id="market">
-                <div className="card-topline">
-                  <span className="icon-chip">RM</span>
-                  <span>Market Engine</span>
-                </div>
-                <h3>Best buyer: Koperasi Jeti</h3>
-                <div className="buyer-table">
-                  {buyerRows.map((buyer) => (
-                    <div className="buyer-row" key={buyer.name}>
-                      <span>{buyer.name}</span>
-                      <span>{buyer.price}</span>
-                      <span>{buyer.distance}</span>
-                      <strong>{buyer.net}</strong>
-                    </div>
-                  ))}
-                </div>
-              </article>
-
-              <article className="feature-card log-card" id="insights">
-                <div className="card-topline">
-                  <span className="icon-chip">✎</span>
-                  <span>Catch Log</span>
-                </div>
-                <h3>Natural language input</h3>
-                <div className="message-bubble">
-                  “Hari ni dapat 18kg kembung, minyak RM42, jual dekat koperasi.”
-                </div>
-                <p>
-                  GLM turns the message into structured catch, cost, buyer, and income data.
-                </p>
-              </article>
-            </div>
-
-            <div className="insight-list">
-              {weeklyInsights.map((insight) => (
-                <div className="insight-item" key={insight}>
-                  <span aria-hidden="true">✓</span>
-                  <p>{insight}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
       </section>
     </main>
   );
