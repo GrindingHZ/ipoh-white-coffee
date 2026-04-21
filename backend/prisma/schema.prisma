@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id                   String    @id @default(uuid()) @db.Uuid
+  name                 String
+  language             String
+  locality             String
+  homeJetty            String?
+  fuelCapacity         Decimal?  @db.Decimal
+  targetSpecies        String[]
+  typicalDepartureTime String?
+  createdAt            DateTime  @default(now())
+
+  @@map("users")
+}
+
+model TideEntry {
+  id         String   @id @default(uuid()) @db.Uuid
+  district   String
+  date       DateTime @db.Date
+  highTime   String?
+  highHeight Decimal? @db.Decimal
+  lowTime    String?
+  lowHeight  Decimal? @db.Decimal
+
+  @@unique([district, date])
+  @@map("tide_entries")
+}
+
+model FuelPrice {
+  id                     String   @id @default(uuid()) @db.Uuid
+  effectiveDate          DateTime @db.Date @unique
+  ron95Price             Decimal  @db.Decimal
+  ron95UnsubsidisedPrice Decimal? @db.Decimal
+  dieselPrice            Decimal  @db.Decimal
+  dieselEastMsiaPrice    Decimal? @db.Decimal
+
+  @@map("fuel_prices")
+}
+
+model SeasonalPattern {
+  id            String  @id @default(uuid()) @db.Uuid
+  species       String
+  month         Int
+  district      String
+  activityLevel String
+  notes         String?
+
+  @@unique([species, month, district])
+  @@map("seasonal_patterns")
+}
+
+model FishLanding {
+  id         String   @id @default(uuid()) @db.Uuid
+  date       DateTime @db.Date
+  coast      String
+  state      String
+  landingsKg Int
+
+  @@unique([date, coast, state])
+  @@map("fish_landings")
+}
+
+model WeatherCache {
+  id        String   @id @default(uuid()) @db.Uuid
+  district  String
+  type      String
+  fetchedAt DateTime @default(now())
+  payload   Json
+
+  @@unique([type, district])
+  @@map("weather_cache")
+}

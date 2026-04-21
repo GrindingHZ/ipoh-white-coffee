@@ -1,0 +1,6028 @@
+[
+  {
+    "habitat": "marine",
+    "pdfPage": 10,
+    "bookPage": 6,
+    "localName": "Kebasi",
+    "otherNames": [
+      "Selangat",
+      "Kuasi"
+    ],
+    "englishName": "Chacunda gizzard shad",
+    "scientificName": "Anodontostoma chacunda",
+    "canonicalMalayName": "Kebasi Kuasi",
+    "nameVariants": [
+      "Kebasi",
+      "Selangat",
+      "Kuasi",
+      "Kebasi Kuasi",
+      "Chacunda gizzard shad",
+      "Anodontostoma chacunda"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(114)24/1",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 10,
+    "bookPage": 6,
+    "localName": "Puput",
+    "otherNames": [
+      "Puput",
+      "Peruput"
+    ],
+    "englishName": "Elongate ilisha",
+    "scientificName": "Ilisha elongata",
+    "canonicalMalayName": "Puput Bulan",
+    "nameVariants": [
+      "Puput",
+      "Peruput",
+      "Puput Bulan",
+      "Elongate ilisha",
+      "Ilisha elongata"
+    ],
+    "size": {
+      "large": "<= 14 ekor/kg",
+      "medium": "15 - 20 ekor/kg",
+      "small": ">= 21 ekor/kg"
+    },
+    "sourceCode": "(189)24/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 11,
+    "bookPage": 7,
+    "localName": "Beliak Mata",
+    "otherNames": [
+      "Puput",
+      "Bersia"
+    ],
+    "englishName": "Indian ilisha",
+    "scientificName": "Ilisha melastoma",
+    "canonicalMalayName": "Puput Bersia",
+    "nameVariants": [
+      "Beliak Mata",
+      "Puput",
+      "Bersia",
+      "Puput Bersia",
+      "Indian ilisha",
+      "Ilisha melastoma"
+    ],
+    "size": {
+      "large": "<= 6 ekor/kg",
+      "medium": "7 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(34) 24/3",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 11,
+    "bookPage": 7,
+    "localName": "Terubok",
+    "otherNames": [
+      "Temparik"
+    ],
+    "englishName": "Longtail shad",
+    "scientificName": "Tenualosa macrura",
+    "canonicalMalayName": "Terubuk Laut",
+    "nameVariants": [
+      "Terubok",
+      "Temparik",
+      "Terubuk Laut",
+      "Longtail shad",
+      "Tenualosa macrura"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(245) 24/4",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 12,
+    "bookPage": 8,
+    "localName": "Terubok",
+    "otherNames": [
+      "Terubuk Jantan",
+      "Terubuk Padi"
+    ],
+    "englishName": "Toli shad",
+    "scientificName": "Tenualosa toli",
+    "canonicalMalayName": "Terubok Sungai",
+    "nameVariants": [
+      "Terubok",
+      "Terubuk Jantan",
+      "Terubuk Padi",
+      "Terubok Sungai",
+      "Toli shad",
+      "Tenualosa toli"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(114)24/1",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 13,
+    "bookPage": 9,
+    "localName": "Siakap",
+    "otherNames": [
+      "Kakap Putih"
+    ],
+    "englishName": "Barramundi",
+    "scientificName": "Lates calcarifer",
+    "canonicalMalayName": "Siakap Putih",
+    "nameVariants": [
+      "Siakap",
+      "Kakap Putih",
+      "Siakap Putih",
+      "Barramundi",
+      "Lates calcarifer"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 4 ekor/kg",
+      "small": ">= 5 ekor/kg"
+    },
+    "sourceCode": "(219)25/1",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 13,
+    "bookPage": 9,
+    "localName": "Siakap Laut",
+    "otherNames": [
+      "Gelam",
+      "Selungsung"
+    ],
+    "englishName": "Waigieu seaperch",
+    "scientificName": "Psammoperca waiginsis",
+    "canonicalMalayName": "Kakap Laut",
+    "nameVariants": [
+      "Siakap Laut",
+      "Gelam",
+      "Selungsung",
+      "Kakap Laut",
+      "Waigieu seaperch",
+      "Psammoperca waiginsis"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 3 ekor/kg",
+      "small": ">= 4 ekor/kg"
+    },
+    "sourceCode": "(105)25/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 14,
+    "bookPage": 10,
+    "localName": "Sebelah",
+    "otherNames": [
+      "Sisa Nabi"
+    ],
+    "englishName": "Cinnamon flounder",
+    "scientificName": "Pseudorhombus cinnamoneus",
+    "canonicalMalayName": "Sebelah Kayu Manis",
+    "nameVariants": [
+      "Sebelah",
+      "Sisa Nabi",
+      "Sebelah Kayu Manis",
+      "Cinnamon flounder",
+      "Pseudorhombus cinnamoneus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(222)31/1",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 14,
+    "bookPage": 10,
+    "localName": "Lidah",
+    "otherNames": [
+      "Sebelah"
+    ],
+    "englishName": "Largescale tonguesole",
+    "scientificName": "Cynoglossus arel",
+    "canonicalMalayName": "Lidah Sisik Besar",
+    "nameVariants": [
+      "Lidah",
+      "Sebelah",
+      "Lidah Sisik Besar",
+      "Largescale tonguesole",
+      "Cynoglossus arel"
+    ],
+    "size": {
+      "large": "<= 10 ekor/kg",
+      "medium": "11 - 19 ekor/kg",
+      "small": ">= 20 ekor/kg"
+    },
+    "sourceCode": "(144)31/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 15,
+    "bookPage": 11,
+    "localName": "Lidah",
+    "otherNames": [
+      "Sebelah"
+    ],
+    "englishName": "Fourline tonguesole",
+    "scientificName": "Cynoglossus bilineatus",
+    "canonicalMalayName": "Lidah Pasir",
+    "nameVariants": [
+      "Lidah",
+      "Sebelah",
+      "Lidah Pasir",
+      "Fourline tonguesole",
+      "Cynoglossus bilineatus"
+    ],
+    "size": {
+      "large": "<= 10 ekor/kg",
+      "medium": "11 - 19 ekor/kg",
+      "small": ">= 20 ekor/kg"
+    },
+    "sourceCode": "(145)31/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 15,
+    "bookPage": 11,
+    "localName": "Togok",
+    "otherNames": [
+      "Sisa Nabi",
+      "Siblah",
+      "Sebelah"
+    ],
+    "englishName": "Indian spiny turbot",
+    "scientificName": "Psettodes erumei",
+    "canonicalMalayName": "Togok",
+    "nameVariants": [
+      "Togok",
+      "Sisa Nabi",
+      "Siblah",
+      "Sebelah",
+      "Indian spiny turbot",
+      "Psettodes erumei"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 3 ekor/kg",
+      "small": ">= 4 ekor/kg"
+    },
+    "sourceCode": "(198)31/3",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 16,
+    "bookPage": 12,
+    "localName": "Bayan",
+    "otherNames": [
+      "Ketarap",
+      "Perencong"
+    ],
+    "englishName": "Yellow-tail parrotfish",
+    "scientificName": "Scarus hypselopterus",
+    "canonicalMalayName": "Bayan Jawa",
+    "nameVariants": [
+      "Bayan",
+      "Ketarap",
+      "Perencong",
+      "Bayan Jawa",
+      "Yellow-tail parrotfish",
+      "Scarus hypselopterus"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(182)33/1",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 16,
+    "bookPage": 12,
+    "localName": "Bayan",
+    "otherNames": [
+      "Ketarap",
+      "Perencong"
+    ],
+    "englishName": "Singapore parrotfish",
+    "scientificName": "Scarus prasiognathos",
+    "canonicalMalayName": "Bayan Pipi Hijau",
+    "nameVariants": [
+      "Bayan",
+      "Ketarap",
+      "Perencong",
+      "Bayan Pipi Hijau",
+      "Singapore parrotfish",
+      "Scarus prasiognathos"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">=11 ekor/kg"
+    },
+    "sourceCode": "(182)33/1",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 17,
+    "bookPage": 13,
+    "localName": "Biji Nangka",
+    "otherNames": [
+      "Butir Nangka",
+      "Bandang Janggut"
+    ],
+    "englishName": "Sulphur goatfish",
+    "scientificName": "Upeneus sulphureus",
+    "canonicalMalayName": "Biji Nangka Biasa",
+    "nameVariants": [
+      "Biji Nangka",
+      "Butir Nangka",
+      "Bandang Janggut",
+      "Biji Nangka Biasa",
+      "Sulphur goatfish",
+      "Upeneus sulphureus"
+    ],
+    "size": {
+      "large": "<= 14 ekor/kg",
+      "medium": "15 - 20 ekor/kg",
+      "small": ">= 21 ekor/kg"
+    },
+    "sourceCode": "(44)33/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 17,
+    "bookPage": 13,
+    "localName": "Daun Baharu",
+    "otherNames": [
+      "Agung-agung",
+      "Sapi-sapi"
+    ],
+    "englishName": "Spotted sicklefish",
+    "scientificName": "Drepane punctata",
+    "canonicalMalayName": "Daun-baru Bintik",
+    "nameVariants": [
+      "Daun Baharu",
+      "Agung-agung",
+      "Sapi-sapi",
+      "Daun-baru Bintik",
+      "Spotted sicklefish",
+      "Drepane punctata"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 4 ekor/kg",
+      "small": ">= 5 ekor/kg"
+    },
+    "sourceCode": "(62)33/3",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 18,
+    "bookPage": 14,
+    "localName": "Delah",
+    "otherNames": [
+      "Bangan",
+      "Merah Cina",
+      "Sulit"
+    ],
+    "englishName": "Redbelly yellowtail fusilier",
+    "scientificName": "Caesio cuning",
+    "canonicalMalayName": "Delah Pinang",
+    "nameVariants": [
+      "Delah",
+      "Bangan",
+      "Merah Cina",
+      "Sulit",
+      "Delah Pinang",
+      "Redbelly yellowtail fusilier",
+      "Caesio cuning"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 4 ekor/kg",
+      "small": ">= 5 ekor/kg"
+    },
+    "sourceCode": "(157)33/4",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 18,
+    "bookPage": 14,
+    "localName": "Delah",
+    "otherNames": [
+      "Pisang-pisang",
+      "Jenjalu"
+    ],
+    "englishName": "Lunar fusilier",
+    "scientificName": "Caesio lunaris",
+    "canonicalMalayName": "Delah Jenjalu",
+    "nameVariants": [
+      "Delah",
+      "Pisang-pisang",
+      "Jenjalu",
+      "Delah Jenjalu",
+      "Lunar fusilier",
+      "Caesio lunaris"
+    ],
+    "size": {
+      "large": "<= 3 ekor/kg",
+      "medium": "4 - 10 ekor/kg",
+      "small": ">=11 ekor/kg"
+    },
+    "sourceCode": "(100)33/4",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 19,
+    "bookPage": 15,
+    "localName": "Pinang-pinang",
+    "otherNames": [
+      "Anak Riok",
+      "Delah Kecil"
+    ],
+    "englishName": "Mottled fusilier",
+    "scientificName": "Dipterygonotus balteatus",
+    "canonicalMalayName": "Anak Riok",
+    "nameVariants": [
+      "Pinang-pinang",
+      "Anak Riok",
+      "Delah Kecil",
+      "Mottled fusilier",
+      "Dipterygonotus balteatus"
+    ],
+    "size": {
+      "large": "<= 9 ekor/kg",
+      "medium": "10 - 15 ekor/kg",
+      "small": ">= 16 ekor/kg"
+    },
+    "sourceCode": "(183)33/4",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 19,
+    "bookPage": 15,
+    "localName": "Dengkis",
+    "otherNames": [
+      "Debam",
+      "Belais",
+      "Debam"
+    ],
+    "englishName": "Streaked spinefoot",
+    "scientificName": "Siganus javus",
+    "canonicalMalayName": "Dengkis Jawa",
+    "nameVariants": [
+      "Dengkis",
+      "Debam",
+      "Belais",
+      "Dengkis Jawa",
+      "Streaked spinefoot",
+      "Siganus javus"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(67)33/5",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 20,
+    "bookPage": 16,
+    "localName": "Dengkis",
+    "otherNames": [
+      "Belais",
+      "Debam"
+    ],
+    "englishName": "White-spotted spinefoot",
+    "scientificName": "Siganus canaliculatus",
+    "canonicalMalayName": "Dengkis Bintik Putih",
+    "nameVariants": [
+      "Dengkis",
+      "Belais",
+      "Debam",
+      "Dengkis Bintik Putih",
+      "White-spotted spinefoot",
+      "Siganus canaliculatus"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(67)33/5",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 20,
+    "bookPage": 16,
+    "localName": "Kitang",
+    "otherNames": [
+      "Kendang"
+    ],
+    "englishName": "Spotted scat",
+    "scientificName": "Scatopagus argus",
+    "canonicalMalayName": "Kitang",
+    "nameVariants": [
+      "Kitang",
+      "Kendang",
+      "Spotted scat",
+      "Scatopagus argus"
+    ],
+    "size": {
+      "large": "<= 2 ekor/kg",
+      "medium": "3 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(136)33/5",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 21,
+    "bookPage": 17,
+    "localName": "Duri",
+    "otherNames": [
+      "Otek"
+    ],
+    "englishName": "Engraved catfish",
+    "scientificName": "Nemapteryx caelata",
+    "canonicalMalayName": "Duri Lorek",
+    "nameVariants": [
+      "Duri",
+      "Otek",
+      "Duri Lorek",
+      "Engraved catfish",
+      "Nemapteryx caelata"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(68)33/6",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 21,
+    "bookPage": 17,
+    "localName": "Duri Munchung",
+    "otherNames": [
+      "Duri",
+      "Lundu",
+      "Otek"
+    ],
+    "englishName": "Soldier catfish",
+    "scientificName": "Osteogeneiosus militaris",
+    "canonicalMalayName": "Duri Muncung",
+    "nameVariants": [
+      "Duri Munchung",
+      "Duri",
+      "Lundu",
+      "Otek",
+      "Duri Muncung",
+      "Soldier catfish",
+      "Osteogeneiosus militaris"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(68)33/6",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 22,
+    "bookPage": 18,
+    "localName": "Jahan",
+    "otherNames": [
+      "Duri",
+      "Deduri",
+      "Gagok",
+      "Mayung",
+      "Otek"
+    ],
+    "englishName": "Giant sea catfish",
+    "scientificName": "Arius thalassinus",
+    "canonicalMalayName": "Duri Jahan",
+    "nameVariants": [
+      "Jahan",
+      "Duri",
+      "Deduri",
+      "Gagok",
+      "Mayung",
+      "Otek",
+      "Duri Jahan",
+      "Giant sea catfish",
+      "Arius thalassinus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(96)33/6",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 22,
+    "bookPage": 18,
+    "localName": "Pulutan",
+    "otherNames": [
+      "Otek",
+      "Blukang",
+      "Pepulut"
+    ],
+    "englishName": "Sagor catfish",
+    "scientificName": "Hexanematichthys sagor",
+    "canonicalMalayName": "Duri Pedukang",
+    "nameVariants": [
+      "Pulutan",
+      "Otek",
+      "Blukang",
+      "Pepulut",
+      "Duri Pedukang",
+      "Sagor catfish",
+      "Hexanematichthys sagor"
+    ],
+    "size": {
+      "large": "<= 3 ekor/kg",
+      "medium": "4 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(49)33/6",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 23,
+    "bookPage": 19,
+    "localName": "Duri",
+    "otherNames": [
+      "Pulutan",
+      "Lundu"
+    ],
+    "englishName": "Spotted catfish",
+    "scientificName": "Arius maculatus",
+    "canonicalMalayName": "Duri Tompok",
+    "nameVariants": [
+      "Duri",
+      "Pulutan",
+      "Lundu",
+      "Duri Tompok",
+      "Spotted catfish",
+      "Arius maculatus"
+    ],
+    "size": {
+      "large": "<= 3 ekor/kg",
+      "medium": "4 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(211)33/6",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 23,
+    "bookPage": 19,
+    "localName": "Pulutan",
+    "otherNames": [
+      "Duri",
+      "Gagok",
+      "Utek"
+    ],
+    "englishName": "Engraved catfish",
+    "scientificName": "Nemapteryx caelata",
+    "canonicalMalayName": "Duri Gagok",
+    "nameVariants": [
+      "Pulutan",
+      "Duri",
+      "Gagok",
+      "Utek",
+      "Duri Gagok",
+      "Engraved catfish",
+      "Nemapteryx caelata"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(185)33/6",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 24,
+    "bookPage": 20,
+    "localName": "Gelama",
+    "otherNames": [
+      "Gelama Tikus",
+      "Gelama Bongkok"
+    ],
+    "englishName": "Sin croaker",
+    "scientificName": "Johnius dussumieri",
+    "canonicalMalayName": "Gelama Keling",
+    "nameVariants": [
+      "Gelama",
+      "Gelama Tikus",
+      "Gelama Bongkok",
+      "Gelama Keling",
+      "Sin croaker",
+      "Johnius dussumieri"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(74)33/7",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 24,
+    "bookPage": 20,
+    "localName": "Gelama Keling",
+    "otherNames": [
+      "Gelama Batu",
+      "Gelama Hitam"
+    ],
+    "englishName": "Karut croaker",
+    "scientificName": "Johnius carutta",
+    "canonicalMalayName": "Gelama Karut",
+    "nameVariants": [
+      "Gelama Keling",
+      "Gelama Batu",
+      "Gelama Hitam",
+      "Gelama Karut",
+      "Karut croaker",
+      "Johnius carutta"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(76)33/7",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 25,
+    "bookPage": 21,
+    "localName": "Gelama Perak",
+    "otherNames": [
+      "Gelama",
+      "Gelama Birat",
+      "Gelama Cerua"
+    ],
+    "englishName": "Greyfin croaker, Donkey croaker",
+    "scientificName": "Pennahia anea",
+    "canonicalMalayName": "Gelama Pisang",
+    "nameVariants": [
+      "Gelama Perak",
+      "Gelama",
+      "Gelama Birat",
+      "Gelama Cerua",
+      "Gelama Pisang",
+      "Greyfin croaker, Donkey croaker",
+      "Pennahia anea"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(79)33/7",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 25,
+    "bookPage": 21,
+    "localName": "Gelama Pisang",
+    "otherNames": [
+      "Tengkerong"
+    ],
+    "englishName": "Silver croaker",
+    "scientificName": "Pennahia argentata",
+    "canonicalMalayName": "Gelama Perak",
+    "nameVariants": [
+      "Gelama Pisang",
+      "Tengkerong",
+      "Gelama Perak",
+      "Silver croaker",
+      "Pennahia argentata"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(80)33/7",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 26,
+    "bookPage": 22,
+    "localName": "Gelama Bongkok",
+    "otherNames": [
+      "Gelama Papan",
+      "Gelama Batu"
+    ],
+    "englishName": "Soldier croaker",
+    "scientificName": "Nibea soldado",
+    "canonicalMalayName": "Gelama Papan",
+    "nameVariants": [
+      "Gelama Bongkok",
+      "Gelama Papan",
+      "Gelama Batu",
+      "Soldier croaker",
+      "Nibea soldado"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(78)33/7",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 26,
+    "bookPage": 22,
+    "localName": "Tengkerong",
+    "otherNames": [
+      "Ibu gelama",
+      "Gelama Bunga"
+    ],
+    "englishName": "Blackspotted croaker",
+    "scientificName": "Protonibea diacanthus",
+    "canonicalMalayName": "Gelama Eron",
+    "nameVariants": [
+      "Tengkerong",
+      "Ibu gelama",
+      "Gelama Bunga",
+      "Gelama Eron",
+      "Blackspotted croaker",
+      "Protonibea diacanthus"
+    ],
+    "size": {
+      "large": "<= 2 ekor/kg",
+      "medium": "3 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(88) 33/8",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 27,
+    "bookPage": 23,
+    "localName": "Gelama Dada Kuning",
+    "otherNames": [
+      "Gelama Jarang Gigi",
+      "Tengkerong"
+    ],
+    "englishName": "Reeve’s croaker",
+    "scientificName": "Chrysochir aureus",
+    "canonicalMalayName": "Gelama Lumpur",
+    "nameVariants": [
+      "Gelama Dada Kuning",
+      "Gelama Jarang Gigi",
+      "Tengkerong",
+      "Gelama Lumpur",
+      "Reeve’s croaker",
+      "Chrysochir aureus"
+    ],
+    "size": {
+      "large": "<= 3 ekor/kg",
+      "medium": "4 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(74)33/8",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 27,
+    "bookPage": 23,
+    "localName": "Selampai",
+    "otherNames": [
+      "Paloh",
+      "Tengkerong",
+      "Gelama Selampai"
+    ],
+    "englishName": "Bronze croaker",
+    "scientificName": "Otolithoides biauritus",
+    "canonicalMalayName": "Selampai Gangsa",
+    "nameVariants": [
+      "Selampai",
+      "Paloh",
+      "Tengkerong",
+      "Gelama Selampai",
+      "Selampai Gangsa",
+      "Bronze croaker",
+      "Otolithoides biauritus"
+    ],
+    "size": {
+      "large": "<= 6 ekor/kg",
+      "medium": "7 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(199)33/8",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 28,
+    "bookPage": 24,
+    "localName": "Tengkerong",
+    "otherNames": [
+      "Gelama",
+      "Gelama Jarang Gigi"
+    ],
+    "englishName": "Tiger-toothed croaker",
+    "scientificName": "Otolithes ruber",
+    "canonicalMalayName": "Tengkerong Panjang",
+    "nameVariants": [
+      "Tengkerong",
+      "Gelama",
+      "Gelama Jarang Gigi",
+      "Tengkerong Panjang",
+      "Tiger-toothed croaker",
+      "Otolithes ruber"
+    ],
+    "size": {
+      "large": "<= 2 ekor/kg",
+      "medium": "3 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(243)33/8",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 28,
+    "bookPage": 24,
+    "localName": "Gerut-gerut",
+    "otherNames": [
+      "Celak Mata",
+      "Sebokoh",
+      "Ambah"
+    ],
+    "englishName": "Saddle grunter",
+    "scientificName": "Pomadasys maculatus",
+    "canonicalMalayName": "Gerut-gerut Sebokoh",
+    "nameVariants": [
+      "Gerut-gerut",
+      "Celak Mata",
+      "Sebokoh",
+      "Ambah",
+      "Gerut-gerut Sebokoh",
+      "Saddle grunter",
+      "Pomadasys maculatus"
+    ],
+    "size": {
+      "large": "<= 2 ekor/kg",
+      "medium": "3 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(84)33/9",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 29,
+    "bookPage": 25,
+    "localName": "Jebong",
+    "otherNames": [
+      "Ayam Laut"
+    ],
+    "englishName": "Starry triggerfish",
+    "scientificName": "Abalistes stellaris",
+    "canonicalMalayName": "Jebong",
+    "nameVariants": [
+      "Jebong",
+      "Ayam Laut",
+      "Starry triggerfish",
+      "Abalistes stellaris"
+    ],
+    "size": {
+      "large": "<= 2 ekor/kg",
+      "medium": "3 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(98) 33/10",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 29,
+    "bookPage": 25,
+    "localName": "Barat-Barat",
+    "otherNames": [
+      "Kerosok"
+    ],
+    "englishName": "Unicorn leather jacket",
+    "scientificName": "Aluterus monoceros",
+    "canonicalMalayName": "Barat-barat",
+    "nameVariants": [
+      "Barat-Barat",
+      "Kerosok",
+      "Unicorn leather jacket",
+      "Aluterus monoceros"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(20)33/10",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 30,
+    "bookPage": 26,
+    "localName": "Jenahak",
+    "otherNames": [
+      "Tanda",
+      "Tetanda"
+    ],
+    "englishName": "Russell’s snapper",
+    "scientificName": "Lutjanus russellii",
+    "canonicalMalayName": "Merah Tanda",
+    "nameVariants": [
+      "Jenahak",
+      "Tanda",
+      "Tetanda",
+      "Merah Tanda",
+      "Russell’s snapper",
+      "Lutjanus russellii"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 6 ekor/kg",
+      "small": ">= 7 ekor/kg"
+    },
+    "sourceCode": "(233)33/11",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 30,
+    "bookPage": 26,
+    "localName": "Jenahak",
+    "otherNames": [
+      "Barah-barahan",
+      "Tetanda"
+    ],
+    "englishName": "John’s snapper",
+    "scientificName": "Lutjanus johnii",
+    "canonicalMalayName": "Jenahak Tanda",
+    "nameVariants": [
+      "Jenahak",
+      "Barah-barahan",
+      "Tetanda",
+      "Jenahak Tanda",
+      "John’s snapper",
+      "Lutjanus johnii"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(99)33/11",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 31,
+    "bookPage": 27,
+    "localName": "Kerisi bali",
+    "otherNames": [
+      "Ibu Kerisi",
+      "Kerisi Basi"
+    ],
+    "englishName": "Goldbanded jobfish",
+    "scientificName": "Pristipomoides multidens",
+    "canonicalMalayName": "Kerisi Bali",
+    "nameVariants": [
+      "Kerisi bali",
+      "Ibu Kerisi",
+      "Kerisi Basi",
+      "Goldbanded jobfish",
+      "Pristipomoides multidens"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(88)33/12",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 31,
+    "bookPage": 27,
+    "localName": "kerisi Bali",
+    "otherNames": [
+      "Ibu Kerisi",
+      "Kerisi Batu",
+      "Kerisi Basi"
+    ],
+    "englishName": "Sharptooth jobfish",
+    "scientificName": "Pristipomoides typus",
+    "canonicalMalayName": "Kerisi Bali Ros",
+    "nameVariants": [
+      "kerisi Bali",
+      "Ibu Kerisi",
+      "Kerisi Batu",
+      "Kerisi Basi",
+      "Kerisi Bali Ros",
+      "Sharptooth jobfish",
+      "Pristipomoides typus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(131)33/12",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 32,
+    "bookPage": 28,
+    "localName": "Kaci",
+    "otherNames": [
+      "Mandi Abu",
+      "Besikan"
+    ],
+    "englishName": "Painted sweeplips",
+    "scientificName": "Diagramma pictum",
+    "canonicalMalayName": "Kaci Mandi Abu",
+    "nameVariants": [
+      "Kaci",
+      "Mandi Abu",
+      "Besikan",
+      "Kaci Mandi Abu",
+      "Painted sweeplips",
+      "Diagramma pictum"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 3 ekor/kg",
+      "small": ">= 4 ekor/kg"
+    },
+    "sourceCode": "(105)33/13",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 32,
+    "bookPage": 28,
+    "localName": "Kapas Laut",
+    "otherNames": [
+      "Kapas-kapas",
+      "Kekapas",
+      "Serolong"
+    ],
+    "englishName": "Deep-bodied majorra",
+    "scientificName": "Gerres erythrourus",
+    "canonicalMalayName": "Kapas Sungai",
+    "nameVariants": [
+      "Kapas Laut",
+      "Kapas-kapas",
+      "Kekapas",
+      "Serolong",
+      "Kapas Sungai",
+      "Deep-bodied majorra",
+      "Gerres erythrourus"
+    ],
+    "size": {
+      "large": "<= 5 ekor/kg",
+      "medium": "6 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(109)33/14",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 33,
+    "bookPage": 29,
+    "localName": "Kapas-kapas",
+    "otherNames": [
+      "Bekuku",
+      "Bekukong"
+    ],
+    "englishName": "Picnic seabream",
+    "scientificName": "Acanthopagrus berda",
+    "canonicalMalayName": "Mengkuku",
+    "nameVariants": [
+      "Kapas-kapas",
+      "Bekuku",
+      "Bekukong",
+      "Mengkuku",
+      "Picnic seabream",
+      "Acanthopagrus berda"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(114)33/14",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 33,
+    "bookPage": 29,
+    "localName": "Kerapu",
+    "otherNames": [
+      "Kerapu Balang"
+    ],
+    "englishName": "Sixbar grouper",
+    "scientificName": "Epinephelus sexfasxiatus",
+    "canonicalMalayName": "Kerapu Bebeh",
+    "nameVariants": [
+      "Kerapu",
+      "Kerapu Balang",
+      "Kerapu Bebeh",
+      "Sixbar grouper",
+      "Epinephelus sexfasxiatus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(122)33/15",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 34,
+    "bookPage": 30,
+    "localName": "Kerapu Bintik",
+    "otherNames": [
+      "Kerapu Bloso",
+      "Kerapu Bunga"
+    ],
+    "englishName": "Orange spotted grouper",
+    "scientificName": "Epinephelus coioides",
+    "canonicalMalayName": "Kerapu Bintik Jingga",
+    "nameVariants": [
+      "Kerapu Bintik",
+      "Kerapu Bloso",
+      "Kerapu Bunga",
+      "Kerapu Bintik Jingga",
+      "Orange spotted grouper",
+      "Epinephelus coioides"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(122)33/15",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 34,
+    "bookPage": 30,
+    "localName": "Kerapu",
+    "otherNames": [
+      "Kerapu Emas",
+      "Kerapu Bara"
+    ],
+    "englishName": "Golden hind",
+    "scientificName": "Cephalopholis aurantia",
+    "canonicalMalayName": "Kerapu Emas",
+    "nameVariants": [
+      "Kerapu",
+      "Kerapu Emas",
+      "Kerapu Bara",
+      "Golden hind",
+      "Cephalopholis aurantia"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(122)33/15",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 35,
+    "bookPage": 31,
+    "localName": "Kerapu Pisang",
+    "otherNames": [
+      "Kerapu Merah",
+      "Sunoh",
+      "Sunuk"
+    ],
+    "englishName": "Spotted grouper",
+    "scientificName": "Plectropomus maculatus",
+    "canonicalMalayName": "Kerapu-sunoh Pisang",
+    "nameVariants": [
+      "Kerapu Pisang",
+      "Kerapu Merah",
+      "Sunoh",
+      "Sunuk",
+      "Kerapu-sunoh Pisang",
+      "Spotted grouper",
+      "Plectropomus maculatus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(122)33/15",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 35,
+    "bookPage": 31,
+    "localName": "Kerapu",
+    "otherNames": [
+      "Kerapu Bintik"
+    ],
+    "englishName": "Coral grouper",
+    "scientificName": "Epinephelus corallicola",
+    "canonicalMalayName": "Kerapu Karang",
+    "nameVariants": [
+      "Kerapu",
+      "Kerapu Bintik",
+      "Kerapu Karang",
+      "Coral grouper",
+      "Epinephelus corallicola"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(122)33/15",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 36,
+    "bookPage": 32,
+    "localName": "Kerapu",
+    "otherNames": [
+      "Kerapu Bara"
+    ],
+    "englishName": "Blacktip grouper",
+    "scientificName": "Epinephelus fasciatus",
+    "canonicalMalayName": "Kerapu Sirip Hitam",
+    "nameVariants": [
+      "Kerapu",
+      "Kerapu Bara",
+      "Kerapu Sirip Hitam",
+      "Blacktip grouper",
+      "Epinephelus fasciatus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(122)33/15",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 36,
+    "bookPage": 32,
+    "localName": "Kerapu",
+    "otherNames": [
+      "Kerapu Tutol"
+    ],
+    "englishName": "Spinny cheek grouper",
+    "scientificName": "Epinephelus diacanthus",
+    "canonicalMalayName": "Kerapu Pipi Duri",
+    "nameVariants": [
+      "Kerapu",
+      "Kerapu Tutol",
+      "Kerapu Pipi Duri",
+      "Spinny cheek grouper",
+      "Epinephelus diacanthus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(122)33/15",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 37,
+    "bookPage": 33,
+    "localName": "Kerapu",
+    "otherNames": [
+      "Anak Pertang"
+    ],
+    "englishName": "Banded blandheaded grouper",
+    "scientificName": "Epinephelus amblycephalus",
+    "canonicalMalayName": "Kerapu Belang",
+    "nameVariants": [
+      "Kerapu",
+      "Anak Pertang",
+      "Kerapu Belang",
+      "Banded blandheaded grouper",
+      "Epinephelus amblycephalus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(122)33/15",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 37,
+    "bookPage": 33,
+    "localName": "Kerapu",
+    "otherNames": [
+      "Kerapu Minyak",
+      "Kerapu Batik"
+    ],
+    "englishName": "Brownspotted grouper",
+    "scientificName": "Epinephelus chlorostigma",
+    "canonicalMalayName": "Kerapu Minyak",
+    "nameVariants": [
+      "Kerapu",
+      "Kerapu Minyak",
+      "Kerapu Batik",
+      "Brownspotted grouper",
+      "Epinephelus chlorostigma"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(122)33/15",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 38,
+    "bookPage": 34,
+    "localName": "Kerapu",
+    "otherNames": [
+      "Kerapu Tenggarong"
+    ],
+    "englishName": "Chocolate hind",
+    "scientificName": "Cephalopholis boenak",
+    "canonicalMalayName": "Kerapu Belang Perang",
+    "nameVariants": [
+      "Kerapu",
+      "Kerapu Tenggarong",
+      "Kerapu Belang Perang",
+      "Chocolate hind",
+      "Cephalopholis boenak"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(122)33/15",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 38,
+    "bookPage": 34,
+    "localName": "Kerapu",
+    "otherNames": [
+      "Kerapu Ekor Putih"
+    ],
+    "englishName": "Areolate grouper",
+    "scientificName": "Epinephelus areolatus",
+    "canonicalMalayName": "Kerapu Bintik Bulat",
+    "nameVariants": [
+      "Kerapu",
+      "Kerapu Ekor Putih",
+      "Kerapu Bintik Bulat",
+      "Areolate grouper",
+      "Epinephelus areolatus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(122)33/15",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 39,
+    "bookPage": 35,
+    "localName": "Kerapu",
+    "otherNames": [
+      "Kerapu Tenggarong"
+    ],
+    "englishName": "Duskytail grouper",
+    "scientificName": "Epinephelus bleekeri",
+    "canonicalMalayName": "Kerapu Ekor Gelap",
+    "nameVariants": [
+      "Kerapu",
+      "Kerapu Tenggarong",
+      "Kerapu Ekor Gelap",
+      "Duskytail grouper",
+      "Epinephelus bleekeri"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(122)33/15",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 39,
+    "bookPage": 35,
+    "localName": "Kerapu",
+    "otherNames": [
+      "Kerapu Bebeh",
+      "Kerapu Hitam"
+    ],
+    "englishName": "Brown marbled grouper",
+    "scientificName": "Epinephelus fuscoguttatus",
+    "canonicalMalayName": "Kerapu Harimau",
+    "nameVariants": [
+      "Kerapu",
+      "Kerapu Bebeh",
+      "Kerapu Hitam",
+      "Kerapu Harimau",
+      "Brown marbled grouper",
+      "Epinephelus fuscoguttatus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(122)33/15",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 40,
+    "bookPage": 36,
+    "localName": "Kerapu Cicak",
+    "otherNames": [
+      "Kerapu Batu"
+    ],
+    "englishName": "Longfin grouper",
+    "scientificName": "Epinephelus quoyanus",
+    "canonicalMalayName": "Kerapu Tutul",
+    "nameVariants": [
+      "Kerapu Cicak",
+      "Kerapu Batu",
+      "Kerapu Tutul",
+      "Longfin grouper",
+      "Epinephelus quoyanus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(122)33/15",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 40,
+    "bookPage": 36,
+    "localName": "Kerapu Tikus",
+    "otherNames": [
+      "Kerapu Belida"
+    ],
+    "englishName": "Humpback hind",
+    "scientificName": "Cromileptes altivelis",
+    "canonicalMalayName": "Kerapu Tikus",
+    "nameVariants": [
+      "Kerapu Tikus",
+      "Kerapu Belida",
+      "Humpback hind",
+      "Cromileptes altivelis"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(128)33/15",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 41,
+    "bookPage": 37,
+    "localName": "Kerapu Bunga",
+    "otherNames": [
+      "Kerapu Hitam",
+      "Kerapu Kling"
+    ],
+    "englishName": "Greasy grouper",
+    "scientificName": "Epinephelus tauvina",
+    "canonicalMalayName": "Kerapu Bunga",
+    "nameVariants": [
+      "Kerapu Bunga",
+      "Kerapu Hitam",
+      "Kerapu Kling",
+      "Greasy grouper",
+      "Epinephelus tauvina"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(122)33/15",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 41,
+    "bookPage": 37,
+    "localName": "Kerapu",
+    "otherNames": [
+      "Kerapu Tutul"
+    ],
+    "englishName": "Honeycomb grouper",
+    "scientificName": "Epinephelus merra",
+    "canonicalMalayName": "Kerapu Lebah",
+    "nameVariants": [
+      "Kerapu",
+      "Kerapu Tutul",
+      "Kerapu Lebah",
+      "Honeycomb grouper",
+      "Epinephelus merra"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(134)33/15",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 42,
+    "bookPage": 38,
+    "localName": "Kerisi",
+    "otherNames": [
+      "Kerisi",
+      "Kurusi (bajau)"
+    ],
+    "englishName": "Teardrop threadfin-bream",
+    "scientificName": "Nemipterus isacanthus",
+    "canonicalMalayName": "Kerisi Celak Kuning",
+    "nameVariants": [
+      "Kerisi",
+      "Kurusi (bajau)",
+      "Kerisi Celak Kuning",
+      "Teardrop threadfin-bream",
+      "Nemipterus isacanthus"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(130)33/16",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 42,
+    "bookPage": 38,
+    "localName": "Kerisi Merah",
+    "otherNames": [
+      "Kerisi"
+    ],
+    "englishName": "Japanese threadfinbream",
+    "scientificName": "Nemipterus japonicus",
+    "canonicalMalayName": "Kerisi Jepun",
+    "nameVariants": [
+      "Kerisi Merah",
+      "Kerisi",
+      "Kerisi Jepun",
+      "Japanese threadfinbream",
+      "Nemipterus japonicus"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(86) 33/16",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 43,
+    "bookPage": 39,
+    "localName": "Kerisi",
+    "otherNames": [
+      "Gurisi",
+      "Kurusi"
+    ],
+    "englishName": "Fivelined threadfin bream",
+    "scientificName": "Nemipterus tambuloides",
+    "canonicalMalayName": "Kerisi Jalur lima",
+    "nameVariants": [
+      "Kerisi",
+      "Gurisi",
+      "Kurusi",
+      "Kerisi Jalur lima",
+      "Fivelined threadfin bream",
+      "Nemipterus tambuloides"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(130)33/16",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 43,
+    "bookPage": 39,
+    "localName": "Kerisi",
+    "otherNames": [
+      "Gurisi"
+    ],
+    "englishName": "Teardrop threadfin bream",
+    "scientificName": "Nemipterus bathybius",
+    "canonicalMalayName": "Kerisi Perut Kuning",
+    "nameVariants": [
+      "Kerisi",
+      "Gurisi",
+      "Kerisi Perut Kuning",
+      "Teardrop threadfin bream",
+      "Nemipterus bathybius"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(130)33/16",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 44,
+    "bookPage": 40,
+    "localName": "Kerisi",
+    "otherNames": [
+      "Kerisi Jantan"
+    ],
+    "englishName": "Notched threadfin-bream",
+    "scientificName": "Nemipterus peronii",
+    "canonicalMalayName": "Kerisi Merah",
+    "nameVariants": [
+      "Kerisi",
+      "Kerisi Jantan",
+      "Kerisi Merah",
+      "Notched threadfin-bream",
+      "Nemipterus peronii"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(130)33/16",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 44,
+    "bookPage": 40,
+    "localName": "Kerisi birat",
+    "otherNames": [
+      "Kerisi Jepun"
+    ],
+    "englishName": "Redspine threadfin bream",
+    "scientificName": "Nemipterus nemurus",
+    "canonicalMalayName": "Kerisi Spina Merah",
+    "nameVariants": [
+      "Kerisi birat",
+      "Kerisi Jepun",
+      "Kerisi Spina Merah",
+      "Redspine threadfin bream",
+      "Nemipterus nemurus"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(244)33/16",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 45,
+    "bookPage": 41,
+    "localName": "Anjang-anjang",
+    "otherNames": [
+      "Anjang",
+      "Pasir-pasir"
+    ],
+    "englishName": "White-shouldered whiptail",
+    "scientificName": "Pentapodus bifasciatus",
+    "canonicalMalayName": "Anjang-anjang Dua Jalur",
+    "nameVariants": [
+      "Anjang-anjang",
+      "Anjang",
+      "Pasir-pasir",
+      "Anjang-anjang Dua Jalur",
+      "White-shouldered whiptail",
+      "Pentapodus bifasciatus"
+    ],
+    "size": {
+      "large": "<= 3 ekor/kg",
+      "medium": "4 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(262)33/17",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 45,
+    "bookPage": 41,
+    "localName": "Pasir-pasir",
+    "otherNames": [
+      "Mempasir",
+      "Timun"
+    ],
+    "englishName": "Lattice monocle bream",
+    "scientificName": "Scolopsis taenioptera",
+    "canonicalMalayName": "Pasir-pasir Mentimun",
+    "nameVariants": [
+      "Pasir-pasir",
+      "Mempasir",
+      "Timun",
+      "Pasir-pasir Mentimun",
+      "Lattice monocle bream",
+      "Scolopsis taenioptera"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(190)33/17",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 46,
+    "bookPage": 42,
+    "localName": "Pasir-pasir",
+    "otherNames": [
+      "Mempasir",
+      "Mentimun"
+    ],
+    "englishName": "Monogrammed monoclebream",
+    "scientificName": "Scolopsis monogramma",
+    "canonicalMalayName": "Pasir-pasir Jalur Gelap",
+    "nameVariants": [
+      "Pasir-pasir",
+      "Mempasir",
+      "Mentimun",
+      "Pasir-pasir Jalur Gelap",
+      "Monogrammed monoclebream",
+      "Scolopsis monogramma"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(21)33/17",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 46,
+    "bookPage": 42,
+    "localName": "Kekek",
+    "otherNames": [
+      "Kikek",
+      "Kekek Labu"
+    ],
+    "englishName": "Tooth ponyfish",
+    "scientificName": "Gazza minuta",
+    "canonicalMalayName": "Sapsap Labu",
+    "nameVariants": [
+      "Kekek",
+      "Kikek",
+      "Kekek Labu",
+      "Sapsap Labu",
+      "Tooth ponyfish",
+      "Gazza minuta"
+    ],
+    "size": {
+      "large": "<= 6 ekor/kg",
+      "medium": "7 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(116)33/18",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 47,
+    "bookPage": 43,
+    "localName": "Lumi-lumi",
+    "otherNames": [
+      "Lumek"
+    ],
+    "englishName": "Bombay-duck",
+    "scientificName": "Harpadon nehereus",
+    "canonicalMalayName": "Lumi-lumi",
+    "nameVariants": [
+      "Lumi-lumi",
+      "Lumek",
+      "Bombay-duck",
+      "Harpadon nehereus"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(151)33/19",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 47,
+    "bookPage": 43,
+    "localName": "Malong",
+    "otherNames": [
+      "Belut",
+      "Andong"
+    ],
+    "englishName": "Common pike conger",
+    "scientificName": "Muraenesox bagio",
+    "canonicalMalayName": "Malong Biasa",
+    "nameVariants": [
+      "Malong",
+      "Belut",
+      "Andong",
+      "Malong Biasa",
+      "Common pike conger",
+      "Muraenesox bagio"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(152)33/20",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 48,
+    "bookPage": 44,
+    "localName": "Malong",
+    "otherNames": [
+      "Andong",
+      "Ketingkor",
+      "Muahu"
+    ],
+    "englishName": "Daggertooth pike conger",
+    "scientificName": "Muraenesox cinereus",
+    "canonicalMalayName": "Malong Perak",
+    "nameVariants": [
+      "Malong",
+      "Andong",
+      "Ketingkor",
+      "Muahu",
+      "Malong Perak",
+      "Daggertooth pike conger",
+      "Muraenesox cinereus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 6 ekor/kg",
+      "small": ">= 7 ekor/kg"
+    },
+    "sourceCode": "(36)33/20",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 48,
+    "bookPage": 44,
+    "localName": "Merah Cina",
+    "otherNames": [
+      "Jenjalu",
+      "Merah Suman"
+    ],
+    "englishName": "Pinjalo",
+    "scientificName": "Pinjalo pinjalo",
+    "canonicalMalayName": "Merah Suman",
+    "nameVariants": [
+      "Merah Cina",
+      "Jenjalu",
+      "Merah Suman",
+      "Pinjalo",
+      "Pinjalo pinjalo"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(100)33/21",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 49,
+    "bookPage": 45,
+    "localName": "Merah Bakau",
+    "otherNames": [
+      "Merah",
+      "Siakap Merah",
+      "Jenahak"
+    ],
+    "englishName": "Mangrove red snapper",
+    "scientificName": "Lutjanus argentimaculatus",
+    "canonicalMalayName": "Kakap Merah",
+    "nameVariants": [
+      "Merah Bakau",
+      "Merah",
+      "Siakap Merah",
+      "Jenahak",
+      "Kakap Merah",
+      "Mangrove red snapper",
+      "Lutjanus argentimaculatus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 6 ekor/kg",
+      "small": ">= 7 ekor/kg"
+    },
+    "sourceCode": "(155)33/21",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 49,
+    "bookPage": 45,
+    "localName": "Merah Pucat",
+    "otherNames": [
+      "Bambangan",
+      "Mambang"
+    ],
+    "englishName": "Humphead snapper",
+    "scientificName": "Lutjanus sanguineus",
+    "canonicalMalayName": "Merah Bonggol",
+    "nameVariants": [
+      "Merah Pucat",
+      "Bambangan",
+      "Mambang",
+      "Merah Bonggol",
+      "Humphead snapper",
+      "Lutjanus sanguineus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 6 ekor/kg",
+      "small": ">= 7 ekor/kg"
+    },
+    "sourceCode": "(155)33/21",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 50,
+    "bookPage": 46,
+    "localName": "Merah Boreng",
+    "otherNames": [
+      "Merah Boring"
+    ],
+    "englishName": "Emperor red snapper",
+    "scientificName": "Lutjanus sebae",
+    "canonicalMalayName": "Merah Coreng",
+    "nameVariants": [
+      "Merah Boreng",
+      "Merah Boring",
+      "Merah Coreng",
+      "Emperor red snapper",
+      "Lutjanus sebae"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 6 ekor/kg",
+      "small": ">= 7 ekor/kg"
+    },
+    "sourceCode": "(158)33/21",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 50,
+    "bookPage": 46,
+    "localName": "Merah Mata hitam",
+    "otherNames": [
+      "Merah",
+      "Temenggong"
+    ],
+    "englishName": "Malabar blood snapper",
+    "scientificName": "Lutjanus malabaricus",
+    "canonicalMalayName": "Merah Mata Hitam",
+    "nameVariants": [
+      "Merah Mata hitam",
+      "Merah",
+      "Temenggong",
+      "Malabar blood snapper",
+      "Lutjanus malabaricus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 6 ekor/kg",
+      "small": ">= 7 ekor/kg"
+    },
+    "sourceCode": "(158)33/21",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 51,
+    "bookPage": 47,
+    "localName": "Tanda-tanda",
+    "otherNames": [
+      "Merah Jukut"
+    ],
+    "englishName": "Two-spot red snapper",
+    "scientificName": "Lutjanus bohar",
+    "canonicalMalayName": "Merah Bambangan",
+    "nameVariants": [
+      "Tanda-tanda",
+      "Merah Jukut",
+      "Merah Bambangan",
+      "Two-spot red snapper",
+      "Lutjanus bohar"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 6 ekor/kg",
+      "small": ">= 7 ekor/kg"
+    },
+    "sourceCode": "(233) 33/22",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 51,
+    "bookPage": 47,
+    "localName": "Mengkerong",
+    "otherNames": [
+      "Conor",
+      "Mengkerong",
+      "Pucung"
+    ],
+    "englishName": "Greater lizardfish",
+    "scientificName": "Saurida tumbil",
+    "canonicalMalayName": "Conor Curut",
+    "nameVariants": [
+      "Mengkerong",
+      "Conor",
+      "Pucung",
+      "Conor Curut",
+      "Greater lizardfish",
+      "Saurida tumbil"
+    ],
+    "size": {
+      "large": "<= 2 ekor/kg",
+      "medium": "3 - 6 ekor/kg",
+      "small": ">= 7 ekor/kg"
+    },
+    "sourceCode": "(154)33/23",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 52,
+    "bookPage": 48,
+    "localName": "Ubi",
+    "otherNames": [
+      "Conor",
+      "Mengkarung",
+      "Ubi"
+    ],
+    "englishName": "Variegated lizardfish",
+    "scientificName": "Synodus variegatus",
+    "canonicalMalayName": "Ubi Sisik Pipi",
+    "nameVariants": [
+      "Ubi",
+      "Conor",
+      "Mengkarung",
+      "Ubi Sisik Pipi",
+      "Variegated lizardfish",
+      "Synodus variegatus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 6 ekor/kg",
+      "small": ">= 7 ekor/kg"
+    },
+    "sourceCode": "(154)33/23",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 52,
+    "bookPage": 48,
+    "localName": "Bebulus",
+    "otherNames": [
+      "Bulus-bulus"
+    ],
+    "englishName": "Silver sillago",
+    "scientificName": "Sillago sihama",
+    "canonicalMalayName": "Puntung Damar Perak",
+    "nameVariants": [
+      "Bebulus",
+      "Bulus-bulus",
+      "Puntung Damar Perak",
+      "Silver sillago",
+      "Sillago sihama"
+    ],
+    "size": {
+      "large": "<= 10 ekor/kg",
+      "medium": "11 - 20 ekor/kg",
+      "small": ">= 21 ekor/kg"
+    },
+    "sourceCode": "(31)33/24",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 53,
+    "bookPage": 49,
+    "localName": "Ketambak",
+    "otherNames": [
+      "Pelanduk",
+      "Landok"
+    ],
+    "englishName": "Pink ear emperor",
+    "scientificName": "Lethrinus lentjan",
+    "canonicalMalayName": "Landak Calit Merah",
+    "nameVariants": [
+      "Ketambak",
+      "Pelanduk",
+      "Landok",
+      "Landak Calit Merah",
+      "Pink ear emperor",
+      "Lethrinus lentjan"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 4 ekor/kg",
+      "small": ">= 5 ekor/kg"
+    },
+    "sourceCode": "(135)33/25",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 53,
+    "bookPage": 49,
+    "localName": "Landok",
+    "otherNames": [
+      "Gertah",
+      "Ketambak"
+    ],
+    "englishName": "Thumbprint emperor",
+    "scientificName": "Lethrinus harak",
+    "canonicalMalayName": "Landok Tanda",
+    "nameVariants": [
+      "Landok",
+      "Gertah",
+      "Ketambak",
+      "Landok Tanda",
+      "Thumbprint emperor",
+      "Lethrinus harak"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(142)33/25",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 54,
+    "bookPage": 50,
+    "localName": "Beluru",
+    "otherNames": [
+      "Peluru",
+      "Daun Baharu"
+    ],
+    "englishName": "Orbfish",
+    "scientificName": "Ephippus orbis",
+    "canonicalMalayName": "Beluru",
+    "nameVariants": [
+      "Beluru",
+      "Peluru",
+      "Daun Baharu",
+      "Orbfish",
+      "Ephippus orbis"
+    ],
+    "size": {
+      "large": "<= 5 ekor/kg",
+      "medium": "6 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(181)33/26",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 54,
+    "bookPage": 50,
+    "localName": "Kunyit-kunyit",
+    "otherNames": [
+      "Kunyit-kunyit",
+      "Remong"
+    ],
+    "englishName": "Brownstripe red snapper",
+    "scientificName": "Lutjanus vitta",
+    "canonicalMalayName": "Kunyit Remong",
+    "nameVariants": [
+      "Kunyit-kunyit",
+      "Remong",
+      "Kunyit Remong",
+      "Brownstripe red snapper",
+      "Lutjanus vitta"
+    ],
+    "size": {
+      "large": "<= 5 ekor/kg",
+      "medium": "6 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(140)33/27",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 55,
+    "bookPage": 51,
+    "localName": "Remong",
+    "otherNames": [
+      "Remong",
+      "Kunyit"
+    ],
+    "englishName": "Bigeye snapper",
+    "scientificName": "Lutjanus lutjanus",
+    "canonicalMalayName": "Kunyit-kunyit",
+    "nameVariants": [
+      "Remong",
+      "Kunyit",
+      "Kunyit-kunyit",
+      "Bigeye snapper",
+      "Lutjanus lutjanus"
+    ],
+    "size": {
+      "large": "4 - 6 ekor/kg",
+      "medium": "7 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(195)33/27",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 55,
+    "bookPage": 51,
+    "localName": "Semilang",
+    "otherNames": [
+      "Sembilang"
+    ],
+    "englishName": "Gray eel catfish",
+    "scientificName": "Plotosus canius",
+    "canonicalMalayName": "Sembilang",
+    "nameVariants": [
+      "Semilang",
+      "Sembilang",
+      "Gray eel catfish",
+      "Plotosus canius"
+    ],
+    "size": {
+      "large": "<= 2 ekor/kg",
+      "medium": "3 - 4 ekor/kg",
+      "small": ">= 5 ekor/kg"
+    },
+    "sourceCode": "(212)33/28",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 56,
+    "bookPage": 52,
+    "localName": "Semilang Karang",
+    "otherNames": [
+      "Semilang Lumut",
+      "Semilang Batu"
+    ],
+    "englishName": "Striped eel catfish",
+    "scientificName": "Plotosus lineatus",
+    "canonicalMalayName": "Semilang Karang",
+    "nameVariants": [
+      "Semilang Karang",
+      "Semilang Lumut",
+      "Semilang Batu",
+      "Striped eel catfish",
+      "Plotosus lineatus"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 8 ekor/kg",
+      "small": ">= 9 ekor/kg"
+    },
+    "sourceCode": "(213)33/28",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 56,
+    "bookPage": 52,
+    "localName": "Lemah",
+    "otherNames": [
+      "Selembu",
+      "Lemah",
+      "Lami- lami"
+    ],
+    "englishName": "False trevally",
+    "scientificName": "Lactarius lactarius",
+    "canonicalMalayName": "Shrumbu",
+    "nameVariants": [
+      "Lemah",
+      "Selembu",
+      "Lami- lami",
+      "Shrumbu",
+      "False trevally",
+      "Lactarius lactarius"
+    ],
+    "size": {
+      "large": "<= 6 ekor/kg",
+      "medium": "7 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(262)33/29",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 57,
+    "bookPage": 53,
+    "localName": "Sebekah",
+    "otherNames": [
+      "Semangka",
+      "Seriding"
+    ],
+    "englishName": "Indian perch",
+    "scientificName": "Apogon lineatus",
+    "canonicalMalayName": "Sebekah Belang",
+    "nameVariants": [
+      "Sebekah",
+      "Semangka",
+      "Seriding",
+      "Sebekah Belang",
+      "Indian perch",
+      "Apogon lineatus"
+    ],
+    "size": {
+      "large": "<= 5 ekor/kg",
+      "medium": "6 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(197)33/30",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 58,
+    "bookPage": 54,
+    "localName": "Aji-Aji",
+    "otherNames": [
+      "Bebatik"
+    ],
+    "englishName": "Black-banded trevally",
+    "scientificName": "Seriolina nigrofasciata",
+    "canonicalMalayName": "Aji-Aji",
+    "nameVariants": [
+      "Aji-Aji",
+      "Bebatik",
+      "Black-banded trevally",
+      "Seriolina nigrofasciata"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(1)34/1",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 58,
+    "bookPage": 54,
+    "localName": "Alu–Alu",
+    "otherNames": [
+      "Kacang-kacang"
+    ],
+    "englishName": "Pickhandle barracuda",
+    "scientificName": "Sphyraena jello",
+    "canonicalMalayName": "Alu–alu Belang",
+    "nameVariants": [
+      "Alu–Alu",
+      "Kacang-kacang",
+      "Alu–alu Belang",
+      "Pickhandle barracuda",
+      "Sphyraena jello"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(2)34/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 59,
+    "bookPage": 55,
+    "localName": "Kacang Lopek",
+    "otherNames": [
+      "Alu-alu",
+      "Titir"
+    ],
+    "englishName": "Obstule barracuda",
+    "scientificName": "Sphyraena obsusata",
+    "canonicalMalayName": "Kocang-kacang Dempak",
+    "nameVariants": [
+      "Kacang Lopek",
+      "Alu-alu",
+      "Titir",
+      "Kocang-kacang Dempak",
+      "Obstule barracuda",
+      "Sphyraena obsusata"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(103)34/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 59,
+    "bookPage": 55,
+    "localName": "Kacang-kacang",
+    "otherNames": [
+      "Alu-alu"
+    ],
+    "englishName": "Chevron barracuda",
+    "scientificName": "Sphyaera putnamae",
+    "canonicalMalayName": "Alu-alu Gigi Gergaji",
+    "nameVariants": [
+      "Kacang-kacang",
+      "Alu-alu",
+      "Alu-alu Gigi Gergaji",
+      "Chevron barracuda",
+      "Sphyaera putnamae"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(104)34/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 60,
+    "bookPage": 56,
+    "localName": "Todak",
+    "otherNames": [
+      "Benang",
+      "Jolong-jolong"
+    ],
+    "englishName": "Hound needlefish",
+    "scientificName": "Tylosurus crocodilus",
+    "canonicalMalayName": "Todak Buaya",
+    "nameVariants": [
+      "Todak",
+      "Benang",
+      "Jolong-jolong",
+      "Todak Buaya",
+      "Hound needlefish",
+      "Tylosurus crocodilus"
+    ],
+    "size": {
+      "large": "<= 2 ekor/kg",
+      "medium": "3 - 6 ekor/kg",
+      "small": ">= 7 ekor/kg"
+    },
+    "sourceCode": "(248)34/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 60,
+    "bookPage": 56,
+    "localName": "Aruan Tasik",
+    "otherNames": [
+      "Haruan Tasik",
+      "Jaman"
+    ],
+    "englishName": "Cobiqa",
+    "scientificName": "Rachycentron canadum",
+    "canonicalMalayName": "Haruan Tasik",
+    "nameVariants": [
+      "Aruan Tasik",
+      "Haruan Tasik",
+      "Jaman",
+      "Cobiqa",
+      "Rachycentron canadum"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(5)34/3",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 61,
+    "bookPage": 57,
+    "localName": "Cermin kapak",
+    "otherNames": [
+      "Gedabang"
+    ],
+    "englishName": "Moonfish",
+    "scientificName": "Mene maculata",
+    "canonicalMalayName": "Kapak",
+    "nameVariants": [
+      "Cermin kapak",
+      "Gedabang",
+      "Kapak",
+      "Moonfish",
+      "Mene maculata"
+    ],
+    "size": {
+      "large": "<= 5 ekor/kg",
+      "medium": "6 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(108)34/4",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 61,
+    "bookPage": 57,
+    "localName": "Ebek",
+    "otherNames": [
+      "Cermin",
+      "Rambai Landeh"
+    ],
+    "englishName": "African Pompano",
+    "scientificName": "Alectis ciliaris",
+    "canonicalMalayName": "Rambai Ebek",
+    "nameVariants": [
+      "Ebek",
+      "Cermin",
+      "Rambai Landeh",
+      "Rambai Ebek",
+      "African Pompano",
+      "Alectis ciliaris"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 6 ekor/kg",
+      "small": ">= 7 ekor/kg"
+    },
+    "sourceCode": "(193)34/4",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 62,
+    "bookPage": 58,
+    "localName": "Ebek",
+    "otherNames": [
+      "Cermin"
+    ],
+    "englishName": "Indian threadfish",
+    "scientificName": "Alectis indicus",
+    "canonicalMalayName": "Rambai Sagai",
+    "nameVariants": [
+      "Ebek",
+      "Cermin",
+      "Rambai Sagai",
+      "Indian threadfish",
+      "Alectis indicus"
+    ],
+    "size": {
+      "large": "<= 2 ekor/kg",
+      "medium": "3 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(58) 34/4",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 62,
+    "bookPage": 58,
+    "localName": "Cupak",
+    "otherNames": [
+      "Sagai",
+      "Rambai",
+      "Cermin"
+    ],
+    "englishName": "Malabar trevally",
+    "scientificName": "Carangoides malabaricus",
+    "canonicalMalayName": "Demuduk Cermin",
+    "nameVariants": [
+      "Cupak",
+      "Sagai",
+      "Rambai",
+      "Cermin",
+      "Demuduk Cermin",
+      "Malabar trevally",
+      "Carangoides malabaricus"
+    ],
+    "size": {
+      "large": "<= 3 ekor/kg",
+      "medium": "4 - 9 ekor/kg",
+      "small": ">= 10 ekor/kg"
+    },
+    "sourceCode": "(61)34/4",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 63,
+    "bookPage": 59,
+    "localName": "Demuduk",
+    "otherNames": [
+      "Rambai",
+      "Cermin"
+    ],
+    "englishName": "Orange spotted trevally",
+    "scientificName": "Carangoides bajad",
+    "canonicalMalayName": "Demuduk Bintik Oren",
+    "nameVariants": [
+      "Demuduk",
+      "Rambai",
+      "Cermin",
+      "Demuduk Bintik Oren",
+      "Orange spotted trevally",
+      "Carangoides bajad"
+    ],
+    "size": {
+      "large": "<= 2 ekor/kg",
+      "medium": "3 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(66) 34/5",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 63,
+    "bookPage": 59,
+    "localName": "Demuduk",
+    "otherNames": [
+      "Jemuduk",
+      "Cermin",
+      "Cupak",
+      "Sagai"
+    ],
+    "englishName": "Yellow spotted trevally",
+    "scientificName": "Carangoides fulvoguttatus",
+    "canonicalMalayName": "Demudok Bintik Kuning",
+    "nameVariants": [
+      "Demuduk",
+      "Jemuduk",
+      "Cermin",
+      "Cupak",
+      "Sagai",
+      "Demudok Bintik Kuning",
+      "Yellow spotted trevally",
+      "Carangoides fulvoguttatus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 6 ekor/kg",
+      "small": ">= 7 ekor/kg"
+    },
+    "sourceCode": "(66)34/5",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 64,
+    "bookPage": 60,
+    "localName": "Rambai Embek",
+    "otherNames": [
+      "Putih"
+    ],
+    "englishName": "Whitefin trevally",
+    "scientificName": "Carangoides equula",
+    "canonicalMalayName": "Demudok Sirip Putih",
+    "nameVariants": [
+      "Rambai Embek",
+      "Putih",
+      "Demudok Sirip Putih",
+      "Whitefin trevally",
+      "Carangoides equula"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 6 ekor/kg",
+      "small": ">= 7 ekor/kg"
+    },
+    "sourceCode": "(191)34/5",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 64,
+    "bookPage": 60,
+    "localName": "Sagai",
+    "otherNames": [
+      "Cermin",
+      "Rambai"
+    ],
+    "englishName": "Long-nosed trevally",
+    "scientificName": "Carangoides chrysophrys",
+    "canonicalMalayName": "Demuduk Muncung",
+    "nameVariants": [
+      "Sagai",
+      "Cermin",
+      "Rambai",
+      "Demuduk Muncung",
+      "Long-nosed trevally",
+      "Carangoides chrysophrys"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(196)34/5",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 65,
+    "bookPage": 61,
+    "localName": "Gerong-gerong",
+    "otherNames": [
+      "Gerong",
+      "Kerong",
+      "Kalakitok"
+    ],
+    "englishName": "Golden trevally",
+    "scientificName": "Gnathanodon speciosus",
+    "canonicalMalayName": "Gerong Belang",
+    "nameVariants": [
+      "Gerong-gerong",
+      "Gerong",
+      "Kerong",
+      "Kalakitok",
+      "Gerong Belang",
+      "Golden trevally",
+      "Gnathanodon speciosus"
+    ],
+    "size": {
+      "large": "<= 2 ekor/kg",
+      "medium": "3 - 4 ekor/kg",
+      "small": ">= 5 ekor/kg"
+    },
+    "sourceCode": "(83)34/6",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 65,
+    "bookPage": 61,
+    "localName": "Bawal Hitam",
+    "otherNames": [
+      "Duai Hitam",
+      "Bawal Selatan"
+    ],
+    "englishName": "Black pomfret",
+    "scientificName": "Parastromateus niger",
+    "canonicalMalayName": "Bawal Hitam",
+    "nameVariants": [
+      "Bawal Hitam",
+      "Duai Hitam",
+      "Bawal Selatan",
+      "Black pomfret",
+      "Parastromateus niger"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(24)34/7",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 66,
+    "bookPage": 62,
+    "localName": "Bawal Putih",
+    "otherNames": [
+      "Dueh Putih",
+      "Duai Putih"
+    ],
+    "englishName": "Silver pomfret",
+    "scientificName": "Pampus argenteus",
+    "canonicalMalayName": "Bawal Putih",
+    "nameVariants": [
+      "Bawal Putih",
+      "Dueh Putih",
+      "Duai Putih",
+      "Silver pomfret",
+      "Pampus argenteus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(26)34/8",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 66,
+    "bookPage": 62,
+    "localName": "Bawal Tambak",
+    "otherNames": [
+      "Dueh Tambak",
+      "Duai Putih"
+    ],
+    "englishName": "Chinese silver pomfret",
+    "scientificName": "Pampus chinensis",
+    "canonicalMalayName": "Bawal Tambak",
+    "nameVariants": [
+      "Bawal Tambak",
+      "Dueh Tambak",
+      "Duai Putih",
+      "Chinese silver pomfret",
+      "Pampus chinensis"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(28)34/9",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 67,
+    "bookPage": 63,
+    "localName": "Bawal Mas",
+    "otherNames": [
+      "Nyior-nyior",
+      "Nyuk-nyuk",
+      "Betong Putih"
+    ],
+    "englishName": "Subnose dart",
+    "scientificName": "Trachinotus blochii",
+    "canonicalMalayName": "Bawal Mas",
+    "nameVariants": [
+      "Bawal Mas",
+      "Nyior-nyior",
+      "Nyuk-nyuk",
+      "Betong Putih",
+      "Subnose dart",
+      "Trachinotus blochii"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(25) 34/10",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 67,
+    "bookPage": 63,
+    "localName": "Kedera",
+    "otherNames": [
+      "Jangis",
+      "Rapang",
+      "Belanak"
+    ],
+    "englishName": "Bluespot mullet",
+    "scientificName": "Valamugil seheli",
+    "canonicalMalayName": "Kedera Tanda Biru",
+    "nameVariants": [
+      "Kedera",
+      "Jangis",
+      "Rapang",
+      "Belanak",
+      "Kedera Tanda Biru",
+      "Bluespot mullet",
+      "Valamugil seheli"
+    ],
+    "size": {
+      "large": "<= 5 ekor/kg",
+      "medium": "6 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(115)34/11",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 68,
+    "bookPage": 64,
+    "localName": "Loban",
+    "otherNames": [
+      "Belanak",
+      "Pelong"
+    ],
+    "englishName": "Squaretail mullet",
+    "scientificName": "Liza vaigiensis",
+    "canonicalMalayName": "Belanak Loban",
+    "nameVariants": [
+      "Loban",
+      "Belanak",
+      "Pelong",
+      "Belanak Loban",
+      "Squaretail mullet",
+      "Liza vaigiensis"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(147)34/11",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 68,
+    "bookPage": 64,
+    "localName": "Cencaru",
+    "otherNames": [
+      "Celek",
+      "Cincaru",
+      "Keras Ekor"
+    ],
+    "englishName": "Hardtail scad",
+    "scientificName": "Megalaspis cordyla",
+    "canonicalMalayName": "Cincaru",
+    "nameVariants": [
+      "Cencaru",
+      "Celek",
+      "Cincaru",
+      "Keras Ekor",
+      "Hardtail scad",
+      "Megalaspis cordyla"
+    ],
+    "size": {
+      "large": "<= 3 ekor/kg",
+      "medium": "4 - 6 ekor/kg",
+      "small": ">= 7 ekor/kg"
+    },
+    "sourceCode": "(57)34/12",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 69,
+    "bookPage": 65,
+    "localName": "Kurau",
+    "otherNames": [
+      "Senohong",
+      "Kurau"
+    ],
+    "englishName": "Indian Threadfin",
+    "scientificName": "Leptomelanosoma indicus",
+    "canonicalMalayName": "Mancong",
+    "nameVariants": [
+      "Kurau",
+      "Senohong",
+      "Mancong",
+      "Indian Threadfin",
+      "Leptomelanosoma indicus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 6 ekor/kg",
+      "small": ">= 7 ekor/kg"
+    },
+    "sourceCode": "(141)34/13",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 69,
+    "bookPage": 65,
+    "localName": "Senangin",
+    "otherNames": [
+      "Senohong",
+      "Kurau Jangut",
+      "Mancung"
+    ],
+    "englishName": "Fourfinger threadfin",
+    "scientificName": "Eleutheronema tetradactylum",
+    "canonicalMalayName": "Senangin Rambu Empat",
+    "nameVariants": [
+      "Senangin",
+      "Senohong",
+      "Kurau Jangut",
+      "Mancung",
+      "Senangin Rambu Empat",
+      "Fourfinger threadfin",
+      "Eleutheronema tetradactylum"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 8 ekor/kg",
+      "small": ">= 9 ekor/kg"
+    },
+    "sourceCode": "(214)34/13",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 70,
+    "bookPage": 66,
+    "localName": "Senangih Buih",
+    "otherNames": [
+      "Senangin Buih"
+    ],
+    "englishName": "Blackspot threadfin",
+    "scientificName": "Polydactylus sextarius",
+    "canonicalMalayName": "Senangin Buih Tanda",
+    "nameVariants": [
+      "Senangih Buih",
+      "Senangin Buih",
+      "Senangin Buih Tanda",
+      "Blackspot threadfin",
+      "Polydactylus sextarius"
+    ],
+    "size": {
+      "large": "<= 5 ekor/kg",
+      "medium": "6 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(215)34/13",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 70,
+    "bookPage": 66,
+    "localName": "Gerepoh",
+    "otherNames": [
+      "Belukok",
+      "Mamung",
+      "Repuh"
+    ],
+    "englishName": "Giant trevally",
+    "scientificName": "Caranx ignobilis",
+    "canonicalMalayName": "Belukok Mamong",
+    "nameVariants": [
+      "Gerepoh",
+      "Belukok",
+      "Mamung",
+      "Repuh",
+      "Belukok Mamong",
+      "Giant trevally",
+      "Caranx ignobilis"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(120)34/14",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 71,
+    "bookPage": 67,
+    "localName": "Kerepoh",
+    "otherNames": [
+      "Gerepuh"
+    ],
+    "englishName": "Bigeye trevally",
+    "scientificName": "Caranx sexfasciatus",
+    "canonicalMalayName": "Belukok Putih",
+    "nameVariants": [
+      "Kerepoh",
+      "Gerepuh",
+      "Belukok Putih",
+      "Bigeye trevally",
+      "Caranx sexfasciatus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(129)34/14",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 71,
+    "bookPage": 67,
+    "localName": "Lolong",
+    "otherNames": [
+      "Lolong Kuning",
+      "Selar Bulat"
+    ],
+    "englishName": "Oxeye scad",
+    "scientificName": "Selar boops",
+    "canonicalMalayName": "Lolong Kuning",
+    "nameVariants": [
+      "Lolong",
+      "Lolong Kuning",
+      "Selar Bulat",
+      "Oxeye scad",
+      "Selar boops"
+    ],
+    "size": {
+      "large": "<= 5 ekor/kg",
+      "medium": "6 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(148)34/15",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 72,
+    "bookPage": 68,
+    "localName": "Lolong Bara",
+    "otherNames": [
+      "Lolong Batu"
+    ],
+    "englishName": "Red coat squirrelfish",
+    "scientificName": "Sargocentrum rubrum",
+    "canonicalMalayName": "Sebekah Karang Sirip hijau",
+    "nameVariants": [
+      "Lolong Bara",
+      "Lolong Batu",
+      "Sebekah Karang Sirip hijau",
+      "Red coat squirrelfish",
+      "Sargocentrum rubrum"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(149)34/15",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 72,
+    "bookPage": 68,
+    "localName": "Temenggong",
+    "otherNames": [
+      "Lolong Bara",
+      "Panda Merah",
+      "Mata Besar"
+    ],
+    "englishName": "Purple-spotted bigeye",
+    "scientificName": "Priacanthus tayenus",
+    "canonicalMalayName": "Lolong Bara Bebintik Hitam",
+    "nameVariants": [
+      "Temenggong",
+      "Lolong Bara",
+      "Panda Merah",
+      "Mata Besar",
+      "Lolong Bara Bebintik Hitam",
+      "Purple-spotted bigeye",
+      "Priacanthus tayenus"
+    ],
+    "size": {
+      "large": "<= 6 ekor/kg",
+      "medium": "7 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(239)34/15",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 73,
+    "bookPage": 69,
+    "localName": "Selar Pucat",
+    "otherNames": [
+      "Pelata Bulat",
+      "Selar Bulat",
+      "Basung"
+    ],
+    "englishName": "Bugeye scad",
+    "scientificName": "Selar crumenophtalmus",
+    "canonicalMalayName": "Lolong Mata Besar",
+    "nameVariants": [
+      "Selar Pucat",
+      "Pelata Bulat",
+      "Selar Bulat",
+      "Basung",
+      "Lolong Mata Besar",
+      "Bugeye scad",
+      "Selar crumenophtalmus"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 7 ekor/kg",
+      "small": ">= 8 ekor/kg"
+    },
+    "sourceCode": "(205)34/16",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 73,
+    "bookPage": 69,
+    "localName": "Pelata Bali",
+    "otherNames": [
+      "Selar Keledek",
+      "Selidai",
+      "Selar Papan"
+    ],
+    "englishName": "Herring scad",
+    "scientificName": "Alepes vari",
+    "canonicalMalayName": "Pelata Bali",
+    "nameVariants": [
+      "Pelata Bali",
+      "Selar Keledek",
+      "Selidai",
+      "Selar Papan",
+      "Herring scad",
+      "Alepes vari"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(179)34/17",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 74,
+    "bookPage": 70,
+    "localName": "Selar",
+    "otherNames": [
+      "Selar Pucat",
+      "Selar Gelek",
+      "Belata"
+    ],
+    "englishName": "Yellow-tail scad",
+    "scientificName": "Atule mate",
+    "canonicalMalayName": "Pelata",
+    "nameVariants": [
+      "Selar",
+      "Selar Pucat",
+      "Selar Gelek",
+      "Belata",
+      "Pelata",
+      "Yellow-tail scad",
+      "Atule mate"
+    ],
+    "size": {
+      "large": "<= 7 ekor/kg",
+      "medium": "8 - 12 ekor/kg",
+      "small": ">= 13 ekor/kg"
+    },
+    "sourceCode": "(201)34/17",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 74,
+    "bookPage": 70,
+    "localName": "Pelata Perut Saiz Minyak",
+    "otherNames": [
+      "Jamah"
+    ],
+    "englishName": "Razor belly scad",
+    "scientificName": "Alepes kleinii",
+    "canonicalMalayName": "Pelata Perut Nipis",
+    "nameVariants": [
+      "Pelata Perut Saiz Minyak",
+      "Jamah",
+      "Pelata Perut Nipis",
+      "Razor belly scad",
+      "Alepes kleinii"
+    ],
+    "size": {
+      "large": "<= 6 ekor/kg",
+      "medium": "7 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(180)34/17",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 75,
+    "bookPage": 71,
+    "localName": "Selar Papan",
+    "otherNames": [
+      "Betong",
+      "Selar Malam"
+    ],
+    "englishName": "Blackfin scad",
+    "scientificName": "Alepes melanoptera",
+    "canonicalMalayName": "Pelata Malam",
+    "nameVariants": [
+      "Selar Papan",
+      "Betong",
+      "Selar Malam",
+      "Pelata Malam",
+      "Blackfin scad",
+      "Alepes melanoptera"
+    ],
+    "size": {
+      "large": "<= 5 ekor/kg",
+      "medium": "6 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(204)34/17",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 75,
+    "bookPage": 71,
+    "localName": "Pelata Keledak",
+    "otherNames": [
+      "Selar Keledek",
+      "Selar Papan"
+    ],
+    "englishName": "Shrimp scad",
+    "scientificName": "Alepes djedaba",
+    "canonicalMalayName": "Pelata Keledek",
+    "nameVariants": [
+      "Pelata Keledak",
+      "Selar Keledek",
+      "Selar Papan",
+      "Pelata Keledek",
+      "Shrimp scad",
+      "Alepes djedaba"
+    ],
+    "size": {
+      "large": "<= 5 ekor/kg",
+      "medium": "6 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(178)34/17",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 76,
+    "bookPage": 72,
+    "localName": "Selar Kuning",
+    "otherNames": [
+      "Pelata Kuning",
+      "Temanong"
+    ],
+    "englishName": "Yellow-banded scad",
+    "scientificName": "Selaroides leptolepis",
+    "canonicalMalayName": "Selar Kuning",
+    "nameVariants": [
+      "Selar Kuning",
+      "Pelata Kuning",
+      "Temanong",
+      "Yellow-banded scad",
+      "Selaroides leptolepis"
+    ],
+    "size": {
+      "large": "<= 6 ekor/kg",
+      "medium": "7 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(203)34/18",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 76,
+    "bookPage": 72,
+    "localName": "Pisang-pisang",
+    "otherNames": [
+      "Dung-dung",
+      "Bintusan"
+    ],
+    "englishName": "Rainbow runner",
+    "scientificName": "Elagatis bipinnualata",
+    "canonicalMalayName": "Pisang-pisang",
+    "nameVariants": [
+      "Pisang-pisang",
+      "Dung-dung",
+      "Bintusan",
+      "Rainbow runner",
+      "Elagatis bipinnualata"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(184)34/19",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 77,
+    "bookPage": 73,
+    "localName": "Selayang",
+    "otherNames": [
+      "Sardin",
+      "Curut",
+      "Basung"
+    ],
+    "englishName": "Shortfin scad",
+    "scientificName": "Decapterus macrosoma",
+    "canonicalMalayName": "Selayang Jarum",
+    "nameVariants": [
+      "Selayang",
+      "Sardin",
+      "Curut",
+      "Basung",
+      "Selayang Jarum",
+      "Shortfin scad",
+      "Decapterus macrosoma"
+    ],
+    "size": {
+      "large": "<= 7 ekor/kg",
+      "medium": "8 - 12 ekor/kg",
+      "small": ">= 13 ekor/kg"
+    },
+    "sourceCode": "(207)34/20",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 77,
+    "bookPage": 73,
+    "localName": "Selayang Mata Saiz Besar",
+    "otherNames": [
+      "Sardin",
+      "Curut",
+      "Basung"
+    ],
+    "englishName": "Slender scad",
+    "scientificName": "Decapterus maruadsi",
+    "canonicalMalayName": "Selayang Mata Besar",
+    "nameVariants": [
+      "Selayang Mata Saiz Besar",
+      "Sardin",
+      "Curut",
+      "Basung",
+      "Selayang Mata Besar",
+      "Slender scad",
+      "Decapterus maruadsi"
+    ],
+    "size": {
+      "large": "<= 7 ekor/kg",
+      "medium": "8 - 12 ekor/kg",
+      "small": ">= 13 ekor/kg"
+    },
+    "sourceCode": "(207)34/20",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 78,
+    "bookPage": 74,
+    "localName": "Selayang Lampai",
+    "otherNames": [
+      "Sardin",
+      "Curut",
+      "Basung"
+    ],
+    "englishName": "Slender scad",
+    "scientificName": "Decapterus russelli",
+    "canonicalMalayName": "Selayang Lampai",
+    "nameVariants": [
+      "Selayang Lampai",
+      "Sardin",
+      "Curut",
+      "Basung",
+      "Slender scad",
+      "Decapterus russelli"
+    ],
+    "size": {
+      "large": "<= 7 ekor/kg",
+      "medium": "8 - 12 ekor/kg",
+      "small": ">= 13 ekor/kg"
+    },
+    "sourceCode": "(208)34/20",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 78,
+    "bookPage": 74,
+    "localName": "Talang",
+    "otherNames": [
+      "Talang-talang",
+      "Seliat"
+    ],
+    "englishName": "Talang queenfish",
+    "scientificName": "Scomberoides commersoniasus",
+    "canonicalMalayName": "Talang Lima Jari",
+    "nameVariants": [
+      "Talang",
+      "Talang-talang",
+      "Seliat",
+      "Talang Lima Jari",
+      "Talang queenfish",
+      "Scomberoides commersoniasus"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(210)34/21",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 79,
+    "bookPage": 75,
+    "localName": "Talang",
+    "otherNames": [
+      "Seliat",
+      "Talang-talang"
+    ],
+    "englishName": "Barred queenfish",
+    "scientificName": "Scomberoides tala",
+    "canonicalMalayName": "Talang Padi",
+    "nameVariants": [
+      "Talang",
+      "Seliat",
+      "Talang-talang",
+      "Talang Padi",
+      "Barred queenfish",
+      "Scomberoides tala"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(210)34/21",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 80,
+    "bookPage": 76,
+    "localName": "Bulan",
+    "otherNames": [
+      "Bulan-bulan"
+    ],
+    "englishName": "Indo-pacific tarpon",
+    "scientificName": "Megalops cyprinoides",
+    "canonicalMalayName": "Bulan-bulan",
+    "nameVariants": [
+      "Bulan",
+      "Bulan-bulan",
+      "Indo-pacific tarpon",
+      "Megalops cyprinoides"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(51)35/1",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 80,
+    "bookPage": 76,
+    "localName": "Tamban Beluru",
+    "otherNames": [
+      "Tamban Siatan"
+    ],
+    "englishName": "Smoothbelly sardinella",
+    "scientificName": "Amblygester leiogaster",
+    "canonicalMalayName": "Tamban Beluru Siantan",
+    "nameVariants": [
+      "Tamban Beluru",
+      "Tamban Siatan",
+      "Tamban Beluru Siantan",
+      "Smoothbelly sardinella",
+      "Amblygester leiogaster"
+    ],
+    "size": {
+      "large": "<= 10 ekor/kg",
+      "medium": "11 - 19 ekor/kg",
+      "small": ">= 20 ekor/kg"
+    },
+    "sourceCode": "(227)35/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 81,
+    "bookPage": 77,
+    "localName": "Tamban Pipih",
+    "otherNames": [
+      "Tamban"
+    ],
+    "englishName": "Gold-stripe sardine",
+    "scientificName": "Sardinella gibbosa",
+    "canonicalMalayName": "Tamban Sisik Jalur Mas",
+    "nameVariants": [
+      "Tamban Pipih",
+      "Tamban",
+      "Tamban Sisik Jalur Mas",
+      "Gold-stripe sardine",
+      "Sardinella gibbosa"
+    ],
+    "size": {
+      "large": "<= 10 ekor/kg",
+      "medium": "11 - 19 ekor/kg",
+      "small": ">= 20 ekor/kg"
+    },
+    "sourceCode": "(231)35/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 81,
+    "bookPage": 77,
+    "localName": "Tamban Sisik",
+    "otherNames": [
+      "Tamban Sisik"
+    ],
+    "englishName": "Fringescale sardinella",
+    "scientificName": "Sardinella fimbriata",
+    "canonicalMalayName": "Tamban Sisik Tajam",
+    "nameVariants": [
+      "Tamban Sisik",
+      "Tamban Sisik Tajam",
+      "Fringescale sardinella",
+      "Sardinella fimbriata"
+    ],
+    "size": {
+      "large": "<= 9 ekor/kg",
+      "medium": "10 - 19 ekor/kg",
+      "small": ">= 20 ekor/kg"
+    },
+    "sourceCode": "(232)35/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 82,
+    "bookPage": 78,
+    "localName": "Tamban Nipis",
+    "otherNames": [
+      "Tamban Pipih"
+    ],
+    "englishName": "Perforated scale sardine",
+    "scientificName": "Sardinella albella",
+    "canonicalMalayName": "Tamban Sisik Putih",
+    "nameVariants": [
+      "Tamban Nipis",
+      "Tamban Pipih",
+      "Tamban Sisik Putih",
+      "Perforated scale sardine",
+      "Sardinella albella"
+    ],
+    "size": {
+      "large": "<= 9 ekor/kg",
+      "medium": "10 - 19 ekor/kg",
+      "small": ">= 20 ekor/kg"
+    },
+    "sourceCode": "(229)35/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 82,
+    "bookPage": 78,
+    "localName": "Tamban Beluru Saiz Tompok",
+    "otherNames": [
+      "Tamban Beluru"
+    ],
+    "englishName": "Spotted Sardine",
+    "scientificName": "Amblygaster sirm",
+    "canonicalMalayName": "Tamban Buluh Tompok",
+    "nameVariants": [
+      "Tamban Beluru Saiz Tompok",
+      "Tamban Beluru",
+      "Tamban Buluh Tompok",
+      "Spotted Sardine",
+      "Amblygaster sirm"
+    ],
+    "size": {
+      "large": "<= 9 ekor/kg",
+      "medium": "10 - 19 ekor/kg",
+      "small": ">= 20 ekor/kg"
+    },
+    "sourceCode": "(227)35/3",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 83,
+    "bookPage": 79,
+    "localName": "Tamban Buluh Saiz Bulat",
+    "otherNames": [
+      "Tamban",
+      "Tamban Buluh"
+    ],
+    "englishName": "Slender rainbow sardine",
+    "scientificName": "Dussumieria elopsoides",
+    "canonicalMalayName": "Tamban Buluh Bulat",
+    "nameVariants": [
+      "Tamban Buluh Saiz Bulat",
+      "Tamban",
+      "Tamban Buluh",
+      "Tamban Buluh Bulat",
+      "Slender rainbow sardine",
+      "Dussumieria elopsoides"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(229)35/3",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 83,
+    "bookPage": 79,
+    "localName": "Bilis",
+    "otherNames": [
+      "Pusu",
+      "Bunga air"
+    ],
+    "englishName": "Indian anchovy",
+    "scientificName": "Stolephorus indicus",
+    "canonicalMalayName": "Bilis Bunga Air",
+    "nameVariants": [
+      "Bilis",
+      "Pusu",
+      "Bunga air",
+      "Bilis Bunga Air",
+      "Indian anchovy",
+      "Stolephorus indicus"
+    ],
+    "size": {
+      "large": "30 - 40 ekor/kg",
+      "medium": "41 - 59 ekor/kg",
+      "small": ">= 60 ekor/kg"
+    },
+    "sourceCode": "(45)35/4",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 84,
+    "bookPage": 80,
+    "localName": "Bilis",
+    "otherNames": [
+      "Besin"
+    ],
+    "englishName": "China anchovy",
+    "scientificName": "Stolephorus chinensis",
+    "canonicalMalayName": "Bilis Cina",
+    "nameVariants": [
+      "Bilis",
+      "Besin",
+      "Bilis Cina",
+      "China anchovy",
+      "Stolephorus chinensis"
+    ],
+    "size": {
+      "large": "30 - 40 ekor/kg",
+      "medium": "41 - 59 ekor/kg",
+      "small": ">= 60 ekor/kg"
+    },
+    "sourceCode": "(46)35/4",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 84,
+    "bookPage": 80,
+    "localName": "Bilis Bulu Ayam",
+    "otherNames": [
+      "Gonjeng",
+      "Kasai Bulu Ayam"
+    ],
+    "englishName": "Long-jaw grenadier anchovy",
+    "scientificName": "Coilia macrognathos",
+    "canonicalMalayName": "Bilis Ayam Rahang Panjang",
+    "nameVariants": [
+      "Bilis Bulu Ayam",
+      "Gonjeng",
+      "Kasai Bulu Ayam",
+      "Bilis Ayam Rahang Panjang",
+      "Long-jaw grenadier anchovy",
+      "Coilia macrognathos"
+    ],
+    "size": {
+      "large": "<= 29 ekor/kg",
+      "medium": "30 - 49 ekor/kg",
+      "small": ">= 50 ekor/kg"
+    },
+    "sourceCode": "(47)35/4",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 85,
+    "bookPage": 81,
+    "localName": "Bilis Tembaga",
+    "otherNames": [
+      "Bilis"
+    ],
+    "englishName": "Commerson’s anchovy",
+    "scientificName": "Stolephorus commersonii",
+    "canonicalMalayName": "Bilis Tembaga",
+    "nameVariants": [
+      "Bilis Tembaga",
+      "Bilis",
+      "Commerson’s anchovy",
+      "Stolephorus commersonii"
+    ],
+    "size": {
+      "large": "<= 29 ekor/kg",
+      "medium": "30 - 49 ekor/kg",
+      "small": ">= 50 ekor/kg"
+    },
+    "sourceCode": "(48)35/4",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 85,
+    "bookPage": 81,
+    "localName": "Parang",
+    "otherNames": [
+      "Parang-parang",
+      "Cabuk"
+    ],
+    "englishName": "Dorab wolf-herring",
+    "scientificName": "Chirocentrus dorab",
+    "canonicalMalayName": "Parang-parang",
+    "nameVariants": [
+      "Parang",
+      "Parang-parang",
+      "Cabuk",
+      "Dorab wolf-herring",
+      "Chirocentrus dorab"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "1 - 3 ekor/kg",
+      "small": ">= 4 ekor/kg"
+    },
+    "sourceCode": "(164)35/5",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 86,
+    "bookPage": 82,
+    "localName": "Aya Hitam",
+    "otherNames": [
+      "Tongkol",
+      "Aya",
+      "Kayu"
+    ],
+    "englishName": "Longtail tuna",
+    "scientificName": "Thunnus tonggol",
+    "canonicalMalayName": "Aya Hitam",
+    "nameVariants": [
+      "Aya Hitam",
+      "Tongkol",
+      "Aya",
+      "Kayu",
+      "Longtail tuna",
+      "Thunnus tonggol"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "1 - 2 ekor/kg",
+      "small": ">= 3 ekor/kg"
+    },
+    "sourceCode": "(7)36/1",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 86,
+    "bookPage": 82,
+    "localName": "Aya Kurik",
+    "otherNames": [
+      "Tongkol",
+      "Kayu",
+      "Bakulan"
+    ],
+    "englishName": "Eastern little tuna",
+    "scientificName": "Euthynnus affinis",
+    "canonicalMalayName": "Aya Kurik",
+    "nameVariants": [
+      "Aya Kurik",
+      "Tongkol",
+      "Kayu",
+      "Bakulan",
+      "Eastern little tuna",
+      "Euthynnus affinis"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "1 - 2 ekor/kg",
+      "small": ">= 3 ekor/kg"
+    },
+    "sourceCode": "(8)36/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 87,
+    "bookPage": 83,
+    "localName": "Aya Selasih",
+    "otherNames": [
+      "Tongkol",
+      "Bakulan",
+      "Kayu"
+    ],
+    "englishName": "Frigate tuna",
+    "scientificName": "Auxis thazard",
+    "canonicalMalayName": "Aya Selasih",
+    "nameVariants": [
+      "Aya Selasih",
+      "Tongkol",
+      "Bakulan",
+      "Kayu",
+      "Frigate tuna",
+      "Auxis thazard"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "1 - 2 ekor/kg",
+      "small": ">= 3 ekor/kg"
+    },
+    "sourceCode": "(10)36/3",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 87,
+    "bookPage": 83,
+    "localName": "Aya Jepun",
+    "otherNames": [
+      "Tongkol",
+      "Bakulan"
+    ],
+    "englishName": "Skipjack Tuna",
+    "scientificName": "Katsuwonus pelamis",
+    "canonicalMalayName": "Aya Jepun",
+    "nameVariants": [
+      "Aya Jepun",
+      "Tongkol",
+      "Bakulan",
+      "Skipjack Tuna",
+      "Katsuwonus pelamis"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "1 - 2 ekor/kg",
+      "small": ">= 3 ekor/kg"
+    },
+    "sourceCode": "(10)36/3",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 88,
+    "bookPage": 84,
+    "localName": "Tuna Sirip Kuning",
+    "otherNames": [
+      "Aya",
+      "Tuna",
+      "Bakulan"
+    ],
+    "englishName": "Yellowfin tuna",
+    "scientificName": "Thunnus albacares",
+    "canonicalMalayName": "Tuna Sirip Kuning",
+    "nameVariants": [
+      "Tuna Sirip Kuning",
+      "Aya",
+      "Tuna",
+      "Bakulan",
+      "Yellowfin tuna",
+      "Thunnus albacares"
+    ],
+    "size": {
+      "large": ">= 2 kg/ekor",
+      "medium": "1 - 2 ekor/kg",
+      "small": ">= 3 ekor/kg"
+    },
+    "sourceCode": "(250)36/6",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 88,
+    "bookPage": 84,
+    "localName": "Mersuji",
+    "otherNames": [
+      "Mersuji",
+      "Puoh Hu"
+    ],
+    "englishName": "Indo-pacific blue marlin",
+    "scientificName": "Makaira mazara",
+    "canonicalMalayName": "Mersuji Pasifik Biru",
+    "nameVariants": [
+      "Mersuji",
+      "Puoh Hu",
+      "Mersuji Pasifik Biru",
+      "Indo-pacific blue marlin",
+      "Makaira mazara"
+    ],
+    "size": {
+      "large": ">= 2 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(262)36/7",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 89,
+    "bookPage": 85,
+    "localName": "Tenggiri Batang",
+    "otherNames": [
+      "Tenggiri",
+      "Tenggiri Bunga"
+    ],
+    "englishName": "Narrow-banded spanish- mackel",
+    "scientificName": "Scomberomorus commerson",
+    "canonicalMalayName": "Tenggiri Batang",
+    "nameVariants": [
+      "Tenggiri Batang",
+      "Tenggiri",
+      "Tenggiri Bunga",
+      "Narrow-banded spanish- mackel",
+      "Scomberomorus commerson"
+    ],
+    "size": {
+      "large": ">= 2 kg/ekor",
+      "medium": "1 - 2 ekor/kg",
+      "small": ">= 3 ekor/kg"
+    },
+    "sourceCode": "(240)36/8",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 89,
+    "bookPage": 85,
+    "localName": "Tenggiri Papan",
+    "otherNames": [
+      "Tenggiri",
+      "Tenggiri Batang"
+    ],
+    "englishName": "Indo pacific king mackerel",
+    "scientificName": "Scomberomorus guttatus",
+    "canonicalMalayName": "Tenggiri Papan",
+    "nameVariants": [
+      "Tenggiri Papan",
+      "Tenggiri",
+      "Tenggiri Batang",
+      "Indo pacific king mackerel",
+      "Scomberomorus guttatus"
+    ],
+    "size": {
+      "large": ">= 2 kg/ekor",
+      "medium": "1 - 2 ekor/kg",
+      "small": ">= 3 ekor/kg"
+    },
+    "sourceCode": "(240)36/8",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 90,
+    "bookPage": 86,
+    "localName": "Golok",
+    "otherNames": [
+      "Belitong"
+    ],
+    "englishName": "Common dolphinfish",
+    "scientificName": "Coryphaena hippurus",
+    "canonicalMalayName": "Belitong Lumba",
+    "nameVariants": [
+      "Golok",
+      "Belitong",
+      "Belitong Lumba",
+      "Common dolphinfish",
+      "Coryphaena hippurus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(86)36/9",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 90,
+    "bookPage": 86,
+    "localName": "Selayur",
+    "otherNames": [
+      "Timah",
+      "Layur",
+      "Loroi",
+      "Langeng"
+    ],
+    "englishName": "Largehead hairtail",
+    "scientificName": "Trichiurus lepturus",
+    "canonicalMalayName": "Timah Selayur",
+    "nameVariants": [
+      "Selayur",
+      "Timah",
+      "Layur",
+      "Loroi",
+      "Langeng",
+      "Timah Selayur",
+      "Largehead hairtail",
+      "Trichiurus lepturus"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 8 ekor/kg",
+      "small": ">= 9 ekor/kg"
+    },
+    "sourceCode": "(209)37/1",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 91,
+    "bookPage": 87,
+    "localName": "KembUng",
+    "otherNames": [
+      "Mabung",
+      "Temenung",
+      "Rumahan"
+    ],
+    "englishName": "Faughni mackerel",
+    "scientificName": "Rastrelliger faughni",
+    "canonicalMalayName": "Kembung Lampai",
+    "nameVariants": [
+      "KembUng",
+      "Mabung",
+      "Temenung",
+      "Rumahan",
+      "Kembung Lampai",
+      "Faughni mackerel",
+      "Rastrelliger faughni"
+    ],
+    "size": {
+      "large": "<= 7 ekor/kg",
+      "medium": "8 - 12 ekor/kg",
+      "small": ">= 13 ekor/kg"
+    },
+    "sourceCode": "(117)37/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 91,
+    "bookPage": 87,
+    "localName": "Pelaling",
+    "otherNames": [
+      "Rumahan",
+      "Temenung",
+      "Kembung"
+    ],
+    "englishName": "Indo-pacific mackerel",
+    "scientificName": "Rastrelliger brachysoma",
+    "canonicalMalayName": "Kembung Pelaling",
+    "nameVariants": [
+      "Pelaling",
+      "Rumahan",
+      "Temenung",
+      "Kembung",
+      "Kembung Pelaling",
+      "Indo-pacific mackerel",
+      "Rastrelliger brachysoma"
+    ],
+    "size": {
+      "large": "<= 9 ekor/kg",
+      "medium": "10 - 18 ekor/kg",
+      "small": ">= 19 ekor/kg"
+    },
+    "sourceCode": "(117)37/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 92,
+    "bookPage": 88,
+    "localName": "KembUng BOREK",
+    "otherNames": [
+      "Temenung",
+      "Pelaling",
+      "Rumahan"
+    ],
+    "englishName": "Indian mackerel",
+    "scientificName": "Rastrelliger kanagurta",
+    "canonicalMalayName": "Kembung Borek",
+    "nameVariants": [
+      "KembUng BOREK",
+      "Temenung",
+      "Pelaling",
+      "Rumahan",
+      "Indian mackerel",
+      "Rastrelliger kanagurta"
+    ],
+    "size": {
+      "large": "<= 5 ekor/kg",
+      "medium": "6 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(118)37/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 92,
+    "bookPage": 88,
+    "localName": "Yu tenggiri",
+    "otherNames": [
+      "Yu",
+      "Yu Manis"
+    ],
+    "englishName": "Tiger shark",
+    "scientificName": "Galeocerdo cuvier",
+    "canonicalMalayName": "Yu Tenggiri",
+    "nameVariants": [
+      "Yu tenggiri",
+      "Yu",
+      "Yu Manis",
+      "Tiger shark",
+      "Galeocerdo cuvier"
+    ],
+    "size": {
+      "large": ">= 5 kg/ekor",
+      "medium": "1 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(255)38/1",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 93,
+    "bookPage": 89,
+    "localName": "Yu kepak hitam",
+    "otherNames": [
+      "Or Chan",
+      "Yu Jereh"
+    ],
+    "englishName": "Blacktip Shark",
+    "scientificName": "Carcharhinus limbatus",
+    "canonicalMalayName": "Yu Trihitam",
+    "nameVariants": [
+      "Yu kepak hitam",
+      "Or Chan",
+      "Yu Jereh",
+      "Yu Trihitam",
+      "Blacktip Shark",
+      "Carcharhinus limbatus"
+    ],
+    "size": {
+      "large": ">= 5 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(255)38/1",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 93,
+    "bookPage": 89,
+    "localName": "Yu Bodoh",
+    "otherNames": [
+      "Yu Tokeh"
+    ],
+    "englishName": "Grey bambooshark",
+    "scientificName": "Chiloscyllium griseum",
+    "canonicalMalayName": "Yu Cicak Gempal",
+    "nameVariants": [
+      "Yu Bodoh",
+      "Yu Tokeh",
+      "Yu Cicak Gempal",
+      "Grey bambooshark",
+      "Chiloscyllium griseum"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(255)38/1",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 94,
+    "bookPage": 90,
+    "localName": "Yu Cicak",
+    "otherNames": [
+      "Yu Tokeh",
+      "Yu Rimau"
+    ],
+    "englishName": "Slender bambooshark",
+    "scientificName": "Chiloscyllium Indicum",
+    "canonicalMalayName": "Yu-Cicak Tembaga",
+    "nameVariants": [
+      "Yu Cicak",
+      "Yu Tokeh",
+      "Yu Rimau",
+      "Yu-Cicak Tembaga",
+      "Slender bambooshark",
+      "Chiloscyllium Indicum"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(255)38/1",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 94,
+    "bookPage": 90,
+    "localName": "Yu Pasir",
+    "otherNames": [
+      "Yu",
+      "Jerung"
+    ],
+    "englishName": "Whitecheek shark",
+    "scientificName": "Carcharhinus dussumieri",
+    "canonicalMalayName": "Yu Pasir Mulut Besar",
+    "nameVariants": [
+      "Yu Pasir",
+      "Yu",
+      "Jerung",
+      "Yu Pasir Mulut Besar",
+      "Whitecheek shark",
+      "Carcharhinus dussumieri"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "1 - 2 ekor/kg",
+      "small": ">= 3 ekor/kg"
+    },
+    "sourceCode": "(261)38/1",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 95,
+    "bookPage": 91,
+    "localName": "Yu Tukul",
+    "otherNames": [
+      "Yu Tukul",
+      "Yu Mata Jauh"
+    ],
+    "englishName": "Scalloped hammerhead shark",
+    "scientificName": "Sphyrna lewini",
+    "canonicalMalayName": "Yu-Tukul Sanggul",
+    "nameVariants": [
+      "Yu Tukul",
+      "Yu Mata Jauh",
+      "Yu-Tukul Sanggul",
+      "Scalloped hammerhead shark",
+      "Sphyrna lewini"
+    ],
+    "size": {
+      "large": ">= 2 kg/ekor",
+      "medium": "1 - 2 ekor/kg",
+      "small": ">= 3 ekor/kg"
+    },
+    "sourceCode": "(255)38/1",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 95,
+    "bookPage": 91,
+    "localName": "Yu Kemejan",
+    "otherNames": [
+      "Kemejan",
+      "Perejang"
+    ],
+    "englishName": "White-spot guitarfish",
+    "scientificName": "Rhynchobatus australiae",
+    "canonicalMalayName": "Yu Kemejan Kia-kia",
+    "nameVariants": [
+      "Yu Kemejan",
+      "Kemejan",
+      "Perejang",
+      "Yu Kemejan Kia-kia",
+      "White-spot guitarfish",
+      "Rhynchobatus australiae"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "1 - 2 ekor/kg",
+      "small": ">= 3 ekor/kg"
+    },
+    "sourceCode": "(260)38/1",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 96,
+    "bookPage": 92,
+    "localName": "Ketuka",
+    "otherNames": [
+      "Pari Ketuka"
+    ],
+    "englishName": "Dwarf whipray",
+    "scientificName": "Himantura walga",
+    "canonicalMalayName": "Pari Ketuka Tanjung",
+    "nameVariants": [
+      "Ketuka",
+      "Pari Ketuka",
+      "Pari Ketuka Tanjung",
+      "Dwarf whipray",
+      "Himantura walga"
+    ],
+    "size": {
+      "large": "<= 2 ekor/kg",
+      "medium": "3 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(137)38/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 96,
+    "bookPage": 92,
+    "localName": "Pari",
+    "otherNames": [
+      "Pari Ketuka"
+    ],
+    "englishName": "Pale-edged stingray",
+    "scientificName": "Dasyatis zugei",
+    "canonicalMalayName": "Pari Ketuka",
+    "nameVariants": [
+      "Pari",
+      "Pari Ketuka",
+      "Pale-edged stingray",
+      "Dasyatis zugei"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "1 - 4 ekor/kg",
+      "small": ">= 5 ekor/kg"
+    },
+    "sourceCode": "(166)38/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 97,
+    "bookPage": 93,
+    "localName": "Pari Kelawar",
+    "otherNames": [
+      "Pari",
+      "Pari Tembikar"
+    ],
+    "englishName": "Long-tailed butterfly ray",
+    "scientificName": "Gymnura poecilura",
+    "canonicalMalayName": "Pari Kelawar Bintik",
+    "nameVariants": [
+      "Pari Kelawar",
+      "Pari",
+      "Pari Tembikar",
+      "Pari Kelawar Bintik",
+      "Long-tailed butterfly ray",
+      "Gymnura poecilura"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "1 - 2 ekor/kg",
+      "small": ">= 3 ekor/kg"
+    },
+    "sourceCode": "(171)38/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 97,
+    "bookPage": 93,
+    "localName": "Pari Helang",
+    "otherNames": [
+      "Pari Burung"
+    ],
+    "englishName": "Spotted eagle ray",
+    "scientificName": "Aetobatus narinari",
+    "canonicalMalayName": "Pari–Lang Bintik Putih",
+    "nameVariants": [
+      "Pari Helang",
+      "Pari Burung",
+      "Pari–Lang Bintik Putih",
+      "Spotted eagle ray",
+      "Aetobatus narinari"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(169)38/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "marine",
+    "pdfPage": 98,
+    "bookPage": 94,
+    "localName": "Pari Tembikar",
+    "otherNames": [
+      "Pari Kelawar",
+      "Pari Temirka"
+    ],
+    "englishName": "Butterfly ray",
+    "scientificName": "Gymnura zanura",
+    "canonicalMalayName": "Pari Tembikar",
+    "nameVariants": [
+      "Pari Tembikar",
+      "Pari Kelawar",
+      "Pari Temirka",
+      "Butterfly ray",
+      "Gymnura zanura"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(174)38/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 103,
+    "bookPage": 99,
+    "localName": "Tongsan",
+    "otherNames": [
+      "Kap Kepala Besar"
+    ],
+    "englishName": "Bighead carp",
+    "scientificName": "Aristichthys nobilisa",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Tongsan",
+      "Kap Kepala Besar",
+      "Bighead carp",
+      "Aristichthys nobilisa"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(420)11/2",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 103,
+    "bookPage": 99,
+    "localName": "Kap Rumput",
+    "otherNames": [
+      "Kap Rumput"
+    ],
+    "englishName": "Grass carp",
+    "scientificName": "Ctenopharyngodon idella",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Kap Rumput",
+      "Grass carp",
+      "Ctenopharyngodon idella"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(422)11/5",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 104,
+    "bookPage": 100,
+    "localName": "Katla",
+    "otherNames": [
+      "Katla"
+    ],
+    "englishName": "Indian carp",
+    "scientificName": "Catla catla",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Katla",
+      "Indian carp",
+      "Catla catla"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(112)11/5",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 104,
+    "bookPage": 100,
+    "localName": "Rohu",
+    "otherNames": [
+      "Rohu"
+    ],
+    "englishName": "Rohu",
+    "scientificName": "Labeo rohita",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Rohu",
+      "Labeo rohita"
+    ],
+    "size": {
+      "large": "<= 2 ekor/kg",
+      "medium": "3 - 6 ekor/kg",
+      "small": ">= 7 ekor/kg"
+    },
+    "sourceCode": "(452)11/5",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 105,
+    "bookPage": 101,
+    "localName": "Temperas",
+    "otherNames": [
+      "Cemperas"
+    ],
+    "englishName": "Beardless carp",
+    "scientificName": "Cyclocheilichthys apogon",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Temperas",
+      "Cemperas",
+      "Beardless carp",
+      "Cyclocheilichthys apogon"
+    ],
+    "size": {
+      "large": "4 - 6 ekor/kg",
+      "medium": "7 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(469)11/6",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 105,
+    "bookPage": 101,
+    "localName": "Sebarau",
+    "otherNames": [
+      "Sebarau"
+    ],
+    "englishName": "Hampala barb",
+    "scientificName": "Hampala macrolepidota",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Sebarau",
+      "Hampala barb",
+      "Hampala macrolepidota"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(454)11/9",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 106,
+    "bookPage": 102,
+    "localName": "Kawan Pucat",
+    "otherNames": [
+      "Pucuk Pisang"
+    ],
+    "englishName": "Barb",
+    "scientificName": "Labiobarbus fasciatus",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Kawan Pucat",
+      "Pucuk Pisang",
+      "Barb",
+      "Labiobarbus fasciatus"
+    ],
+    "size": {
+      "large": "4 - 6 ekor/kg",
+      "medium": "7 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(423)11/11",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 106,
+    "bookPage": 102,
+    "localName": "Jelawat",
+    "otherNames": [
+      "Jelawat"
+    ],
+    "englishName": "Hoven’s carp",
+    "scientificName": "Leptobarbus hoevenii",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Jelawat",
+      "Hoven’s carp",
+      "Leptobarbus hoevenii"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(414)11/13",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 107,
+    "bookPage": 103,
+    "localName": "Terbol",
+    "otherNames": [
+      "Terbui"
+    ],
+    "englishName": "Silver sharkminnow",
+    "scientificName": "Osteochilus hasseltii",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Terbol",
+      "Terbui",
+      "Silver sharkminnow",
+      "Osteochilus hasseltii"
+    ],
+    "size": {
+      "large": "4 - 6 ekor/kg",
+      "medium": "7 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(473)11/16",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 107,
+    "bookPage": 103,
+    "localName": "Ikan Kelabau",
+    "otherNames": [
+      "Kelabau"
+    ],
+    "englishName": "Tiada",
+    "scientificName": "Osteochilus melanopleurus",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Ikan Kelabau",
+      "Kelabau",
+      "Tiada",
+      "Osteochilus melanopleurus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "1 - 2 ekor/kg",
+      "small": ">= 3 ekor/kg"
+    },
+    "sourceCode": "(473)11/16",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 108,
+    "bookPage": 104,
+    "localName": "Temoleh",
+    "otherNames": [
+      "Temelian"
+    ],
+    "englishName": "Isok barb",
+    "scientificName": "Probarbus jullieni",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Temoleh",
+      "Temelian",
+      "Isok barb",
+      "Probarbus jullieni"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(468)11/19",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 108,
+    "bookPage": 104,
+    "localName": "Kepiat",
+    "otherNames": [
+      "Lampan Sungai"
+    ],
+    "englishName": "Tinfoil barb",
+    "scientificName": "Puntius schwanenfeldii",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Kepiat",
+      "Lampan Sungai",
+      "Tinfoil barb",
+      "Puntius schwanenfeldii"
+    ],
+    "size": {
+      "large": "<= 6 ekor/kg",
+      "medium": "7 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(432)11/20",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 109,
+    "bookPage": 105,
+    "localName": "LampaM Jawa",
+    "otherNames": [
+      "Lelawak"
+    ],
+    "englishName": "Jawanese barb",
+    "scientificName": "Puntius gonionotus",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "LampaM Jawa",
+      "Lelawak",
+      "Jawanese barb",
+      "Puntius gonionotus"
+    ],
+    "size": {
+      "large": "<= 3 ekor/kg",
+      "medium": "4 - 9 ekor/kg",
+      "small": ">= 10 ekor/kg"
+    },
+    "sourceCode": "(440)11/20",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 109,
+    "bookPage": 105,
+    "localName": "Temelian",
+    "otherNames": [
+      "Tengalan"
+    ],
+    "englishName": "Barb",
+    "scientificName": "Puntioplites bulu",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Temelian",
+      "Tengalan",
+      "Barb",
+      "Puntioplites bulu"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 6 ekor/kg",
+      "small": ">= 7 ekor/kg"
+    },
+    "sourceCode": "(467)11/20",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 110,
+    "bookPage": 106,
+    "localName": "Bagoh",
+    "otherNames": [
+      "Bogoh"
+    ],
+    "englishName": "Spanner barb",
+    "scientificName": "Puntius lateristriga",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Bagoh",
+      "Bogoh",
+      "Spanner barb",
+      "Puntius lateristriga"
+    ],
+    "size": {
+      "large": "<= 10 ekor/kg",
+      "medium": "11 - 19 ekor/kg",
+      "small": ">= 20 ekor/kg"
+    },
+    "sourceCode": "(450)11/24",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 110,
+    "bookPage": 106,
+    "localName": "Tengas",
+    "otherNames": [
+      "Tengas"
+    ],
+    "englishName": "Lopper masher",
+    "scientificName": "Barbodes hexagonolepis",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Tengas",
+      "Lopper masher",
+      "Barbodes hexagonolepis"
+    ],
+    "size": {
+      "large": "4 - 6 ekor/kg",
+      "medium": "7 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(470)11/25",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 111,
+    "bookPage": 107,
+    "localName": "Tengas Daun",
+    "otherNames": [
+      "Tengas Daun"
+    ],
+    "englishName": "Carp",
+    "scientificName": "Poropuntius deauratus",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Tengas Daun",
+      "Carp",
+      "Poropuntius deauratus"
+    ],
+    "size": {
+      "large": "4 - 6 ekor/kg",
+      "medium": "7 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(471)11/25",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 111,
+    "bookPage": 107,
+    "localName": "Seluang",
+    "otherNames": [
+      "Seluang"
+    ],
+    "englishName": "Harlequin",
+    "scientificName": "Rasbora heteromorpha",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Seluang",
+      "Harlequin",
+      "Rasbora heteromorpha"
+    ],
+    "size": {
+      "large": "3 - 6 ekor/kg",
+      "medium": "7 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(456)11/26",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 112,
+    "bookPage": 108,
+    "localName": "Bada",
+    "otherNames": [
+      "Seluang Bada"
+    ],
+    "englishName": "Three-lined rasbora",
+    "scientificName": "Rasbora trilineata",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Bada",
+      "Seluang Bada",
+      "Three-lined rasbora",
+      "Rasbora trilineata"
+    ],
+    "size": {
+      "large": "11 - 16 ekor/kg",
+      "medium": "17 - 20 ekor/kg",
+      "small": ">= 21 ekor/kg"
+    },
+    "sourceCode": "(400)11/27",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 112,
+    "bookPage": 108,
+    "localName": "Kelah Merah",
+    "otherNames": [
+      "Empurau"
+    ],
+    "englishName": "Thai mahseer",
+    "scientificName": "Tor tambroides",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Kelah Merah",
+      "Empurau",
+      "Thai mahseer",
+      "Tor tambroides"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(427)11/28",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 113,
+    "bookPage": 109,
+    "localName": "Tilapia",
+    "otherNames": [
+      "Mudjair"
+    ],
+    "englishName": "Mosambique tilapia",
+    "scientificName": "Oreochromis mossambicus",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Tilapia",
+      "Mudjair",
+      "Mosambique tilapia",
+      "Oreochromis mossambicus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(475)12",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 113,
+    "bookPage": 109,
+    "localName": "Tilapia",
+    "otherNames": [
+      "Tilapia"
+    ],
+    "englishName": "Nile tilapia",
+    "scientificName": "Oreochromis niloticus niloticus",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Tilapia",
+      "Nile tilapia",
+      "Oreochromis niloticus niloticus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(478)12",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 114,
+    "bookPage": 110,
+    "localName": "Tilapia Biru",
+    "otherNames": [
+      "Tilapia"
+    ],
+    "englishName": "Blue Tilapia",
+    "scientificName": "Oreochromis aureus",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Tilapia Biru",
+      "Tilapia",
+      "Blue Tilapia",
+      "Oreochromis aureus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(477)12",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 115,
+    "bookPage": 111,
+    "localName": "Kepar",
+    "otherNames": [
+      "Puyu Betung",
+      "Patung"
+    ],
+    "englishName": "Malayan leaffish",
+    "scientificName": "Pristolepis fasciata",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Kepar",
+      "Puyu Betung",
+      "Patung",
+      "Malayan leaffish",
+      "Pristolepis fasciata"
+    ],
+    "size": {
+      "large": "<= 6 ekor/kg",
+      "medium": "7 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(408)13/1",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 115,
+    "bookPage": 111,
+    "localName": "Puyu",
+    "otherNames": [
+      "Betuk"
+    ],
+    "englishName": "Climbing perch",
+    "scientificName": "Anabas testudineus",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Puyu",
+      "Betuk",
+      "Climbing perch",
+      "Anabas testudineus"
+    ],
+    "size": {
+      "large": "4 - 6 ekor/kg",
+      "medium": "7 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(451)13/1",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 116,
+    "bookPage": 112,
+    "localName": "Keli Kayu",
+    "otherNames": [
+      "Lele"
+    ],
+    "englishName": "Walking catfish",
+    "scientificName": "Clarias batrachus",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Keli Kayu",
+      "Lele",
+      "Walking catfish",
+      "Clarias batrachus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(429)13/5",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 116,
+    "bookPage": 112,
+    "localName": "Keli Bunga",
+    "otherNames": [
+      "Keli"
+    ],
+    "englishName": "Broadhead walking catfish",
+    "scientificName": "Clarias macrocephalus",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Keli Bunga",
+      "Keli",
+      "Broadhead walking catfish",
+      "Clarias macrocephalus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(429)13/5",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 117,
+    "bookPage": 113,
+    "localName": "Belut",
+    "otherNames": [
+      "Belut"
+    ],
+    "englishName": "Swamp eel",
+    "scientificName": "Monopterus albus",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Belut",
+      "Swamp eel",
+      "Monopterus albus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(407)13/7",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 117,
+    "bookPage": 113,
+    "localName": "Ikan Linang",
+    "otherNames": [
+      "Belut",
+      "Ikan Tuna"
+    ],
+    "englishName": "Eel",
+    "scientificName": "Anguilla sp.",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Ikan Linang",
+      "Belut",
+      "Ikan Tuna",
+      "Eel",
+      "Anguilla sp."
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(407)13/7",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 118,
+    "bookPage": 114,
+    "localName": "Tembakang",
+    "otherNames": [
+      "Temakang"
+    ],
+    "englishName": "Kissing gouramy",
+    "scientificName": "Helostoma temmincki",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Tembakang",
+      "Temakang",
+      "Kissing gouramy",
+      "Helostoma temmincki"
+    ],
+    "size": {
+      "large": "<= 4 ekor/kg",
+      "medium": "5 - 8 ekor/kg",
+      "small": ">= 9 ekor/kg"
+    },
+    "sourceCode": "(466)13/8",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 118,
+    "bookPage": 114,
+    "localName": "Patin Muncung",
+    "otherNames": [
+      "Patin"
+    ],
+    "englishName": "River catfish",
+    "scientificName": "Helicophagus waandersii",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Patin Muncung",
+      "Patin",
+      "River catfish",
+      "Helicophagus waandersii"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(448)13/9",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 119,
+    "bookPage": 115,
+    "localName": "Baung",
+    "otherNames": [
+      "Baung"
+    ],
+    "englishName": "Asian redtail catfish",
+    "scientificName": "Hemibagrus nemurus",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Baung",
+      "Asian redtail catfish",
+      "Hemibagrus nemurus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(402)13/10",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 119,
+    "bookPage": 115,
+    "localName": "Baung hitam",
+    "otherNames": [
+      "Baung"
+    ],
+    "englishName": "River catfish",
+    "scientificName": "Mystus sp",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Baung hitam",
+      "Baung",
+      "River catfish",
+      "Mystus sp"
+    ],
+    "size": {
+      "large": "<= 2 ekor/kg",
+      "medium": "3 - 4 ekor/kg",
+      "small": ">= 5 ekor/kg"
+    },
+    "sourceCode": "(406)13/10",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 120,
+    "bookPage": 116,
+    "localName": "Belida",
+    "otherNames": [
+      "Belida Tompok"
+    ],
+    "englishName": "Clown featherback",
+    "scientificName": "Chitala ornata",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Belida",
+      "Belida Tompok",
+      "Clown featherback",
+      "Chitala ornata"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 6 ekor/kg",
+      "small": ">= 7 ekor/kg"
+    },
+    "sourceCode": "(406)13/12",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 120,
+    "bookPage": 116,
+    "localName": "Kalui",
+    "otherNames": [
+      "Kalui"
+    ],
+    "englishName": "Giant gouramy",
+    "scientificName": "Osphronemus goramy",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Kalui",
+      "Giant gouramy",
+      "Osphronemus goramy"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 4 ekor/kg",
+      "small": ">= 5 ekor/kg"
+    },
+    "sourceCode": "(417)13/13",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 121,
+    "bookPage": 117,
+    "localName": "Toman",
+    "otherNames": [
+      "Toman"
+    ],
+    "englishName": "Giant snakehead",
+    "scientificName": "Channa micropeltes",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Toman",
+      "Giant snakehead",
+      "Channa micropeltes"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(480)13/14",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 121,
+    "bookPage": 117,
+    "localName": "Haruan",
+    "otherNames": [
+      "Aruan",
+      "Gabus"
+    ],
+    "englishName": "Snakehead murrel",
+    "scientificName": "Channa striata",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Haruan",
+      "Aruan",
+      "Gabus",
+      "Snakehead murrel",
+      "Channa striata"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(481)13/15",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 122,
+    "bookPage": 118,
+    "localName": "Bujuk",
+    "otherNames": [
+      "Aruan"
+    ],
+    "englishName": "Snakehead",
+    "scientificName": "Channa lucius",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Bujuk",
+      "Aruan",
+      "Snakehead",
+      "Channa lucius"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 6 ekor/kg",
+      "small": ">= 7 ekor/kg"
+    },
+    "sourceCode": "(409)13/16",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 122,
+    "bookPage": 118,
+    "localName": "Haruan",
+    "otherNames": [
+      "Aruan"
+    ],
+    "englishName": "Snakehead",
+    "scientificName": "Channa orientalis",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Haruan",
+      "Aruan",
+      "Snakehead",
+      "Channa orientalis"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 6 ekor/kg",
+      "small": ">= 7 ekor/kg"
+    },
+    "sourceCode": "(411)13/15",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 123,
+    "bookPage": 119,
+    "localName": "Ketutu",
+    "otherNames": [
+      "Ubi",
+      "Bakut",
+      "Ikan Hantu",
+      "Betutu",
+      "Batu"
+    ],
+    "englishName": "Marble goby",
+    "scientificName": "Oxyeleotris marmorata",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Ketutu",
+      "Ubi",
+      "Bakut",
+      "Ikan Hantu",
+      "Betutu",
+      "Batu",
+      "Marble goby",
+      "Oxyeleotris marmorata"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(434)13/17",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 123,
+    "bookPage": 119,
+    "localName": "Patin",
+    "otherNames": [
+      "Lawang"
+    ],
+    "englishName": "River catfish",
+    "scientificName": "Pangasius pangasius",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Patin",
+      "Lawang",
+      "River catfish",
+      "Pangasius pangasius"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(446)13/19",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 124,
+    "bookPage": 120,
+    "localName": "Kelisa Emas",
+    "otherNames": [
+      "Kelisa",
+      "Arowana"
+    ],
+    "englishName": "Malaysian arowana",
+    "scientificName": "Scleropages formosus",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Kelisa Emas",
+      "Kelisa",
+      "Arowana",
+      "Malaysian arowana",
+      "Scleropages formosus"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(487)13/21",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 124,
+    "bookPage": 120,
+    "localName": "Sepat Siam",
+    "otherNames": [
+      "Sepat"
+    ],
+    "englishName": "Snakehead gourami",
+    "scientificName": "Trichopodus pectoralis",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Sepat Siam",
+      "Sepat",
+      "Snakehead gourami",
+      "Trichopodus pectoralis"
+    ],
+    "size": {
+      "large": "4 - 6 ekor/kg",
+      "medium": "7 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(459)13/22",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 125,
+    "bookPage": 121,
+    "localName": "Sepat padi",
+    "otherNames": [
+      "Sepat"
+    ],
+    "englishName": "Two-spotted gouramy",
+    "scientificName": "Trichopodus trichopterus",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Sepat padi",
+      "Sepat",
+      "Two-spotted gouramy",
+      "Trichopodus trichopterus"
+    ],
+    "size": {
+      "large": "4 - 6 ekor/kg",
+      "medium": "7 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(458)13/23",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 125,
+    "bookPage": 121,
+    "localName": "Lais",
+    "otherNames": [
+      "Tapah Bemban"
+    ],
+    "englishName": "Glass catfish",
+    "scientificName": "Ompok bimaculatus",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Lais",
+      "Tapah Bemban",
+      "Glass catfish",
+      "Ompok bimaculatus"
+    ],
+    "size": {
+      "large": "3 - 6 ekor/kg",
+      "medium": "7 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(437)13/24",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 126,
+    "bookPage": 122,
+    "localName": "Tapah",
+    "otherNames": [
+      "Tapah"
+    ],
+    "englishName": "Giant catfish",
+    "scientificName": "Wallago leerii",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Tapah",
+      "Giant catfish",
+      "Wallago leerii"
+    ],
+    "size": {
+      "large": ">= 1 kg/ekor",
+      "medium": "2 - 5 ekor/kg",
+      "small": ">= 6 ekor/kg"
+    },
+    "sourceCode": "(464)13/24",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 126,
+    "bookPage": 122,
+    "localName": "Tebal Sisek",
+    "otherNames": [
+      "Tebal Sisek"
+    ],
+    "englishName": "Common barb",
+    "scientificName": "Puntius binotatus",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Tebal Sisek",
+      "Common barb",
+      "Puntius binotatus"
+    ],
+    "size": {
+      "large": "4 - 6 ekor/kg",
+      "medium": "7 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(464)13/24",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 127,
+    "bookPage": 123,
+    "localName": "Pelaga",
+    "otherNames": [
+      "Belaga"
+    ],
+    "englishName": "Siamese fighting fish",
+    "scientificName": "Betta splender",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Pelaga",
+      "Belaga",
+      "Siamese fighting fish",
+      "Betta splender"
+    ],
+    "size": {
+      "large": "20 - 30 ekor/kg",
+      "medium": "31 - 40 ekor/kg",
+      "small": ">= 41 ekor/kg"
+    },
+    "sourceCode": "(487)***",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  },
+  {
+    "habitat": "freshwater",
+    "pdfPage": 127,
+    "bookPage": 123,
+    "localName": "Sumpit-sumpit",
+    "otherNames": [
+      "Sesumpit"
+    ],
+    "englishName": "Archerfish",
+    "scientificName": "Toxotes jaculatrix",
+    "canonicalMalayName": null,
+    "nameVariants": [
+      "Sumpit-sumpit",
+      "Sesumpit",
+      "Archerfish",
+      "Toxotes jaculatrix"
+    ],
+    "size": {
+      "large": "4 - 6 ekor/kg",
+      "medium": "7 - 10 ekor/kg",
+      "small": ">= 11 ekor/kg"
+    },
+    "sourceCode": "(460)",
+    "source": "LKIM - Buku Ikan-Ikan Komersial Di Malaysia"
+  }
+]
