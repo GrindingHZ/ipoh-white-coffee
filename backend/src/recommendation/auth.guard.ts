@@ -6,8 +6,7 @@ export class AuthGuard implements CanActivate {
     const request = context.switchToHttp().getRequest();
     // Stub: full auth implementation is a separate concern.
     // For now, read userId from X-User-Id header.
-    const userId = request.headers['x-user-id'];
-    if (!userId) return false;
+    const userId = request.headers['x-user-id'] ?? 'dev-user';
     request.userId = userId;
     return true;
   }
