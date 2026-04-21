@@ -1,4 +1,33 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  CANVAS_WIDTH,
+  CANVAS_HEIGHT,
+  CANVAS_BORDER_RADIUS,
+  CONTAINER_WIDTH,
+  CONTAINER_HEIGHT,
+  WAVE_SPAWN_COUNT,
+  WAVE_SPAWN_INTERVAL_MS,
+  WAVE_INITIAL_RADIUS,
+  WAVE_EXPAND_SPEED,
+  WAVE_TIME_STEP,
+  RING_STEPS,
+  RING_FADE_START,
+  RING_BASE_ALPHA,
+  RING_FADE_EXPONENT,
+  RING_LINE_WIDTH_BASE,
+  RING_LINE_WIDTH_EXTRA,
+  WAVE_SCALE_MULTIPLIER,
+  WAVE1_FREQ, WAVE1_SPEED, WAVE1_AMP,
+  WAVE2_FREQ, WAVE2_SPEED, WAVE2_AMP,
+  WAVE3_FREQ, WAVE3_SPEED, WAVE3_AMP,
+  COLOR_INNER,
+  COLOR_OUTER,
+  COLOR_LERP_EXPONENT,
+  PLAY_BUTTON_SIZE,
+  PLAY_BUTTON_HIT_RADIUS,
+  PLAY_BUTTON_HOVER_SCALE,
+  PLAY_BUTTON_COLOR,
+} from "./constants.ts";
 
 interface Wave {
   r: number;
@@ -35,31 +64,33 @@ export default function App() {
     const maxR = Math.sqrt(cx * cx + cy * cy) + 20;
 
     function drawRing(baseR: number, t: number) {
-      if (!ctx || baseR < 52) return;
+      if (!ctx || baseR < WAVE_INITIAL_RADIUS) return;
       const prog = Math.min(baseR / maxR, 1);
 
-      const fadeStart = 0.45;
       const alpha =
-        prog < fadeStart
-          ? 0.92
-          : 0.92 *
+        prog < RING_FADE_START
+          ? RING_BASE_ALPHA
+          : RING_BASE_ALPHA *
             (1 -
               Math.pow(
-                (prog - fadeStart) / (1 - fadeStart),
-                1.6
+                (prog - RING_FADE_START) / (1 - RING_FADE_START),
+                RING_FADE_EXPONENT
               ));
       if (alpha <= 0.01) return;
 
-      const [r, g, b] = lerpColor(210, 0, 255, 30, 80, 255, Math.pow(prog, 0.7));
+      const [r, g, b] = lerpColor(
+        ...COLOR_INNER,
+        ...COLOR_OUTER,
+        Math.pow(prog, COLOR_LERP_EXPONENT)
+      );
 
-      const steps = 400;
       ctx.beginPath();
-      for (let s = 0; s <= steps; s++) {
-        const angle = (s / steps) * Math.PI * 2;
-        const waveScale = Math.sin(prog * Math.PI) * 1.1;
-        const w1 = Math.sin(angle * 4 + t * 1.8) * waveScale * 18;
-        const w2 = Math.sin(angle * 7 - t * 1.2) * waveScale * 8;
-        const w3 = Math.sin(angle * 2 + t * 0.6) * waveScale * 12;
+      for (let s = 0; s <= RING_STEPS; s++) {
+        const angle = (s / RING_STEPS) * Math.PI * 2;
+        const waveScale = Math.sin(prog * Math.PI) * WAVE_SCALE_MULTIPLIER;
+        const w1 = Math.sin(angle * WAVE1_FREQ + t * WAVE1_SPEED) * waveScale * WAVE1_AMP;
+        const w2 = Math.sin(angle * WAVE2_FREQ - t * WAVE2_SPEED) * waveScale * WAVE2_AMP;
+        const w3 = Math.sin(angle * WAVE3_FREQ + t * WAVE3_SPEED) * waveScale * WAVE3_AMP;
         const rad = baseR + w1 + w2 + w3;
         const x = cx + Math.cos(angle) * rad;
         const y = cy + Math.sin(angle) * rad;
@@ -67,7 +98,7 @@ export default function App() {
       }
       ctx.closePath();
       ctx.strokeStyle = `rgba(${r},${g},${b},${alpha.toFixed(3)})`;
-      ctx.lineWidth = 1.2 + (1 - prog) * 1.0;
+      ctx.lineWidth = RING_LINE_WIDTH_BASE + (1 - prog) * RING_LINE_WIDTH_EXTRA;
       ctx.stroke();
     }
 
@@ -78,10 +109,10 @@ export default function App() {
       wavesRef.current = wavesRef.current.filter((w) => w.r < maxR);
       for (const w of wavesRef.current) {
         drawRing(w.r, tRef.current);
-        w.r += 0.55;
+        w.r += WAVE_EXPAND_SPEED;
       }
 
-      tRef.current += 0.025;
+      tRef.current += WAVE_TIME_STEP;
       animRef.current = requestAnimationFrame(loop);
     }
 
@@ -90,10 +121,10 @@ export default function App() {
   }, []);
 
   function spawnWaves() {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < WAVE_SPAWN_COUNT; i++) {
       setTimeout(() => {
-        wavesRef.current.push({ r: 52 });
-      }, i * 200);
+        wavesRef.current.push({ r: WAVE_INITIAL_RADIUS });
+      }, i * WAVE_SPAWN_INTERVAL_MS);
     }
   }
 
@@ -105,7 +136,7 @@ export default function App() {
     const sy = canvas.height / rect.height;
     const dx = (e.clientX - rect.left) * sx - canvas.width / 2;
     const dy = (e.clientY - rect.top) * sy - canvas.height / 2;
-    setHovered(Math.sqrt(dx * dx + dy * dy) < 54);
+    setHovered(Math.sqrt(dx * dx + dy * dy) < PLAY_BUTTON_HIT_RADIUS);
   }
 
   function handleClick(e: React.MouseEvent<HTMLCanvasElement>) {
@@ -116,7 +147,7 @@ export default function App() {
     const sy = canvas.height / rect.height;
     const dx = (e.clientX - rect.left) * sx - canvas.width / 2;
     const dy = (e.clientY - rect.top) * sy - canvas.height / 2;
-    if (Math.sqrt(dx * dx + dy * dy) < 54) spawnWaves();
+    if (Math.sqrt(dx * dx + dy * dy) < PLAY_BUTTON_HIT_RADIUS) spawnWaves();
   }
 
   return (
@@ -130,23 +161,22 @@ export default function App() {
         justifyContent: "center",
       }}
     >
-      <div style={{ position: "relative", width: 680, height: 540 }}>
+      <div style={{ position: "relative", width: CONTAINER_WIDTH, height: CONTAINER_HEIGHT }}>
         <canvas
           ref={canvasRef}
-          width={680}
-          height={540}
+          width={CANVAS_WIDTH}
+          height={CANVAS_HEIGHT}
           style={{
             display: "block",
             width: "100%",
             height: "100%",
-            borderRadius: 12,
+            borderRadius: CANVAS_BORDER_RADIUS,
             cursor: hovered ? "pointer" : "default",
           }}
           onMouseMove={handleMouseMove}
           onClick={handleClick}
         />
 
-        {/* Play button overlay — positioned via CSS over the canvas center */}
         <div
           onClick={spawnWaves}
           onMouseEnter={() => setHovered(true)}
@@ -155,10 +185,10 @@ export default function App() {
             position: "absolute",
             top: "50%",
             left: "50%",
-            transform: `translate(-50%, -50%) scale(${hovered ? 1.06 : 1.0})`,
+            transform: `translate(-50%, -50%) scale(${hovered ? PLAY_BUTTON_HOVER_SCALE : 1.0})`,
             transition: "transform 0.15s ease",
-            width: 96,
-            height: 96,
+            width: PLAY_BUTTON_SIZE,
+            height: PLAY_BUTTON_SIZE,
             borderRadius: "50%",
             background: "#fff",
             display: "flex",
@@ -170,15 +200,14 @@ export default function App() {
             gap: 4,
           }}
         >
-          {/* Triangle play icon */}
           <svg width="24" height="24" viewBox="0 0 24 24">
-            <polygon points="6,4 20,12 6,20" fill="#1a9e7e" />
+            <polygon points="6,4 20,12 6,20" fill={PLAY_BUTTON_COLOR} />
           </svg>
           <span
             style={{
               fontSize: 13,
               fontWeight: 500,
-              color: "#1a9e7e",
+              color: PLAY_BUTTON_COLOR,
               lineHeight: 1,
             }}
           >
