@@ -10,8 +10,6 @@ import {
   CANVAS_HEIGHT,
   WAVE_MIN_RADIUS,
   WAVE_INITIAL_RADIUS,
-  WAVE_SPAWN_COUNT,
-  WAVE_SPAWN_INTERVAL_MS,
   WAVE_EXPAND_SPEED,
   WAVE_TIME_STEP,
   WAVE_HOVER_RADIUS,
@@ -83,6 +81,10 @@ export default function App() {
   const [userCoords, setUserCoords] = useState<{ lat: number; lng: number } | null>(null);
   const [nearestCoast, setNearestCoast] = useState<CoastResult | null>(null);
   const { navHidden, navHovered, setNavHovered, appScreenRef } = useScrollNav();
+  const selectedZoneName = nearestCoast?.name ?? (userCoords ? "Your Location" : "Detecting...");
+  const displayedTripMetrics = TRIP_METRICS.map((metric) =>
+    metric.label === "Zone" ? { ...metric, value: selectedZoneName } : metric
+  );
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -169,14 +171,6 @@ export default function App() {
     burstsRef.current.push({ r: BURST_INITIAL_RADIUS, alpha: BURST_INITIAL_ALPHA });
   }
 
-  function spawnWaves() {
-    for (let i = 0; i < WAVE_SPAWN_COUNT; i += 1) {
-      window.setTimeout(() => {
-        wavesRef.current.push({ r: WAVE_INITIAL_RADIUS });
-      }, i * WAVE_SPAWN_INTERVAL_MS);
-    }
-  }
-
   function startLoadingRipple() {
     // Spawn an initial burst then keep adding one ring at a steady interval
     wavesRef.current.push({ r: WAVE_INITIAL_RADIUS });
@@ -246,16 +240,34 @@ export default function App() {
         onMouseLeave={() => setNavHovered(false)}
         aria-label="FisherIQ app bar"
       >
-        <button className="icon-button" type="button" aria-label="Open menu">
-          <span aria-hidden="true">☰</span>
-        </button>
-        <div className="app-title">
-          <span>FisherIQ</span>
-          <strong>Today</strong>
+        <div className="brand-lockup" aria-label="FisherIQ">
+          <span className="brand-logo">FIQ</span>
+          <strong>FisherIQ</strong>
         </div>
-        <button className="icon-button" type="button" aria-label="Refresh decision">
-          <span aria-hidden="true">↻</span>
-        </button>
+        <div className="app-bar-divider" aria-hidden="true" />
+        <div className="top-actions" aria-label="App actions">
+          <button className="nav-button" type="button">
+            Today
+          </button>
+          <button className="nav-button" type="button">
+            Map
+          </button>
+          <button className="nav-button" type="button">
+            Log
+          </button>
+          <button className="nav-button" type="button">
+            Market
+          </button>
+          <button className="nav-button" type="button">
+            Alerts
+          </button>
+          <button className="nav-button" type="button">
+            Profile
+          </button>
+          <button className="nav-button" type="button">
+            Settings
+          </button>
+        </div>
       </nav>
 
       <section ref={appScreenRef} className="app-screen" aria-label="FisherIQ daily dashboard">
@@ -335,7 +347,7 @@ export default function App() {
                     </div>
                   )}
                   <div className="decision-overlay decision-overlay--static" aria-live="polite">
-                    {TRIP_METRICS.map((metric) => (
+                    {displayedTripMetrics.map((metric) => (
                       <div className="metric" key={metric.label}>
                         <span>{metric.label}</span>
                         <strong className={metric.tone}>{metric.value}</strong>
@@ -372,7 +384,7 @@ export default function App() {
                   <h3>Go fishing at 6:30 AM</h3>
                   <p>
                     Low rain risk, moderate fuel cost, and stronger catch history near
-                    Pantai Remis make the trip profitable.
+                    {` ${selectedZoneName} make the trip profitable.`}
                   </p>
                   <div className="profit-strip">
                     <span>Without FisherIQ</span>
