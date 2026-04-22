@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import type { MouseEvent } from "react";
 import "./styles.css";
 import heroBg from "./assets/fisheriq-hero.png";
+import { getLocationCoast } from "./services/api";
+import type { CoastResult } from "./services/api";
+import { useScrollNav } from "./hooks/useScrollNav";
 import {
   CANVAS_WIDTH,
   CANVAS_HEIGHT,
@@ -48,6 +51,7 @@ interface Burst {
   alpha: number;
 }
 
+
 function lerpColor(
   r1: number,
   g1: number,
@@ -76,6 +80,9 @@ export default function App() {
   const [hasChecked, setHasChecked] = useState(false);
   const [seeMoreReady, setSeeMoreReady] = useState(false);
   const [showMore, setShowMore] = useState(false);
+  const [userCoords, setUserCoords] = useState<{ lat: number; lng: number } | null>(null);
+  const [nearestCoast, setNearestCoast] = useState<CoastResult | null>(null);
+  const { navHidden, navHovered, setNavHovered, appScreenRef } = useScrollNav();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -190,9 +197,15 @@ export default function App() {
     setIsLoading(true);
     startLoadingRipple();
 
-    // TODO: replace with real API call — await api.getDecision()
-    await new Promise((resolve) => setTimeout(resolve, FAKE_BACKEND_DELAY_MS));
+    // Run backend call + geolocation lookup in parallel
+    const [, locationResult] = await Promise.all([
+      // TODO: replace with real API call — await api.getDecision()
+      new Promise<void>((resolve) => setTimeout(resolve, FAKE_BACKEND_DELAY_MS)),
+      getLocationCoast(),
+    ]);
 
+    setUserCoords(locationResult.coords);
+    setNearestCoast(locationResult.coast);
     stopLoadingRipple();
     spawnBurst();
     setIsLoading(false);
@@ -220,7 +233,19 @@ export default function App() {
 
   return (
     <main className="app-shell" style={{ "--hero-bg": `url(${heroBg})` } as React.CSSProperties}>
-      <nav className="app-bar" aria-label="FisherIQ app bar">
+      {/* Invisible strip at top edge — hover here to peek the nav */}
+      <div
+        className="nav-hover-zone"
+        onMouseEnter={() => setNavHovered(true)}
+        onMouseLeave={() => setNavHovered(false)}
+      />
+
+      <nav
+        className={navHidden && !navHovered ? "app-bar app-bar--hidden" : "app-bar"}
+        onMouseEnter={() => setNavHovered(true)}
+        onMouseLeave={() => setNavHovered(false)}
+        aria-label="FisherIQ app bar"
+      >
         <button className="icon-button" type="button" aria-label="Open menu">
           <span aria-hidden="true">☰</span>
         </button>
@@ -233,7 +258,7 @@ export default function App() {
         </button>
       </nav>
 
-      <section className="app-screen" aria-label="FisherIQ daily dashboard">
+      <section ref={appScreenRef} className="app-screen" aria-label="FisherIQ daily dashboard">
         <aside className="decision-panel" aria-label="FisherIQ daily decision">
           <div className="panel-heading">
             <div>
@@ -243,14 +268,24 @@ export default function App() {
             <span className="weather-chip">Calm sea</span>
           </div>
 
-          <div className="signal-stage" onClick={handleStageClick}>
+          <div
+            className={hasChecked ? "signal-stage signal-stage--result" : "signal-stage"}
+            onClick={handleStageClick}
+          >
+            {/* Canvas — hidden after the decision is revealed */}
             <canvas
               ref={canvasRef}
               width={CANVAS_WIDTH}
               height={CANVAS_HEIGHT}
               onMouseMove={handleMouseMove}
               onMouseLeave={() => setHovered(false)}
-              className={hovered ? "signal-canvas is-hovered" : "signal-canvas"}
+              className={
+                hasChecked
+                  ? "signal-canvas signal-canvas--hidden"
+                  : hovered
+                    ? "signal-canvas is-hovered"
+                    : "signal-canvas"
+              }
             />
 
             {!hasChecked && (
@@ -276,16 +311,40 @@ export default function App() {
               </button>
             )}
 
-            {hasChecked && (
-              <div className="decision-overlay" aria-live="polite">
-                {TRIP_METRICS.map((metric) => (
-                  <div className="metric" key={metric.label}>
-                    <span>{metric.label}</span>
-                    <strong className={metric.tone}>{metric.value}</strong>
+            {hasChecked && (() => {
+              const mapTarget = nearestCoast ?? userCoords;
+              const mapSrc = mapTarget
+                ? `https://www.openstreetmap.org/export/embed.html?bbox=${mapTarget.lng - 0.06},${mapTarget.lat - 0.06},${mapTarget.lng + 0.06},${mapTarget.lat + 0.06}&layer=mapnik&marker=${mapTarget.lat},${mapTarget.lng}`
+                : null;
+              return (
+                <>
+                  {mapSrc && (
+                    <div className="coast-map-section">
+                      <div className="coast-map-header">
+                        <span>⚓</span>
+                        <strong>{nearestCoast ? nearestCoast.name : "Your Location"}</strong>
+                        {nearestCoast && <em>{nearestCoast.distance_km.toFixed(1)} km away</em>}
+                      </div>
+                      <iframe
+                        className="coast-map-frame"
+                        title={nearestCoast ? nearestCoast.name : "Your location"}
+                        src={mapSrc}
+                        allowFullScreen
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                  <div className="decision-overlay decision-overlay--static" aria-live="polite">
+                    {TRIP_METRICS.map((metric) => (
+                      <div className="metric" key={metric.label}>
+                        <span>{metric.label}</span>
+                        <strong className={metric.tone}>{metric.value}</strong>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            )}
+                </>
+              );
+            })()}
           </div>
 
           <div className="panel-actions">
