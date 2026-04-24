@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import type { MouseEvent } from "react";
 import "./styles.css";
 import heroBg from "./assets/fisheriq-hero.png";
-import { getLocationCoast } from "./services/api";
+import { getFuelPrice, getLocationCoast } from "./services/api";
 import type { CoastResult } from "./services/api";
 import { useScrollNav } from "./hooks/useScrollNav";
 import AuthModal, { loadStoredUser } from "./components/AuthModal";
@@ -53,6 +53,13 @@ interface Burst {
   alpha: number;
 }
 
+interface AmbientCondition {
+  icon: string;
+  label: string;
+  value: string;
+  sub: string;
+}
+
 
 function lerpColor(
   r1: number,
@@ -90,11 +97,67 @@ export default function App() {
   const [showMore, setShowMore] = useState(false);
   const [userCoords, setUserCoords] = useState<{ lat: number; lng: number } | null>(null);
   const [nearestCoast, setNearestCoast] = useState<CoastResult | null>(null);
+  const [dieselCondition, setDieselCondition] = useState<AmbientCondition>({
+    icon: "⛽",
+    label: "Diesel",
+    value: "Diesel loading",
+    sub: "Fetching latest price",
+  });
+  const [ron95Condition, setRon95Condition] = useState<AmbientCondition>({
+    icon: "⛽",
+    label: "RON95",
+    value: "RON95 loading",
+    sub: "Fetching latest price",
+  });
   const { navHidden, navHovered, setNavHovered, appScreenRef } = useScrollNav();
   const selectedZoneName = nearestCoast?.name ?? (userCoords ? "Your Location" : "Detecting...");
   const displayedTripMetrics = TRIP_METRICS.map((metric) =>
     metric.label === "Zone" ? { ...metric, value: selectedZoneName } : metric
   );
+  const displayedAmbientConditions = [...AMBIENT_CONDITIONS, dieselCondition, ron95Condition];
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadFuelPrice() {
+      try {
+        const fuel = await getFuelPrice(currentUser?.locality);
+        if (cancelled) return;
+        setDieselCondition({
+          icon: "⛽",
+          label: "Diesel",
+          value: `RM${fuel.dieselPrice.toFixed(2)} Diesel`,
+          sub: `Updated ${fuel.effectiveDate}`,
+        });
+        setRon95Condition({
+          icon: "⛽",
+          label: "RON95",
+          value: `RM${fuel.ron95Price.toFixed(2)} RON95`,
+          sub: `Updated ${fuel.effectiveDate}`,
+        });
+      } catch {
+        if (cancelled) return;
+        setDieselCondition({
+          icon: "⛽",
+          label: "Diesel",
+          value: "Diesel unavailable",
+          sub: "Check again later",
+        });
+        setRon95Condition({
+          icon: "⛽",
+          label: "RON95",
+          value: "RON95 unavailable",
+          sub: "Check again later",
+        });
+      }
+    }
+
+    loadFuelPrice();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [currentUser?.locality]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -306,7 +369,7 @@ export default function App() {
 
         {/* Ambient condition chips — condensed in nav, expand on hover */}
         <div className="nav-conditions" aria-label="Current conditions">
-          {AMBIENT_CONDITIONS.map((c) => (
+          {displayedAmbientConditions.map((c) => (
             <div className="nav-condition-chip" key={c.label}>
               <span className="nav-condition-collapsed">
                 <span aria-hidden="true">{c.icon}</span>

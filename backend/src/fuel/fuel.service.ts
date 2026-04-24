@@ -1,5 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
+import { resolveDieselRegion } from './fuel-region';
 
 export interface FuelPriceInfo {
   ron95Price: number;
@@ -7,6 +8,12 @@ export interface FuelPriceInfo {
   dieselPrice: number;
   dieselEastMsiaPrice: number | null;
   effectiveDate: Date;
+}
+
+export interface FuelPriceResponse {
+  effectiveDate: string;
+  ron95Price: number;
+  dieselPrice: number;
 }
 
 @Injectable()
@@ -30,6 +37,26 @@ export class FuelService {
           ? Number(entry.dieselEastMsiaPrice)
           : null,
       effectiveDate: entry.effectiveDate,
+    };
+  }
+
+  async getLatestPriceForLocality(
+    locality?: string,
+  ): Promise<FuelPriceResponse> {
+    const latest = await this.getLatestPrice();
+    if (!latest) throw new NotFoundException('No fuel price data available');
+
+    const requestedRegion = resolveDieselRegion(locality);
+    const hasEastMalaysiaPrice = latest.dieselEastMsiaPrice !== null;
+    const dieselPrice =
+      requestedRegion === 'east_malaysia' && hasEastMalaysiaPrice
+        ? latest.dieselEastMsiaPrice!
+        : latest.dieselPrice;
+
+    return {
+      effectiveDate: latest.effectiveDate.toISOString().slice(0, 10),
+      ron95Price: latest.ron95Price,
+      dieselPrice,
     };
   }
 

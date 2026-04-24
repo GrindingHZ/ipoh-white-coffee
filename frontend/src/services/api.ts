@@ -12,6 +12,12 @@ export interface LocationCoastResult {
   coast: CoastResult | null;
 }
 
+export interface FuelPriceResponse {
+  effectiveDate: string;
+  ron95Price: number;
+  dieselPrice: number;
+}
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 function getDistanceKm(lat1: number, lng1: number, lat2: number, lng2: number): number {
@@ -24,6 +30,28 @@ function getDistanceKm(lat1: number, lng1: number, lat2: number, lng2: number): 
     Math.cos(lat2 * Math.PI / 180) *
     Math.sin(dLng / 2) ** 2;
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+function getApiBaseUrl(): string {
+  return process.env.REACT_APP_API_BASE_URL ?? "http://localhost:3000";
+}
+
+function apiUrl(path: string, params?: URLSearchParams): string {
+  const base = getApiBaseUrl().replace(/\/$/, "");
+  const query = params?.toString();
+  return query ? `${base}${path}?${query}` : `${base}${path}`;
+}
+
+// ── Backend fuel pricing ──────────────────────────────────────────────────────
+
+export async function getFuelPrice(locality?: string): Promise<FuelPriceResponse> {
+  const params = new URLSearchParams();
+  const trimmedLocality = locality?.trim();
+  if (trimmedLocality) params.set("locality", trimmedLocality);
+
+  const res = await fetch(apiUrl("/fuel/latest", params));
+  if (!res.ok) throw new Error(`Fuel price request failed: ${res.status}`);
+  return res.json() as Promise<FuelPriceResponse>;
 }
 
 // ── Overpass / coast lookup ───────────────────────────────────────────────────
