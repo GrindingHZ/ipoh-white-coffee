@@ -1,12 +1,14 @@
 import { PrismaService } from '../../../prisma/prisma.service';
-import districtStateMap from '../../../data/district-state-map.json';
+import districtsByState from '../../../data/state-districts.json';
 
 export async function landingsSlice(
   prisma: PrismaService,
   district: string,
   month: number,
 ): Promise<string> {
-  const state = (districtStateMap as Record<string, string>)[district];
+  const state = Object.entries(districtsByState as Record<string, string[]>).find(
+    ([, districts]) => districts.includes(district),
+  )?.[0];
   if (!state) return '';
 
   const rows = await prisma.fishLanding.findMany({
