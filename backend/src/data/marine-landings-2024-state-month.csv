@@ -1,0 +1,181 @@
+coast,state,month,month_name_ms,landings_tonnes
+west,Perlis,1,Januari,930
+west,Perlis,2,Februari,1654
+west,Perlis,3,Mac,1895
+west,Perlis,4,April,2501
+west,Perlis,5,Mei,3075
+west,Perlis,6,Jun,2573
+west,Perlis,7,Julai,3601
+west,Perlis,8,Ogos,2759
+west,Perlis,9,September,2581
+west,Perlis,10,Oktober,2526
+west,Perlis,11,November,2219
+west,Perlis,12,Disember,1785
+west,Kedah,1,Januari,9827
+west,Kedah,2,Februari,10116
+west,Kedah,3,Mac,8756
+west,Kedah,4,April,8170
+west,Kedah,5,Mei,9052
+west,Kedah,6,Jun,8799
+west,Kedah,7,Julai,8807
+west,Kedah,8,Ogos,8485
+west,Kedah,9,September,7780
+west,Kedah,10,Oktober,8469
+west,Kedah,11,November,8067
+west,Kedah,12,Disember,7987
+west,Pulau Pinang,1,Januari,3050
+west,Pulau Pinang,2,Februari,5330
+west,Pulau Pinang,3,Mac,5343
+west,Pulau Pinang,4,April,4907
+west,Pulau Pinang,5,Mei,3004
+west,Pulau Pinang,6,Jun,2964
+west,Pulau Pinang,7,Julai,2385
+west,Pulau Pinang,8,Ogos,2403
+west,Pulau Pinang,9,September,2264
+west,Pulau Pinang,10,Oktober,2609
+west,Pulau Pinang,11,November,2438
+west,Pulau Pinang,12,Disember,2536
+west,Perak,1,Januari,24668
+west,Perak,2,Februari,29393
+west,Perak,3,Mac,41794
+west,Perak,4,April,42264
+west,Perak,5,Mei,48336
+west,Perak,6,Jun,39662
+west,Perak,7,Julai,35482
+west,Perak,8,Ogos,36710
+west,Perak,9,September,32122
+west,Perak,10,Oktober,34567
+west,Perak,11,November,36970
+west,Perak,12,Disember,32381
+west,Selangor,1,Januari,11493
+west,Selangor,2,Februari,12112
+west,Selangor,3,Mac,12525
+west,Selangor,4,April,12475
+west,Selangor,5,Mei,12758
+west,Selangor,6,Jun,13206
+west,Selangor,7,Julai,14360
+west,Selangor,8,Ogos,14745
+west,Selangor,9,September,15056
+west,Selangor,10,Oktober,15258
+west,Selangor,11,November,15794
+west,Selangor,12,Disember,13952
+west,Negeri Sembilan,1,Januari,51
+west,Negeri Sembilan,2,Februari,59
+west,Negeri Sembilan,3,Mac,61
+west,Negeri Sembilan,4,April,53
+west,Negeri Sembilan,5,Mei,62
+west,Negeri Sembilan,6,Jun,65
+west,Negeri Sembilan,7,Julai,84
+west,Negeri Sembilan,8,Ogos,70
+west,Negeri Sembilan,9,September,28
+west,Negeri Sembilan,10,Oktober,42
+west,Negeri Sembilan,11,November,21
+west,Negeri Sembilan,12,Disember,40
+west,Melaka,1,Januari,191
+west,Melaka,2,Februari,177
+west,Melaka,3,Mac,168
+west,Melaka,4,April,165
+west,Melaka,5,Mei,177
+west,Melaka,6,Jun,175
+west,Melaka,7,Julai,164
+west,Melaka,8,Ogos,175
+west,Melaka,9,September,178
+west,Melaka,10,Oktober,169
+west,Melaka,11,November,170
+west,Melaka,12,Disember,177
+west,Johor,1,Januari,2252
+west,Johor,2,Februari,2360
+west,Johor,3,Mac,2387
+west,Johor,4,April,2336
+west,Johor,5,Mei,2514
+west,Johor,6,Jun,2539
+west,Johor,7,Julai,2534
+west,Johor,8,Ogos,2606
+west,Johor,9,September,2572
+west,Johor,10,Oktober,2501
+west,Johor,11,November,2390
+west,Johor,12,Disember,2282
+east,Kelantan,1,Januari,2475
+east,Kelantan,2,Februari,2276
+east,Kelantan,3,Mac,5079
+east,Kelantan,4,April,6905
+east,Kelantan,5,Mei,6687
+east,Kelantan,6,Jun,6635
+east,Kelantan,7,Julai,5904
+east,Kelantan,8,Ogos,4703
+east,Kelantan,9,September,5631
+east,Kelantan,10,Oktober,5534
+east,Kelantan,11,November,3894
+east,Kelantan,12,Disember,2391
+east,Terengganu,1,Januari,1841
+east,Terengganu,2,Februari,2253
+east,Terengganu,3,Mac,3599
+east,Terengganu,4,April,3463
+east,Terengganu,5,Mei,3879
+east,Terengganu,6,Jun,3398
+east,Terengganu,7,Julai,3417
+east,Terengganu,8,Ogos,4068
+east,Terengganu,9,September,3972
+east,Terengganu,10,Oktober,4554
+east,Terengganu,11,November,2985
+east,Terengganu,12,Disember,2229
+east,Pahang,1,Januari,5573
+east,Pahang,2,Februari,8604
+east,Pahang,3,Mac,12121
+east,Pahang,4,April,13962
+east,Pahang,5,Mei,13843
+east,Pahang,6,Jun,12162
+east,Pahang,7,Julai,11535
+east,Pahang,8,Ogos,12944
+east,Pahang,9,September,16268
+east,Pahang,10,Oktober,15282
+east,Pahang,11,November,14774
+east,Pahang,12,Disember,7584
+east,Johor,1,Januari,610
+east,Johor,2,Februari,753
+east,Johor,3,Mac,1601
+east,Johor,4,April,3282
+east,Johor,5,Mei,3263
+east,Johor,6,Jun,2465
+east,Johor,7,Julai,2593
+east,Johor,8,Ogos,2276
+east,Johor,9,September,3908
+east,Johor,10,Oktober,4188
+east,Johor,11,November,3536
+east,Johor,12,Disember,1341
+borneo,Sarawak,1,Januari,4816
+borneo,Sarawak,2,Februari,5595
+borneo,Sarawak,3,Mac,8528
+borneo,Sarawak,4,April,9155
+borneo,Sarawak,5,Mei,10276
+borneo,Sarawak,6,Jun,10363
+borneo,Sarawak,7,Julai,9651
+borneo,Sarawak,8,Ogos,9384
+borneo,Sarawak,9,September,9010
+borneo,Sarawak,10,Oktober,8282
+borneo,Sarawak,11,November,7040
+borneo,Sarawak,12,Disember,4004
+borneo,Sabah,1,Januari,15479
+borneo,Sabah,2,Februari,15385
+borneo,Sabah,3,Mac,16571
+borneo,Sabah,4,April,17916
+borneo,Sabah,5,Mei,19046
+borneo,Sabah,6,Jun,18606
+borneo,Sabah,7,Julai,19198
+borneo,Sabah,8,Ogos,17895
+borneo,Sabah,9,September,16245
+borneo,Sabah,10,Oktober,16560
+borneo,Sabah,11,November,14361
+borneo,Sabah,12,Disember,14550
+borneo,W.P. Labuan,1,Januari,1171
+borneo,W.P. Labuan,2,Februari,1043
+borneo,W.P. Labuan,3,Mac,1510
+borneo,W.P. Labuan,4,April,1829
+borneo,W.P. Labuan,5,Mei,2028
+borneo,W.P. Labuan,6,Jun,1978
+borneo,W.P. Labuan,7,Julai,2078
+borneo,W.P. Labuan,8,Ogos,2064
+borneo,W.P. Labuan,9,September,1974
+borneo,W.P. Labuan,10,Oktober,1961
+borneo,W.P. Labuan,11,November,1436
+borneo,W.P. Labuan,12,Disember,1183

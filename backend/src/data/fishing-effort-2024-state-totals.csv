@@ -1,0 +1,76 @@
+coast,state,effort_metric,value
+west,Perlis,fishing_units,3710
+west,Kedah,fishing_units,58242
+west,Pulau Pinang,fishing_units,43888
+west,Perak,fishing_units,59354
+west,Selangor,fishing_units,62560
+west,Negeri Sembilan,fishing_units,2494
+west,Melaka,fishing_units,17882
+west,Johor,fishing_units,45811
+east,Kelantan,fishing_units,17786
+east,Terengganu,fishing_units,20305
+east,Pahang,fishing_units,9187
+east,Johor,fishing_units,7266
+borneo,Sarawak,fishing_units,45403
+borneo,Sabah,fishing_units,116186
+borneo,W.P. Labuan,fishing_units,2027
+west,Perlis,trips,39996
+west,Kedah,trips,969336
+west,Pulau Pinang,trips,546158
+west,Perak,trips,722229
+west,Selangor,trips,938823
+west,Negeri Sembilan,trips,35386
+west,Melaka,trips,221564
+west,Johor,trips,836706
+east,Kelantan,trips,375491
+east,Terengganu,trips,267940
+east,Pahang,trips,101804
+east,Johor,trips,95438
+borneo,Sarawak,trips,493905
+borneo,Sabah,trips,1605128
+borneo,W.P. Labuan,trips,39163
+west,Perlis,days,44045
+west,Kedah,days,1000083
+west,Pulau Pinang,days,553384
+west,Perak,days,956629
+west,Selangor,days,1012235
+west,Negeri Sembilan,days,35430
+west,Melaka,days,221854
+west,Johor,days,860068
+east,Kelantan,days,496683
+east,Terengganu,days,316406
+east,Pahang,days,187030
+east,Johor,days,116085
+borneo,Sarawak,days,555614
+borneo,Sabah,days,2017685
+borneo,W.P. Labuan,days,41281
+west,Perlis,hauls,120080
+west,Kedah,hauls,2347368
+west,Pulau Pinang,hauls,1484223
+west,Perak,hauls,2844875
+west,Selangor,hauls,3667497
+west,Negeri Sembilan,hauls,39751
+west,Melaka,hauls,325712
+west,Johor,hauls,1805085
+east,Kelantan,hauls,1780451
+east,Terengganu,hauls,433578
+east,Pahang,hauls,533273
+east,Johor,hauls,263652
+borneo,Sarawak,hauls,1472484
+borneo,Sabah,hauls,13121548
+borneo,W.P. Labuan,hauls,216518
+west,Perlis,hours,313464
+west,Kedah,hours,5030660
+west,Pulau Pinang,hours,3536816
+west,Perak,hours,6522670
+west,Selangor,hours,5767895
+west,Negeri Sembilan,hours,48455
+west,Melaka,hours,649264
+west,Johor,hours,5734660
+east,Kelantan,hours,6951763
+east,Terengganu,hours,1436849
+east,Pahang,hours,1585779
+east,Johor,hours,1418171
+borneo,Sarawak,hours,3191186
+borneo,Sabah,hours,16349576
+borneo,W.P. Labuan,hours,485816
