@@ -35,10 +35,10 @@ export class SeedService {
   }
 
   private async seedFuel() {
-    const csv = this.readData('fuel-prices.csv');
+    const csv = this.readData('fuelprice.csv');
     const row = parseLatestFuelPrice(csv);
     if (!row) {
-      this.logger.warn('No valid fuel price row found in fuel-prices.csv');
+      this.logger.warn('No valid fuel price row found in fuelprice.csv');
       return;
     }
     const priceData = {
