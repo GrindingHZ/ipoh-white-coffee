@@ -39,10 +39,10 @@ interface Props {
   onClose: () => void;
 }
 
-type Tab = "login" | "register";
+type Step = "welcome" | "login" | "register";
 
 export default function AuthModal({ onSuccess, onClose }: Props) {
-  const [tab, setTab] = useState<Tab>("login");
+  const [step, setStep] = useState<Step>("welcome");
   const [ic, setIc] = useState("");
   const [name, setName] = useState("");
   const [locality, setLocality] = useState("");
@@ -61,6 +61,11 @@ export default function AuthModal({ onSuccess, onClose }: Props) {
 
   function handleOverlayClick(e: React.MouseEvent<HTMLDivElement>) {
     if (e.target === overlayRef.current) dismiss();
+  }
+
+  function goTo(s: Step) {
+    setError("");
+    setStep(s);
   }
 
   function handleLogin(e: React.FormEvent) {
@@ -105,39 +110,54 @@ export default function AuthModal({ onSuccess, onClose }: Props) {
       aria-label="Sign in to FisherIQ"
     >
       <div className={visible ? "auth-card auth-card--visible" : "auth-card"}>
+
+        {/* ── Shared header ── */}
         <div className="auth-card-header">
           <span className="auth-brand">FIQ</span>
           <div>
-            <p className="auth-title">Welcome to FisherIQ</p>
-            <p className="auth-subtitle">Sign in to see today's fishing decision</p>
+            <p className="auth-title">
+              {step === "welcome" ? "Welcome to FisherIQ" : step === "login" ? "Log in" : "Create account"}
+            </p>
+            <p className="auth-subtitle">
+              {step === "welcome"
+                ? "Your daily fishing decision, powered by data"
+                : step === "login"
+                  ? "Enter your IC number to continue"
+                  : "Set up your free account"}
+            </p>
           </div>
           <button className="auth-close" type="button" aria-label="Close" onClick={dismiss}>
             ✕
           </button>
         </div>
 
-        <div className="auth-tabs" role="tablist">
-          <button
-            role="tab"
-            aria-selected={tab === "login"}
-            className={tab === "login" ? "auth-tab auth-tab--active" : "auth-tab"}
-            type="button"
-            onClick={() => { setTab("login"); setError(""); }}
-          >
-            Log in
-          </button>
-          <button
-            role="tab"
-            aria-selected={tab === "register"}
-            className={tab === "register" ? "auth-tab auth-tab--active" : "auth-tab"}
-            type="button"
-            onClick={() => { setTab("register"); setError(""); }}
-          >
-            Register
-          </button>
-        </div>
+        {/* ── Step: Welcome ── */}
+        {step === "welcome" && (
+          <div className="auth-welcome">
+            <p className="auth-welcome-question">Have you used FisherIQ before?</p>
+            <div className="auth-welcome-actions">
+              <button
+                className="auth-welcome-btn auth-welcome-btn--yes"
+                type="button"
+                onClick={() => goTo("login")}
+              >
+                <span aria-hidden="true">👋</span>
+                Yes, log me in
+              </button>
+              <button
+                className="auth-welcome-btn auth-welcome-btn--no"
+                type="button"
+                onClick={() => goTo("register")}
+              >
+                <span aria-hidden="true">🆕</span>
+                No, I'm new here
+              </button>
+            </div>
+          </div>
+        )}
 
-        {tab === "login" ? (
+        {/* ── Step: Login ── */}
+        {step === "login" && (
           <form className="auth-form" onSubmit={handleLogin} noValidate>
             <label className="auth-label">
               IC Number
@@ -154,13 +174,20 @@ export default function AuthModal({ onSuccess, onClose }: Props) {
             {error && <p className="auth-error" role="alert">{error}</p>}
             <button className="auth-submit" type="submit">Log in</button>
             <p className="auth-switch">
-              No account?{" "}
-              <button type="button" className="auth-link" onClick={() => { setTab("register"); setError(""); }}>
-                Register here
+              New here?{" "}
+              <button type="button" className="auth-link" onClick={() => goTo("register")}>
+                Create an account
+              </button>
+              {" · "}
+              <button type="button" className="auth-link" onClick={() => goTo("welcome")}>
+                Back
               </button>
             </p>
           </form>
-        ) : (
+        )}
+
+        {/* ── Step: Register ── */}
+        {step === "register" && (
           <form className="auth-form" onSubmit={handleRegister} noValidate>
             <label className="auth-label">
               IC Number
@@ -198,13 +225,18 @@ export default function AuthModal({ onSuccess, onClose }: Props) {
             {error && <p className="auth-error" role="alert">{error}</p>}
             <button className="auth-submit" type="submit">Create account</button>
             <p className="auth-switch">
-              Already have an account?{" "}
-              <button type="button" className="auth-link" onClick={() => { setTab("login"); setError(""); }}>
+              Already registered?{" "}
+              <button type="button" className="auth-link" onClick={() => goTo("login")}>
                 Log in
+              </button>
+              {" · "}
+              <button type="button" className="auth-link" onClick={() => goTo("welcome")}>
+                Back
               </button>
             </p>
           </form>
         )}
+
       </div>
     </div>
   );

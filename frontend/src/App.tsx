@@ -78,7 +78,7 @@ export default function App() {
   const animRef = useRef<number>(0);
   const loadingIntervalRef = useRef<number | null>(null);
   const [currentUser, setCurrentUser] = useState<AuthUser | null>(() => loadStoredUser());
-  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [showAuthModal, setShowAuthModal] = useState(() => loadStoredUser() === null);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const profileMenuRef = useRef<HTMLDivElement>(null);
   const [hovered, setHovered] = useState(false);
