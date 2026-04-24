@@ -3,6 +3,13 @@ import { PrismaService } from '../prisma/prisma.service';
 import * as fs from 'fs';
 import * as path from 'path';
 import { parseLatestFuelPrice } from './fuel-csv-parser';
+import {
+  parseFishPriceRows,
+  parseFishingEffortRows,
+  parseMarineLandingSpeciesRows,
+  parseMarineLandingStateRows,
+  parseMarinePriceRows,
+} from './fisheries-csv-parser';
 
 @Injectable()
 export class SeedService {
@@ -11,7 +18,17 @@ export class SeedService {
   constructor(private readonly prisma: PrismaService) {}
 
   async seed() {
-    await Promise.all([this.seedTides(), this.seedFuel(), this.seedSeasonalPatterns(), this.seedFishLandings()]);
+    await Promise.all([
+      this.seedTides(),
+      this.seedFuel(),
+      this.seedSeasonalPatterns(),
+      this.seedFishLandings(),
+      this.seedFishPrices(),
+      this.seedMarinePrices(),
+      this.seedMarineLandingStateMonthly(),
+      this.seedMarineLandingSpeciesMonthly(),
+      this.seedFishingEffortStateTotals(),
+    ]);
     this.logger.log('Seeding complete');
   }
 
@@ -83,6 +100,140 @@ export class SeedService {
       count++;
     }
     this.logger.log(`Seeded ${count} fish landing entries`);
+  }
+
+  private async seedFishPrices() {
+    const csv = this.readData('fish-pricing.csv');
+    const rows = parseFishPriceRows(csv);
+    for (const row of rows) {
+      const priceData = {
+        approxWeekStart: row.approxWeekStart,
+        year: row.year,
+        monthAbbr: row.monthAbbr,
+        weekInMonth: row.weekInMonth,
+        speciesEnglish: row.speciesEnglish,
+        wholesaleRmKg: row.wholesaleRmKg,
+        retailRmKg: row.retailRmKg,
+        reportSource: row.reportSource,
+      };
+      await this.prisma.fishPrice.upsert({
+        where: {
+          weekLabel_speciesMalay: {
+            weekLabel: row.weekLabel,
+            speciesMalay: row.speciesMalay,
+          },
+        },
+        create: {
+          weekLabel: row.weekLabel,
+          speciesMalay: row.speciesMalay,
+          ...priceData,
+        },
+        update: priceData,
+      });
+    }
+    this.logger.log(`Seeded ${rows.length} fish price entries`);
+  }
+
+  private async seedMarinePrices() {
+    const csv = this.readData('marine-prices-2024-monthly.csv');
+    const rows = parseMarinePriceRows(csv);
+    for (const row of rows) {
+      const priceData = {
+        monthNameMs: row.monthNameMs,
+        priceRmPerKg: row.priceRmPerKg,
+        annualAverageRmPerKg: row.annualAverageRmPerKg,
+      };
+      await this.prisma.marinePrice.upsert({
+        where: {
+          priceType_speciesMalay_month: {
+            priceType: row.priceType,
+            speciesMalay: row.speciesMalay,
+            month: row.month,
+          },
+        },
+        create: {
+          priceType: row.priceType,
+          speciesMalay: row.speciesMalay,
+          month: row.month,
+          ...priceData,
+        },
+        update: priceData,
+      });
+    }
+    this.logger.log(`Seeded ${rows.length} marine price entries`);
+  }
+
+  private async seedMarineLandingStateMonthly() {
+    const csv = this.readData('marine-landings-2024-state-month.csv');
+    const rows = parseMarineLandingStateRows(csv);
+    for (const row of rows) {
+      const landingData = {
+        monthNameMs: row.monthNameMs,
+        landingsTonnes: row.landingsTonnes,
+      };
+      await this.prisma.marineLandingStateMonthly.upsert({
+        where: {
+          coast_state_month: {
+            coast: row.coast,
+            state: row.state,
+            month: row.month,
+          },
+        },
+        create: {
+          coast: row.coast,
+          state: row.state,
+          month: row.month,
+          ...landingData,
+        },
+        update: landingData,
+      });
+    }
+    this.logger.log(`Seeded ${rows.length} marine state landing entries`);
+  }
+
+  private async seedMarineLandingSpeciesMonthly() {
+    const csv = this.readData('marine-landings-2024-species-month.csv');
+    const rows = parseMarineLandingSpeciesRows(csv);
+    for (const row of rows) {
+      const landingData = {
+        monthNameMs: row.monthNameMs,
+        landingsTonnes: row.landingsTonnes,
+      };
+      await this.prisma.marineLandingSpeciesMonthly.upsert({
+        where: {
+          speciesMalay_month: {
+            speciesMalay: row.speciesMalay,
+            month: row.month,
+          },
+        },
+        create: {
+          speciesMalay: row.speciesMalay,
+          month: row.month,
+          ...landingData,
+        },
+        update: landingData,
+      });
+    }
+    this.logger.log(`Seeded ${rows.length} marine species landing entries`);
+  }
+
+  private async seedFishingEffortStateTotals() {
+    const csv = this.readData('fishing-effort-2024-state-totals.csv');
+    const rows = parseFishingEffortRows(csv);
+    for (const row of rows) {
+      await this.prisma.fishingEffortStateTotal.upsert({
+        where: {
+          coast_state_effortMetric: {
+            coast: row.coast,
+            state: row.state,
+            effortMetric: row.effortMetric,
+          },
+        },
+        create: row,
+        update: { value: row.value },
+      });
+    }
+    this.logger.log(`Seeded ${rows.length} fishing effort entries`);
   }
 
   private readData(filename: string): string {

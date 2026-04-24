@@ -67,6 +67,70 @@ model FishLanding {
   @@map("fish_landings")
 }
 
+model FishPrice {
+  id              String   @id @default(uuid()) @db.Uuid
+  weekLabel       String
+  approxWeekStart DateTime @db.Date
+  year            Int
+  monthAbbr       String
+  weekInMonth     Int
+  speciesMalay    String
+  speciesEnglish  String
+  wholesaleRmKg   Decimal  @db.Decimal
+  retailRmKg      Decimal  @db.Decimal
+  reportSource    String
+
+  @@unique([weekLabel, speciesMalay])
+  @@map("fish_prices")
+}
+
+model MarinePrice {
+  id                   String  @id @default(uuid()) @db.Uuid
+  priceType            String
+  speciesMalay         String
+  month                Int
+  monthNameMs          String
+  priceRmPerKg         Decimal @db.Decimal
+  annualAverageRmPerKg Decimal @db.Decimal
+
+  @@unique([priceType, speciesMalay, month])
+  @@map("marine_prices")
+}
+
+model MarineLandingStateMonthly {
+  id             String  @id @default(uuid()) @db.Uuid
+  coast          String
+  state          String
+  month          Int
+  monthNameMs    String
+  landingsTonnes Decimal @db.Decimal
+
+  @@unique([coast, state, month])
+  @@map("marine_landings_state_monthly")
+}
+
+model MarineLandingSpeciesMonthly {
+  id             String  @id @default(uuid()) @db.Uuid
+  speciesMalay   String
+  month          Int
+  monthNameMs    String
+  landingsTonnes Decimal @db.Decimal
+
+  @@unique([speciesMalay, month])
+  @@map("marine_landings_species_monthly")
+}
+
+model FishingEffortStateTotal {
+  id           String @id @default(uuid()) @db.Uuid
+  coast        String
+  state        String
+  effortMetric String
+  value        Int
+
+  @@unique([coast, state, effortMetric])
+  @@map("fishing_effort_state_totals")
+}
+
 model WeatherCache {
   id        String   @id @default(uuid()) @db.Uuid
   district  String
