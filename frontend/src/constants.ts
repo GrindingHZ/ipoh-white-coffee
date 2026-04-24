@@ -78,3 +78,16 @@ export const WEEKLY_INSIGHTS = [
   "Fuel cost crossed RM38 on two low-catch days.",
   "Best margin came from selling ikan kembung before 9:30 AM.",
 ];
+
+export const AMBIENT_CONDITIONS = [
+  { icon: "🌊", label: "Tide", value: "Low · 0.4 m", sub: "Next high 11:20 AM" },
+  { icon: "🌤", label: "Weather", value: "22°C Partly cloudy", sub: "Wind 12 km/h NE" },
+  { icon: "⛽", label: "Fuel", value: "RON95 RM2.05", sub: "Updated today" },
+] as const;
+
+export const LOADING_STEPS = [
+  "Checking tides…",
+  "Checking weather…",
+  "Checking market prices…",
+  "Crunching the numbers…",
+] as const;

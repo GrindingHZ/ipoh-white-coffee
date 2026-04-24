@@ -5,6 +5,8 @@ import heroBg from "./assets/fisheriq-hero.png";
 import { getLocationCoast } from "./services/api";
 import type { CoastResult } from "./services/api";
 import { useScrollNav } from "./hooks/useScrollNav";
+import AuthModal, { loadStoredUser } from "./components/AuthModal";
+import type { AuthUser } from "./components/AuthModal";
 import {
   CANVAS_WIDTH,
   CANVAS_HEIGHT,
@@ -38,6 +40,8 @@ import {
   TRIP_METRICS,
   BUYER_ROWS,
   WEEKLY_INSIGHTS,
+  AMBIENT_CONDITIONS,
+  LOADING_STEPS,
 } from "./constants";
 
 interface Wave {
@@ -73,8 +77,14 @@ export default function App() {
   const tRef = useRef(0);
   const animRef = useRef<number>(0);
   const loadingIntervalRef = useRef<number | null>(null);
+  const [currentUser, setCurrentUser] = useState<AuthUser | null>(() => loadStoredUser());
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const profileMenuRef = useRef<HTMLDivElement>(null);
   const [hovered, setHovered] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [loadingStep, setLoadingStep] = useState(0);
+  const loadingStepRef = useRef<number | null>(null);
   const [hasChecked, setHasChecked] = useState(false);
   const [seeMoreReady, setSeeMoreReady] = useState(false);
   const [showMore, setShowMore] = useState(false);
@@ -167,22 +177,62 @@ export default function App() {
     return () => cancelAnimationFrame(animRef.current);
   }, []);
 
+  useEffect(() => {
+    if (!showProfileMenu) return;
+    function handleOutside(e: Event) {
+      if (profileMenuRef.current && !profileMenuRef.current.contains(e.target as Node)) {
+        setShowProfileMenu(false);
+      }
+    }
+    document.addEventListener("mousedown", handleOutside);
+    document.addEventListener("touchstart", handleOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleOutside);
+      document.removeEventListener("touchstart", handleOutside);
+    };
+  }, [showProfileMenu]);
+
+  function handleLogout() {
+    localStorage.removeItem("fisheriq_user");
+    setCurrentUser(null);
+    setShowProfileMenu(false);
+    setHasChecked(false);
+    setSeeMoreReady(false);
+    setShowMore(false);
+  }
+
+  function getGreeting() {
+    const h = new Date().getHours();
+    if (h < 12) return "Good morning";
+    if (h < 17) return "Good afternoon";
+    return "Good evening";
+  }
+
   function spawnBurst() {
     burstsRef.current.push({ r: BURST_INITIAL_RADIUS, alpha: BURST_INITIAL_ALPHA });
   }
 
   function startLoadingRipple() {
-    // Spawn an initial burst then keep adding one ring at a steady interval
     wavesRef.current.push({ r: WAVE_INITIAL_RADIUS });
     loadingIntervalRef.current = window.setInterval(() => {
       wavesRef.current.push({ r: WAVE_INITIAL_RADIUS });
     }, WAVE_LOADING_SPAWN_INTERVAL_MS);
+
+    setLoadingStep(0);
+    const stepMs = FAKE_BACKEND_DELAY_MS / LOADING_STEPS.length;
+    loadingStepRef.current = window.setInterval(() => {
+      setLoadingStep((s) => Math.min(s + 1, LOADING_STEPS.length - 1));
+    }, stepMs);
   }
 
   function stopLoadingRipple() {
     if (loadingIntervalRef.current !== null) {
       clearInterval(loadingIntervalRef.current);
       loadingIntervalRef.current = null;
+    }
+    if (loadingStepRef.current !== null) {
+      clearInterval(loadingStepRef.current);
+      loadingStepRef.current = null;
     }
   }
 
@@ -219,9 +269,17 @@ export default function App() {
     setHovered(Math.sqrt(dx * dx + dy * dy) < WAVE_HOVER_RADIUS);
   }
 
+  function requireAuth(then: () => void) {
+    if (currentUser) {
+      then();
+    } else {
+      setShowAuthModal(true);
+    }
+  }
+
   function handleStageClick() {
     if (!hasChecked && !isLoading) {
-      fetchDecision();
+      requireAuth(fetchDecision);
     }
   }
 
@@ -245,28 +303,58 @@ export default function App() {
           <strong>FisherIQ</strong>
         </div>
         <div className="app-bar-divider" aria-hidden="true" />
+
+        {/* Ambient condition chips — condensed in nav, expand on hover */}
+        <div className="nav-conditions" aria-label="Current conditions">
+          {AMBIENT_CONDITIONS.map((c) => (
+            <div className="nav-condition-chip" key={c.label}>
+              <span className="nav-condition-collapsed">
+                <span aria-hidden="true">{c.icon}</span>
+                <span>{c.value.split(" ")[0]}</span>
+              </span>
+              <span className="nav-condition-expanded" aria-hidden="true">
+                <span className="nav-condition-icon">{c.icon}</span>
+                <span className="nav-condition-body">
+                  <strong>{c.value}</strong>
+                  <small>{c.sub}</small>
+                </span>
+              </span>
+            </div>
+          ))}
+        </div>
+
         <div className="top-actions" aria-label="App actions">
-          <button className="nav-button" type="button">
-            Today
-          </button>
-          <button className="nav-button" type="button">
-            Map
-          </button>
-          <button className="nav-button" type="button">
-            Log
-          </button>
-          <button className="nav-button" type="button">
-            Market
-          </button>
-          <button className="nav-button" type="button">
-            Alerts
-          </button>
-          <button className="nav-button" type="button">
-            Profile
-          </button>
           <button className="nav-button" type="button">
             Settings
           </button>
+          <div className="profile-menu-wrap" ref={profileMenuRef}>
+            <button
+              className={currentUser ? "nav-button nav-button--profile nav-button--active" : "nav-button nav-button--profile"}
+              type="button"
+              onClick={() => setShowProfileMenu((v) => !v)}
+              aria-haspopup="true"
+              aria-expanded={showProfileMenu}
+            >
+              {currentUser ? currentUser.name.split(" ")[0] : "Profile"}
+            </button>
+            {showProfileMenu && currentUser && (
+              <div className="profile-dropdown" role="menu">
+                <div className="profile-dropdown-header">
+                  <strong>{currentUser.name}</strong>
+                  <small>{currentUser.locality}</small>
+                </div>
+                <hr className="profile-dropdown-divider" />
+                <button
+                  className="profile-dropdown-item profile-dropdown-item--danger"
+                  role="menuitem"
+                  type="button"
+                  onClick={handleLogout}
+                >
+                  Log out
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </nav>
 
@@ -274,6 +362,9 @@ export default function App() {
         <aside className="decision-panel" aria-label="FisherIQ daily decision">
           <div className="panel-heading">
             <div>
+              {currentUser && (
+                <span className="greeting-text">{getGreeting()}, {currentUser.name.split(" ")[0]}</span>
+              )}
               <span>6:30 AM</span>
               <strong>Decision Zone</strong>
             </div>
@@ -301,35 +392,45 @@ export default function App() {
             />
 
             {!hasChecked && (
-              <button
-                className={
-                  isLoading
-                    ? "pulse-button is-loading"
-                    : hovered
-                      ? "pulse-button is-hovered"
-                      : "pulse-button"
-                }
-                type="button"
-                disabled={isLoading}
-                onClick={(event) => {
-                  event.stopPropagation();
-                  fetchDecision();
-                }}
-                onMouseEnter={() => setHovered(true)}
-                onMouseLeave={() => setHovered(false)}
-              >
-                <span aria-hidden="true">{isLoading ? "⏳" : "▶"}</span>
-                {isLoading ? "Checking…" : "Check"}
-              </button>
+              <>
+                <button
+                  className={
+                    isLoading
+                      ? "pulse-button is-loading"
+                      : hovered
+                        ? "pulse-button is-hovered"
+                        : "pulse-button"
+                  }
+                  type="button"
+                  disabled={isLoading}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    requireAuth(fetchDecision);
+                  }}
+                  onMouseEnter={() => setHovered(true)}
+                  onMouseLeave={() => setHovered(false)}
+                >
+                  <span aria-hidden="true">{isLoading ? "⏳" : "▶"}</span>
+                  {isLoading ? LOADING_STEPS[loadingStep] : "Check"}
+                </button>
+              </>
             )}
 
             {hasChecked && (() => {
+              const verdict = TRIP_METRICS.find((m) => m.label === "Decision")?.value ?? "Go";
+              const isGo = verdict.toLowerCase() === "go";
               const mapTarget = nearestCoast ?? userCoords;
               const mapSrc = mapTarget
                 ? `https://www.openstreetmap.org/export/embed.html?bbox=${mapTarget.lng - 0.06},${mapTarget.lat - 0.06},${mapTarget.lng + 0.06},${mapTarget.lat + 0.06}&layer=mapnik&marker=${mapTarget.lat},${mapTarget.lng}`
                 : null;
               return (
                 <>
+                  <div className={isGo ? "verdict-badge verdict-badge--go" : "verdict-badge verdict-badge--stay"} aria-live="polite">
+                    <span className="verdict-icon">{isGo ? "✓" : "✕"}</span>
+                    <span className="verdict-label">{isGo ? "GO FISH" : "STAY HOME"}</span>
+                    <span className="verdict-sub">{isGo ? "Conditions are good today" : "Not worth the trip today"}</span>
+                  </div>
+
                   {mapSrc && (
                     <div className="coast-map-section">
                       <div className="coast-map-header">
@@ -439,6 +540,17 @@ export default function App() {
           )}
         </aside>
       </section>
+
+      {showAuthModal && (
+        <AuthModal
+          onSuccess={(user) => {
+            setCurrentUser(user);
+            setShowAuthModal(false);
+            fetchDecision();
+          }}
+          onClose={() => setShowAuthModal(false)}
+        />
+      )}
     </main>
   );
 }
