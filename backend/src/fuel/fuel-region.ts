@@ -2,14 +2,12 @@ import districtsByState from '../data/state-districts.json';
 
 export type DieselRegion = 'peninsular' | 'east_malaysia';
 
-const EAST_MALAYSIA_STATES = ['sabah', 'sarawak', 'labuan'];
+const EAST_MALAYSIA_STATES = ['sabah', 'sarawak', 'w.p. labuan'];
 
 const EAST_MALAYSIA_DISTRICTS = Object.entries(
   districtsByState as Record<string, string[]>,
 )
-  .filter(([state]) =>
-    EAST_MALAYSIA_STATES.some((s) => state.toLowerCase().includes(s)),
-  )
+  .filter(([state]) => EAST_MALAYSIA_STATES.includes(state.toLowerCase()))
   .flatMap(([, districts]) => districts.map((d) => d.toLowerCase()));
 
 export function resolveDieselRegion(locality?: string): DieselRegion {

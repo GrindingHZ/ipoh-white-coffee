@@ -85,8 +85,8 @@ export class FishingSignalService {
 
     const coastType = this.resolveCoastType(district);
     const monsoonFlag = this.resolveMonsoonFlag(coastType, month);
-    const waveOps = this.resolveWaveOps(warnings);
     const maxWaveHeight = this.getMaxWaveHeight(warnings);
+    const waveOps = this.resolveWaveOps(maxWaveHeight);
 
     return {
       coastType,
@@ -144,16 +144,10 @@ export class FishingSignalService {
     return this.coastMonthMap[coastType][month.toString()];
   }
 
-  private resolveWaveOps(warnings: Warning[]): WaveOps {
-    const maxHeight = this.getMaxWaveHeight(warnings);
-
-    if (maxHeight === null || maxHeight <= 2.0) {
-      return 'safe';
-    } else if (maxHeight > 2.0 && maxHeight <= 3.0) {
-      return 'caution';
-    } else {
-      return 'dangerous';
-    }
+  private resolveWaveOps(maxHeight: number | null): WaveOps {
+    if (maxHeight === null || maxHeight <= 2.0) return 'safe';
+    if (maxHeight <= 3.0) return 'caution';
+    return 'dangerous';
   }
 
   private getMaxWaveHeight(warnings: Warning[]): number | null {

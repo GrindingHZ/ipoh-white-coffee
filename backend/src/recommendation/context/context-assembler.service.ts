@@ -52,6 +52,17 @@ export class ContextAssemblerService {
       serverTime.getMonth() + 1,
     );
 
+    const [seasonalInfo, landingsInfo] = await Promise.all([
+      seasonalSlice(
+        this.prisma,
+        district,
+        profile.targetSpecies,
+        serverTime.getMonth() + 1,
+        signals,
+      ),
+      landingsSlice(this.prisma, district, serverTime.getMonth() + 1, signals),
+    ]);
+
     const slices: string[] = [
       languageSlice(language),
       warningSlice(warnings, signals),
@@ -62,19 +73,8 @@ export class ContextAssemblerService {
         fuelInfo,
         profile.fuelCapacity ? Number(profile.fuelCapacity) : null,
       ),
-      await seasonalSlice(
-        this.prisma,
-        district,
-        profile.targetSpecies,
-        serverTime.getMonth() + 1,
-        signals,
-      ),
-      await landingsSlice(
-        this.prisma,
-        district,
-        serverTime.getMonth() + 1,
-        signals,
-      ),
+      seasonalInfo,
+      landingsInfo,
     ];
 
     return this.applyTokenBudget(slices);

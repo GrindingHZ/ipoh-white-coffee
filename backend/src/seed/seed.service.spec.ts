@@ -28,7 +28,7 @@ describe('SeedService', () => {
     };
     service = new SeedService(prisma as never);
 
-    jest.spyOn(service as never, 'readData').mockImplementation((filename) => {
+    jest.spyOn(service as never, 'readData').mockImplementation(((filename: string) => {
       const fixtures: Record<string, string> = {
         'tide-tables.csv': `district,date,high_time,high_height,low_time,low_height
 Kuantan,2026-01-01,08:00,2.5,14:00,0.7`,
@@ -50,7 +50,7 @@ Belut,2,Februari,0.48`,
 west,Perlis,fishing_units,3710`,
       };
       return fixtures[filename] ?? '';
-    });
+    }) as never);
   });
 
   it('seeds all new fisheries datasets with stable upsert keys', async () => {
