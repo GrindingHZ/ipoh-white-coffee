@@ -6,17 +6,14 @@ export class WeatherController {
   constructor(private readonly weather: WeatherService) {}
 
   @Get('warnings')
-  warnings(@Query('state') state: string): Promise<Warning[]> {
-    return this.weather.getActiveWarnings(state);
-  }
-
-  @Get('state')
-  async stateFromCoords(
-    @Query('lat', ParseFloatPipe) lat: number,
-    @Query('lng', ParseFloatPipe) lng: number,
-  ): Promise<{ state: string | null }> {
-    const state = await this.weather.reverseGeocodeState(lat, lng);
-    return { state };
+  async warnings(
+    @Query('state') state?: string,
+    @Query('lat', new ParseFloatPipe({ optional: true })) lat?: number,
+    @Query('lng', new ParseFloatPipe({ optional: true })) lng?: number,
+  ): Promise<Warning[]> {
+    const resolvedState =
+      state ?? (lat != null && lng != null ? await this.weather.reverseGeocodeState(lat, lng) : null);
+    return this.weather.getActiveWarnings(resolvedState ?? '');
   }
 
   @Get('forecast')
