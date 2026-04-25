@@ -1,12 +1,29 @@
-import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
+import {
+  CanActivate,
+  ExecutionContext,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
+import { AuthService } from '../auth/auth.service';
+import { SESSION_COOKIE_NAME } from '../auth/session-cookie';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  canActivate(context: ExecutionContext): boolean {
+  constructor(private readonly auth: AuthService) {}
+
+  async canActivate(context: ExecutionContext): Promise<boolean> {
     const request = context.switchToHttp().getRequest();
-    // Stub: full auth implementation is a separate concern.
-    // For now, read userId from X-User-Id header.
-    const userId = request.headers['x-user-id'] ?? 'dev-user';
+    const rawToken = request.cookies?.[SESSION_COOKIE_NAME] as string | undefined;
+
+    if (!rawToken) {
+      throw new UnauthorizedException();
+    }
+
+    const userId = await this.auth.validateSession(rawToken);
+    if (!userId) {
+      throw new UnauthorizedException();
+    }
+
     request.userId = userId;
     return true;
   }

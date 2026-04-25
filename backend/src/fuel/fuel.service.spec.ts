@@ -9,10 +9,7 @@ describe('FuelService', () => {
   beforeEach(async () => {
     prisma = { fuelPrice: { findFirst: jest.fn() } };
     const module = await Test.createTestingModule({
-      providers: [
-        FuelService,
-        { provide: PrismaService, useValue: prisma },
-      ],
+      providers: [FuelService, { provide: PrismaService, useValue: prisma }],
     }).compile();
     service = module.get<FuelService>(FuelService);
   });
@@ -61,7 +58,9 @@ describe('FuelService', () => {
       effectiveDate: new Date('2026-04-16T00:00:00.000Z'),
     });
 
-    expect(await service.getLatestPriceForLocality('Kuala Sepetang, Perak')).toEqual({
+    expect(
+      await service.getLatestPriceForLocality('Kuala Sepetang, Perak'),
+    ).toEqual({
       effectiveDate: '2026-04-16',
       ron95Price: 1.99,
       dieselPrice: 5.97,
@@ -77,11 +76,13 @@ describe('FuelService', () => {
       effectiveDate: new Date('2026-04-16T00:00:00.000Z'),
     });
 
-    expect(await service.getLatestPriceForLocality('Kuching, Sarawak')).toEqual({
-      effectiveDate: '2026-04-16',
-      ron95Price: 1.99,
-      dieselPrice: 2.15,
-    });
+    expect(await service.getLatestPriceForLocality('Kuching, Sarawak')).toEqual(
+      {
+        effectiveDate: '2026-04-16',
+        ron95Price: 1.99,
+        dieselPrice: 2.15,
+      },
+    );
   });
 
   it('falls back to peninsular diesel pricing when east malaysia price is missing', async () => {

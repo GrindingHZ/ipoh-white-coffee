@@ -1,29 +1,40 @@
 import { PrismaService } from '../../../prisma/prisma.service';
-import districtStateMap from '../../../data/district-state-map.json';
+import { FishingSignals } from '../../fishing-signal.service';
+import districtsByState from '../../../data/state-districts.json';
 
 export async function landingsSlice(
   prisma: PrismaService,
   district: string,
   month: number,
+  signals: FishingSignals,
 ): Promise<string> {
-  const state = (districtStateMap as Record<string, string>)[district];
+  const state = Object.entries(
+    districtsByState as Record<string, string[]>,
+  ).find(([, districts]) => districts.includes(district))?.[0];
   if (!state) return '';
 
-  const rows = await prisma.fishLanding.findMany({
-    where: {
-      state,
-      coast: { not: 'all' },
-      date: {
-        gte: new Date(2018, month - 1, 1),
-      },
-    },
-    select: { date: true, landingsKg: true },
+  const rows = await prisma.marineLandingStateMonthly.findMany({
+    where: { state },
   });
 
-  const monthRows = rows.filter((r) => new Date(r.date).getMonth() + 1 === month);
-  if (!monthRows.length) return '';
+  const currentRow = rows.find((r) => r.month === month);
+  if (!currentRow) return '';
 
-  const avg = Math.round(monthRows.reduce((sum, r) => sum + r.landingsKg, 0) / monthRows.length);
+  const currentTonnes = currentRow.landingsTonnes.toNumber();
 
-  return `Historical fish landings for ${state} in month ${month}: ~${avg.toLocaleString()} kg average (based on ${monthRows.length} year${monthRows.length !== 1 ? 's' : ''} of data).`;
+  const coastRows = rows.filter((r) => r.coast === signals.coastType);
+  let peakTonnes = 0;
+  if (coastRows.length > 0) {
+    peakTonnes = Math.max(...coastRows.map((r) => r.landingsTonnes.toNumber()));
+  }
+
+  let output = `Historical fish landings for ${state} in month ${month}: ~${Math.round(currentTonnes).toLocaleString()} tonnes average.`;
+
+  if (coastRows.length > 0 && currentTonnes < peakTonnes * 0.6) {
+    output += ` (${Math.round((currentTonnes / peakTonnes) * 100)}% of coast peak month)`;
+  }
+
+  output += `\nNational landings trend: Malaysian landings declined about 12% from 2018 to 2023 (1.45M to 1.27M tonnes), so recent lower catches may reflect both seasonal and structural pressure.`;
+
+  return output;
 }

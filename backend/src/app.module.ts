@@ -8,6 +8,7 @@ import { UserModule } from './user/user.module';
 import { GlmModule } from './glm/glm.module';
 import { SeedModule } from './seed/seed.module';
 import { RecommendationModule } from './recommendation/recommendation.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { RecommendationModule } from './recommendation/recommendation.module';
     GlmModule,
     SeedModule,
     RecommendationModule,
+    AuthModule,
   ],
 })
 export class AppModule {}

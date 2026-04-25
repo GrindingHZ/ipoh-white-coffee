@@ -28,6 +28,8 @@
     "@nestjs/platform-express": "^11.0.1",
     "@prisma/adapter-pg": "^7.7.0",
     "@prisma/client": "^7.7.0",
+    "@types/cookie-parser": "^1.4.10",
+    "cookie-parser": "^1.4.7",
     "dotenv": "^17.4.2",
     "openai": "^6.34.0",
     "prisma": "^7.7.0",

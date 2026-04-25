@@ -28,7 +28,11 @@ export class TideService {
       highHeight: entry.highHeight ? Number(entry.highHeight) : null,
       lowTime: entry.lowTime,
       lowHeight: entry.lowHeight ? Number(entry.lowHeight) : null,
-      stateAtHour: this.computeState(entry.highTime, entry.lowTime, date.getHours()),
+      stateAtHour: this.computeState(
+        entry.highTime,
+        entry.lowTime,
+        date.getHours(),
+      ),
     };
   }
 

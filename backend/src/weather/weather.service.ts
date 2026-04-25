@@ -155,8 +155,16 @@ export class WeatherService {
   }
 
   private hourToSlot(hour: number): ForecastSlot {
-    if (hour >= SLOT_HOUR_RANGES.morning[0] && hour < SLOT_HOUR_RANGES.morning[1]) return 'morning';
-    if (hour >= SLOT_HOUR_RANGES.afternoon[0] && hour < SLOT_HOUR_RANGES.afternoon[1]) return 'afternoon';
+    if (
+      hour >= SLOT_HOUR_RANGES.morning[0] &&
+      hour < SLOT_HOUR_RANGES.morning[1]
+    )
+      return 'morning';
+    if (
+      hour >= SLOT_HOUR_RANGES.afternoon[0] &&
+      hour < SLOT_HOUR_RANGES.afternoon[1]
+    )
+      return 'afternoon';
     return 'night';
   }
 
