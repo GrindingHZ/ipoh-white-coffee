@@ -43,7 +43,7 @@ export class ContextAssemblerService {
         .getForecastForTripWindow(locationId, serverTime, departureHour)
         .catch(() => null),
       this.tide.getTideForDay(district, serverTime),
-      this.fuel.getLatestPrice(),
+      this.fuel.getLatestPriceForLocality(district).catch(() => null),
     ]);
 
     const signals = this.signals.score(
