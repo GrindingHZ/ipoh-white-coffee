@@ -155,3 +155,10 @@ model WeatherCache {
   @@unique([type, district])
   @@map("weather_cache")
 }
+
+model SeedRun {
+  key      String   @id
+  seededAt DateTime @default(now())
+
+  @@map("seed_runs")
+}

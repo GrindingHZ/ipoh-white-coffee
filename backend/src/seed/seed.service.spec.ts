@@ -2,6 +2,7 @@ import { SeedService } from './seed.service';
 
 describe('SeedService', () => {
   let prisma: {
+    seedRun: { findUnique: jest.Mock; create: jest.Mock };
     fuelPrice: { upsert: jest.Mock };
     fishLanding: { upsert: jest.Mock };
     fishPrice: { upsert: jest.Mock };
@@ -15,6 +16,10 @@ describe('SeedService', () => {
 
   beforeEach(() => {
     prisma = {
+      seedRun: {
+        findUnique: jest.fn().mockResolvedValue(null),
+        create: jest.fn(),
+      },
       fuelPrice: { upsert: jest.fn() },
       fishLanding: { upsert: jest.fn() },
       fishPrice: { upsert: jest.fn() },
@@ -26,7 +31,9 @@ describe('SeedService', () => {
     };
     service = new SeedService(prisma as never);
 
-    jest.spyOn(service as never, 'readData').mockImplementation(((filename: string) => {
+    jest.spyOn(service as never, 'readData').mockImplementation(((
+      filename: string,
+    ) => {
       const fixtures: Record<string, string> = {
         'fuelprice.csv': `date,series_type,ron95,ron97,diesel,diesel_euro5,ron95_budi95,diesel_eastmsia
 2026-01-01,level,2.60,3.50,2.15,2.35,1.99,2.05`,
@@ -49,6 +56,13 @@ west,Perlis,fishing_units,3710`,
 
   it('seeds all new fisheries datasets with stable upsert keys', async () => {
     await service.seed();
+
+    expect(prisma.seedRun.findUnique).toHaveBeenCalledWith({
+      where: { key: 'initial-datasets-v1' },
+    });
+    expect(prisma.seedRun.create).toHaveBeenCalledWith({
+      data: { key: 'initial-datasets-v1' },
+    });
 
     expect(prisma.fishPrice.upsert).toHaveBeenCalledWith({
       where: {
@@ -176,5 +190,27 @@ west,Perlis,fishing_units,3710`,
         typicalDepartureTime: '06:00',
       },
     });
+  });
+
+  it('skips all seeding when initial seed marker already exists', async () => {
+    prisma.seedRun.findUnique.mockResolvedValueOnce({
+      key: 'initial-datasets-v1',
+      seededAt: new Date('2026-01-01T00:00:00.000Z'),
+    });
+
+    await service.seed();
+
+    expect(prisma.seedRun.findUnique).toHaveBeenCalledWith({
+      where: { key: 'initial-datasets-v1' },
+    });
+    expect(prisma.seedRun.create).not.toHaveBeenCalled();
+    expect(prisma.fuelPrice.upsert).not.toHaveBeenCalled();
+    expect(prisma.fishLanding.upsert).not.toHaveBeenCalled();
+    expect(prisma.fishPrice.upsert).not.toHaveBeenCalled();
+    expect(prisma.marinePrice.upsert).not.toHaveBeenCalled();
+    expect(prisma.marineLandingStateMonthly.upsert).not.toHaveBeenCalled();
+    expect(prisma.marineLandingSpeciesMonthly.upsert).not.toHaveBeenCalled();
+    expect(prisma.fishingEffortStateTotal.upsert).not.toHaveBeenCalled();
+    expect(prisma.user.upsert).not.toHaveBeenCalled();
   });
 });
