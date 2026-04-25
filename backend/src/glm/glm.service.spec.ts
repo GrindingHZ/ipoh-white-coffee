@@ -31,11 +31,11 @@ describe('GlmService.completeSlice', () => {
               riskLevel: 'medium',
               summary: '  weather is manageable with caution  ',
               supportingFacts: [' moderate swell ', 'no thunderstorm warning'],
-              metrics: {
-                maxWaveHeightMetres: 1.8,
-                cautionFlag: true,
-                note: '  morning window stable ',
-              },
+              metrics: [
+                { key: 'maxWaveHeightMetres', value: 1.8 },
+                { key: 'cautionFlag', value: true },
+                { key: 'note', value: '  morning window stable ' },
+              ],
               dataGaps: ['  no live wind buoy in district  '],
             }),
           },
@@ -89,6 +89,34 @@ describe('GlmService.completeSlice', () => {
     await expect(service.completeSlice('weather', 'evidence')).rejects.toThrow(
       'GLM unavailable: invalid JSON response',
     );
+  });
+
+  it('truncates overly long summary to keep compact output', async () => {
+    const longSummary = 'x'.repeat(350);
+    mockCreate.mockResolvedValue({
+      choices: [
+        {
+          message: {
+            content: JSON.stringify({
+              slice: 'weather',
+              score: 0.72,
+              confidence: 0.81,
+              riskLevel: 'medium',
+              summary: longSummary,
+              supportingFacts: ['moderate swell'],
+              metrics: [{ key: 'maxWaveHeightMetres', value: 1.8 }],
+              dataGaps: ['no live wind buoy in district'],
+            }),
+          },
+        },
+      ],
+    });
+
+    const service = new GlmService();
+    const result = await service.completeSlice('weather', 'evidence');
+
+    expect(result.summary.length).toBeLessThanOrEqual(280);
+    expect(result.summary.endsWith('...')).toBe(true);
   });
 
   it('throws fallback when slice response shape is invalid', async () => {

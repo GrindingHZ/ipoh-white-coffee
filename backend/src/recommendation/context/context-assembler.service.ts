@@ -16,6 +16,7 @@ import { landingsSlice } from './slices/landings.slice';
 
 const TOKEN_BUDGET = 1500;
 const AVG_CHARS_PER_TOKEN = 4;
+const SLICE_RETRY_COUNT = 1;
 
 type SliceEvidence = {
   slice: SliceId;
@@ -98,7 +99,7 @@ export class ContextAssemblerService {
     const structuredAnalyses = await Promise.all(
       evidenceSlices
         .filter((slice) => slice.raw.trim().length > 0)
-        .map((slice) => this.glm.completeSlice(slice.slice, slice.raw)),
+        .map((slice) => this.completeSliceWithRetry(slice)),
     );
 
     const sections: string[] = [
@@ -113,6 +114,22 @@ export class ContextAssemblerService {
     ];
 
     return this.applyTokenBudget(sections, 3);
+  }
+
+  private async completeSliceWithRetry(
+    slice: SliceEvidence,
+  ): Promise<GlmSliceAnalysis> {
+    let lastError: unknown;
+
+    for (let attempt = 0; attempt <= SLICE_RETRY_COUNT; attempt += 1) {
+      try {
+        return await this.glm.completeSlice(slice.slice, slice.raw);
+      } catch (err) {
+        lastError = err;
+      }
+    }
+
+    throw lastError;
   }
 
   private renderStructuredSlice(slice: GlmSliceAnalysis): string {

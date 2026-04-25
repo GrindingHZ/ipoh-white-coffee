@@ -59,6 +59,8 @@ export interface GlmVerdict {
 }
 
 const TIMEOUT_MS = 10_000;
+const SLICE_SUMMARY_SCHEMA_MAX_LENGTH = 600;
+const SLICE_SUMMARY_MAX_OUTPUT_LENGTH = 280;
 const RISK_LEVELS = ['low', 'medium', 'high'] as const;
 const INDICATOR_NAMES = [
   'weather',
@@ -156,21 +158,34 @@ const SLICE_RESPONSE_FORMAT = {
         score: { type: 'number', minimum: 0, maximum: 1 },
         confidence: { type: 'number', minimum: 0, maximum: 1 },
         riskLevel: { type: 'string', enum: RISK_LEVELS },
-        summary: { type: 'string', minLength: 1, maxLength: 280 },
+        summary: {
+          type: 'string',
+          minLength: 1,
+          maxLength: SLICE_SUMMARY_SCHEMA_MAX_LENGTH,
+        },
         supportingFacts: {
           type: 'array',
           maxItems: 5,
           items: { type: 'string', minLength: 1, maxLength: 160 },
         },
         metrics: {
-          type: 'object',
-          additionalProperties: {
-            anyOf: [
-              { type: 'number' },
-              { type: 'string', maxLength: 80 },
-              { type: 'boolean' },
-              { type: 'null' },
-            ],
+          type: 'array',
+          maxItems: 8,
+          items: {
+            type: 'object',
+            additionalProperties: false,
+            required: ['key', 'value'],
+            properties: {
+              key: { type: 'string', minLength: 1, maxLength: 48 },
+              value: {
+                anyOf: [
+                  { type: 'number' },
+                  { type: 'string', maxLength: 80 },
+                  { type: 'boolean' },
+                  { type: 'null' },
+                ],
+              },
+            },
           },
         },
         dataGaps: {
@@ -244,14 +259,28 @@ function normalizeStringList(value: unknown): string[] {
 }
 
 function normalizeMetrics(value: unknown): Record<string, SliceMetricValue> {
-  if (!isRecord(value)) {
+  if (!Array.isArray(value)) {
     throw new GlmFallbackException('unexpected response shape');
   }
 
   const normalized: Record<string, SliceMetricValue> = {};
-  for (const [key, metricValue] of Object.entries(value)) {
+  for (const entry of value) {
+    if (!isRecord(entry)) {
+      throw new GlmFallbackException('unexpected response shape');
+    }
+
+    const key = entry.key;
+    const metricValue = entry.value;
+    if (typeof key !== 'string') {
+      throw new GlmFallbackException('unexpected response shape');
+    }
+
     const normalizedKey = key.trim();
-    if (!normalizedKey || !isSliceMetricValue(metricValue)) {
+    if (
+      !normalizedKey ||
+      Object.prototype.hasOwnProperty.call(normalized, normalizedKey) ||
+      !isSliceMetricValue(metricValue)
+    ) {
       throw new GlmFallbackException('unexpected response shape');
     }
 
@@ -278,6 +307,18 @@ function buildDetail(indicators: GlmIndicator[]): string {
         `${item.indicator}: ${Math.round(item.score * 100)}% (${item.riskLevel}, conf ${Math.round(item.confidence * 100)}%)`,
     )
     .join(' | ');
+}
+
+function truncateText(value: string, maxLength: number): string {
+  if (value.length <= maxLength) {
+    return value;
+  }
+
+  if (maxLength <= 3) {
+    return value.slice(0, maxLength);
+  }
+
+  return `${value.slice(0, maxLength - 3).trimEnd()}...`;
 }
 
 @Injectable()
@@ -428,6 +469,7 @@ export class GlmService {
       `Slice: ${sliceId}`,
       'Analyze only this slice evidence for fishing decision support. Higher score means more favorable fishing conditions.',
       'Keep summary, supportingFacts, and dataGaps concise and grounded in the evidence.',
+      'Formatting constraints: target summary <= 280 characters, and keep each supporting fact or data gap as a short phrase.',
       `Evidence:\n${evidence}`,
     ].join('\n\n');
 
@@ -494,7 +536,7 @@ export class GlmService {
       score,
       confidence,
       riskLevel,
-      summary: normalizedSummary,
+      summary: truncateText(normalizedSummary, SLICE_SUMMARY_MAX_OUTPUT_LENGTH),
       supportingFacts: normalizeStringList(supportingFacts),
       metrics: normalizeMetrics(metrics),
       dataGaps: normalizeStringList(dataGaps),

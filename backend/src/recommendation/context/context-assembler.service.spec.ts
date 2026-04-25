@@ -189,4 +189,81 @@ describe('ContextAssemblerService', () => {
     );
     expect(calledSliceIds).toEqual(['timing', 'tide', 'seasonal']);
   });
+
+  it('retries a failed slice subagent call once before succeeding', async () => {
+    const weather = {
+      getActiveWarnings: jest.fn().mockResolvedValue([]),
+      getForecastForTripWindow: jest.fn().mockResolvedValue({
+        slot: '06:00-09:00',
+        value: 'Stable sea and cloud cover.',
+      }),
+    };
+    const tide = {
+      getTideForDay: jest.fn().mockResolvedValue(null),
+    };
+    const fuel = {
+      getLatestPriceForLocality: jest.fn().mockResolvedValue(null),
+    };
+    const signals = {
+      score: jest.fn().mockReturnValue({
+        coastType: 'peninsular',
+        monsoonFlag: 'neutral',
+        waveOps: 'safe',
+        maxWaveHeightMetres: null,
+        monsoonImpactNote: 'Neutral monsoon impact.',
+        operabilityNote: 'No active warning indicates waves above 2.0m.',
+        coastProfileNote: 'Peninsular fisheries profile.',
+      }),
+    };
+    const prisma = {
+      seasonalPattern: { findMany: jest.fn().mockResolvedValue([]) },
+      marineLandingStateMonthly: { findMany: jest.fn().mockResolvedValue([]) },
+    };
+
+    const attemptsBySlice: Record<string, number> = {};
+    const glm = {
+      completeSlice: jest.fn().mockImplementation(async (slice: string) => {
+        attemptsBySlice[slice] = (attemptsBySlice[slice] ?? 0) + 1;
+
+        if (slice === 'weather' && attemptsBySlice[slice] === 1) {
+          throw new Error('temporary upstream error');
+        }
+
+        return {
+          slice,
+          score: 0.6,
+          confidence: 0.7,
+          riskLevel: 'low',
+          summary: `${slice} summary`,
+          supportingFacts: [],
+          metrics: {},
+          dataGaps: [],
+        };
+      }),
+    };
+
+    const service = new ContextAssemblerService(
+      weather as any,
+      tide as any,
+      fuel as any,
+      signals as any,
+      prisma as any,
+      glm as any,
+    );
+
+    const prompt = await service.assemble(
+      {
+        language: 'en',
+        typicalDepartureTime: '06:00',
+        fuelCapacity: 40,
+        targetSpecies: [],
+      } as any,
+      'UNK',
+      'Unknown District',
+      new Date('2026-04-16T06:00:00.000Z'),
+    );
+
+    expect(attemptsBySlice.weather).toBe(2);
+    expect(prompt).toContain('"slice":"weather"');
+  });
 });
