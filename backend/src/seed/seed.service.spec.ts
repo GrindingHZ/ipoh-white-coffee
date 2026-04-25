@@ -2,9 +2,7 @@ import { SeedService } from './seed.service';
 
 describe('SeedService', () => {
   let prisma: {
-    tideEntry: { upsert: jest.Mock };
     fuelPrice: { upsert: jest.Mock };
-    seasonalPattern: { upsert: jest.Mock };
     fishLanding: { upsert: jest.Mock };
     fishPrice: { upsert: jest.Mock };
     marinePrice: { upsert: jest.Mock };
@@ -16,9 +14,7 @@ describe('SeedService', () => {
 
   beforeEach(() => {
     prisma = {
-      tideEntry: { upsert: jest.fn() },
       fuelPrice: { upsert: jest.fn() },
-      seasonalPattern: { upsert: jest.fn() },
       fishLanding: { upsert: jest.fn() },
       fishPrice: { upsert: jest.fn() },
       marinePrice: { upsert: jest.fn() },
@@ -30,12 +26,8 @@ describe('SeedService', () => {
 
     jest.spyOn(service as never, 'readData').mockImplementation(((filename: string) => {
       const fixtures: Record<string, string> = {
-        'tide-tables.csv': `district,date,high_time,high_height,low_time,low_height
-Kuantan,2026-01-01,08:00,2.5,14:00,0.7`,
         'fuelprice.csv': `date,series_type,ron95,ron97,diesel,diesel_euro5,ron95_budi95,diesel_eastmsia
 2026-01-01,level,2.60,3.50,2.15,2.35,1.99,2.05`,
-        'seasonal-patterns.json':
-          '[{"species":"Siakap","month":1,"district":"Kuantan","activityLevel":"high","notes":"peak"}]',
         'fish_landings.csv': `date,coast,state,landings
 2026-01-01,east,Pahang,12345`,
         'fish-pricing.csv': `week_label,approx_week_start,year,month_abbr,week_in_month,species_malay,species_english,wholesale_rm_kg,retail_rm_kg,report_source

@@ -19,9 +19,7 @@ export class SeedService {
 
   async seed() {
     await Promise.all([
-      this.seedTides(),
       this.seedFuel(),
-      this.seedSeasonalPatterns(),
       this.seedFishLandings(),
       this.seedFishPrices(),
       this.seedMarinePrices(),
@@ -30,31 +28,6 @@ export class SeedService {
       this.seedFishingEffortStateTotals(),
     ]);
     this.logger.log('Seeding complete');
-  }
-
-  private async seedTides() {
-    const csv = this.readData('tide-tables.csv');
-    const rows = this.parseCsv(csv);
-    for (const row of rows) {
-      const tideData = {
-        highTime: row.high_time || null,
-        highHeight: row.high_height ? parseFloat(row.high_height) : null,
-        lowTime: row.low_time || null,
-        lowHeight: row.low_height ? parseFloat(row.low_height) : null,
-      };
-      await this.prisma.tideEntry.upsert({
-        where: {
-          district_date: { district: row.district, date: new Date(row.date) },
-        },
-        create: {
-          district: row.district,
-          date: new Date(row.date),
-          ...tideData,
-        },
-        update: tideData,
-      });
-    }
-    this.logger.log(`Seeded ${rows.length} tide entries`);
   }
 
   private async seedFuel() {
@@ -76,33 +49,6 @@ export class SeedService {
       update: priceData,
     });
     this.logger.log('Seeded 1 fuel price entry');
-  }
-
-  private async seedSeasonalPatterns() {
-    const json = JSON.parse(this.readData('seasonal-patterns.json'));
-    for (const item of json) {
-      await this.prisma.seasonalPattern.upsert({
-        where: {
-          species_month_district: {
-            species: item.species,
-            month: item.month,
-            district: item.district,
-          },
-        },
-        create: {
-          species: item.species,
-          month: item.month,
-          district: item.district,
-          activityLevel: item.activityLevel,
-          notes: item.notes ?? null,
-        },
-        update: {
-          activityLevel: item.activityLevel,
-          notes: item.notes ?? null,
-        },
-      });
-    }
-    this.logger.log(`Seeded ${json.length} seasonal pattern entries`);
   }
 
   private async seedFishLandings() {
