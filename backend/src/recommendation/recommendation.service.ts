@@ -65,7 +65,7 @@ export class RecommendationService {
         return {
           verdict: 'ERROR',
           reason: language === 'ms' ? ERROR_REASON_MS : ERROR_REASON_EN,
-          detail: null,
+          detail: err.message,
         };
       }
       throw err;
