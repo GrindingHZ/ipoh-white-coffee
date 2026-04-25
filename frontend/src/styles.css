@@ -730,32 +730,35 @@ button {
   .app-bar {
     width: calc(100% - 20px);
     top: 10px;
-    padding: 0 12px;
-    gap: 8px;
+    padding: 0 10px;
+    gap: 6px;
+    overflow: visible;
   }
 
-  .app-bar-divider,
-  .nav-conditions {
-    display: none;
-  }
-
-  .top-actions {
-    margin-left: auto;
-  }
-
-  .brand-lockup {
-    gap: 7px;
-  }
-
+  /* Hide FIQ logo square, keep FisherIQ text */
   .brand-logo {
-    width: 32px;
-    height: 32px;
-    border-radius: 9px;
-    font-size: 10px;
+    display: none;
   }
 
-  .brand-lockup strong {
+  /* Chip text hidden on mobile — emoji only */
+  .nav-condition-text {
     display: none;
+  }
+
+  .nav-condition-chip {
+    cursor: pointer;
+  }
+
+  /* Tap to expand (focus = tap on mobile) */
+  .nav-condition-chip:focus-within .nav-condition-collapsed {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .nav-condition-chip:focus-within .nav-condition-expanded {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+    pointer-events: none;
   }
 
   .app-screen {
@@ -779,6 +782,17 @@ button {
 
   .signal-stage {
     min-height: 300px;
+  }
+
+  /* Let the result expand naturally so all content is reachable */
+  .signal-stage--result {
+    aspect-ratio: unset;
+    min-height: auto;
+    overflow: visible;
+  }
+
+  .decision-panel {
+    overflow: visible;
   }
 
   .pulse-button {
@@ -841,6 +855,7 @@ button {
   align-items: center;
   border-radius: 9px;
   cursor: default;
+  outline: none;
 }
 
 /* collapsed pill — always visible */
@@ -855,6 +870,14 @@ button {
   color: rgba(178, 236, 230, 0.75);
   white-space: nowrap;
   transition: opacity 0.18s, background 0.18s;
+}
+
+.nav-condition-emoji {
+  line-height: 1;
+}
+
+.nav-condition-text {
+  /* visible on desktop, hidden on mobile via media query */
 }
 
 .nav-condition-chip:hover .nav-condition-collapsed {

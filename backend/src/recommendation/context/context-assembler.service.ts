@@ -40,7 +40,7 @@ export class ContextAssemblerService {
     district: string,
     serverTime: Date,
   ): Promise<string> {
-    const language = (profile.language ?? 'ms') as 'ms' | 'en';
+    const language = (profile.language ?? 'en') as 'ms' | 'en';
     const departureHour = profile.typicalDepartureTime
       ? parseInt(profile.typicalDepartureTime.split(':')[0], 10)
       : serverTime.getHours();

@@ -120,7 +120,7 @@ export default function App() {
     ? [
         {
           label: "Decision",
-          value: recommendation.verdict,
+          value: recommendation.verdict.replace("_", " "),
           tone: shouldFishToday ? ("good" as const) : ("warn" as const),
         },
         {
@@ -329,6 +329,7 @@ export default function App() {
     };
   }, [showProfileMenu]);
 
+
   function resetAppState() {
     localStorage.removeItem("fisheriq_user");
     setCurrentUser(null);
@@ -456,13 +457,13 @@ export default function App() {
         </div>
         <div className="app-bar-divider" aria-hidden="true" />
 
-        {/* Ambient condition chips — condensed in nav, expand on hover */}
+        {/* Ambient condition chips — emoji only on mobile, expand on hover/tap */}
         <div className="nav-conditions" aria-label="Current conditions">
           {displayedAmbientConditions.map((c) => (
-            <div className="nav-condition-chip" key={c.label}>
+            <div className="nav-condition-chip" key={c.label} tabIndex={0}>
               <span className="nav-condition-collapsed">
-                <span aria-hidden="true">{c.icon}</span>
-                <span>{c.value.split(" ")[0]}</span>
+                <span className="nav-condition-emoji" aria-hidden="true">{c.icon}</span>
+                <span className="nav-condition-text">{c.value.split(" ")[0]}</span>
               </span>
               <span className="nav-condition-expanded" aria-hidden="true">
                 <span className="nav-condition-icon">{c.icon}</span>

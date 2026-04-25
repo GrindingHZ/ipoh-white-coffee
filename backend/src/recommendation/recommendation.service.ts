@@ -27,7 +27,7 @@ export class RecommendationService {
     dto: TapRequestDto,
   ): Promise<RecommendationResponseDto> {
     const profile = await this.users.getProfile(userId);
-    const language = (profile.language ?? 'ms') as 'ms' | 'en';
+    const language = (profile.language ?? 'en') as 'ms' | 'en';
 
     const district = this.resolveDistrict(dto, profile.locality);
     const locationId =
