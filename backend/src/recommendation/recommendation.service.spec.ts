@@ -72,4 +72,40 @@ describe('RecommendationService', () => {
     });
     expect(glm.complete).not.toHaveBeenCalled();
   });
+
+  it('returns localized ERROR when slice analysis fails during context assembly', async () => {
+    const users = {
+      getProfile: jest.fn().mockResolvedValue({
+        id: 'user-1',
+        locality: 'Perak',
+        language: 'ms',
+        typicalDepartureTime: '06:00',
+      }),
+    };
+    const safety = {
+      check: jest.fn().mockResolvedValue(null),
+    };
+    const contextAssembler = {
+      assemble: jest
+        .fn()
+        .mockRejectedValue(new GlmFallbackException('slice weather failed')),
+    };
+    const glm = {
+      complete: jest.fn(),
+    };
+    const service = new RecommendationService(
+      users as any,
+      safety as any,
+      contextAssembler as any,
+      glm as any,
+    );
+
+    await expect(service.recommend('user-1', {})).resolves.toEqual({
+      verdict: 'ERROR',
+      reason: 'Tidak dapat membuat penilaian sekarang. Cuba sebentar lagi.',
+      detail: 'GLM unavailable: slice weather failed',
+      analysis: null,
+    });
+    expect(glm.complete).not.toHaveBeenCalled();
+  });
 });

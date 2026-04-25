@@ -4,6 +4,29 @@ import { GlmFallbackException } from './glm-fallback.exception';
 
 type RiskLevel = 'low' | 'medium' | 'high';
 
+const SLICE_IDS = [
+  'weather',
+  'timing',
+  'tide',
+  'fuel',
+  'seasonal',
+  'landings',
+] as const;
+
+export type SliceId = (typeof SLICE_IDS)[number];
+type SliceMetricValue = string | number | boolean | null;
+
+export interface GlmSliceAnalysis {
+  slice: SliceId;
+  score: number;
+  confidence: number;
+  riskLevel: RiskLevel;
+  summary: string;
+  supportingFacts: string[];
+  metrics: Record<string, SliceMetricValue>;
+  dataGaps: string[];
+}
+
 type IndicatorName =
   | 'weather'
   | 'location'
@@ -110,6 +133,56 @@ const DECISION_RESPONSE_FORMAT = {
   },
 } as const;
 
+const SLICE_RESPONSE_FORMAT = {
+  type: 'json_schema',
+  json_schema: {
+    name: 'glm_slice_analysis',
+    strict: true,
+    schema: {
+      type: 'object',
+      additionalProperties: false,
+      required: [
+        'slice',
+        'score',
+        'confidence',
+        'riskLevel',
+        'summary',
+        'supportingFacts',
+        'metrics',
+        'dataGaps',
+      ],
+      properties: {
+        slice: { type: 'string', enum: SLICE_IDS },
+        score: { type: 'number', minimum: 0, maximum: 1 },
+        confidence: { type: 'number', minimum: 0, maximum: 1 },
+        riskLevel: { type: 'string', enum: RISK_LEVELS },
+        summary: { type: 'string', minLength: 1, maxLength: 280 },
+        supportingFacts: {
+          type: 'array',
+          maxItems: 5,
+          items: { type: 'string', minLength: 1, maxLength: 160 },
+        },
+        metrics: {
+          type: 'object',
+          additionalProperties: {
+            anyOf: [
+              { type: 'number' },
+              { type: 'string', maxLength: 80 },
+              { type: 'boolean' },
+              { type: 'null' },
+            ],
+          },
+        },
+        dataGaps: {
+          type: 'array',
+          maxItems: 4,
+          items: { type: 'string', minLength: 1, maxLength: 160 },
+        },
+      },
+    },
+  },
+} as const;
+
 function isRecord(value: unknown): value is Record<string, unknown> {
   return value !== null && typeof value === 'object';
 }
@@ -128,6 +201,13 @@ function isIndicatorName(value: unknown): value is IndicatorName {
   );
 }
 
+function isSliceId(value: unknown): value is SliceId {
+  return (
+    typeof value === 'string' &&
+    (SLICE_IDS as readonly string[]).includes(value)
+  );
+}
+
 function isBoundedUnitNumber(value: unknown): value is number {
   return (
     typeof value === 'number' &&
@@ -135,6 +215,59 @@ function isBoundedUnitNumber(value: unknown): value is number {
     value >= 0 &&
     value <= 1
   );
+}
+
+function isSliceMetricValue(value: unknown): value is SliceMetricValue {
+  if (value === null) return true;
+  return (
+    typeof value === 'string' ||
+    typeof value === 'number' ||
+    typeof value === 'boolean'
+  );
+}
+
+function normalizeStringList(value: unknown): string[] {
+  if (!Array.isArray(value)) {
+    throw new GlmFallbackException('unexpected response shape');
+  }
+
+  return value.map((item) => {
+    if (typeof item !== 'string') {
+      throw new GlmFallbackException('unexpected response shape');
+    }
+    const trimmed = item.trim();
+    if (trimmed.length === 0) {
+      throw new GlmFallbackException('unexpected response shape');
+    }
+    return trimmed;
+  });
+}
+
+function normalizeMetrics(value: unknown): Record<string, SliceMetricValue> {
+  if (!isRecord(value)) {
+    throw new GlmFallbackException('unexpected response shape');
+  }
+
+  const normalized: Record<string, SliceMetricValue> = {};
+  for (const [key, metricValue] of Object.entries(value)) {
+    const normalizedKey = key.trim();
+    if (!normalizedKey || !isSliceMetricValue(metricValue)) {
+      throw new GlmFallbackException('unexpected response shape');
+    }
+
+    if (typeof metricValue === 'string') {
+      const trimmedValue = metricValue.trim();
+      if (trimmedValue.length === 0) {
+        throw new GlmFallbackException('unexpected response shape');
+      }
+      normalized[normalizedKey] = trimmedValue;
+      continue;
+    }
+
+    normalized[normalizedKey] = metricValue;
+  }
+
+  return normalized;
 }
 
 function buildDetail(indicators: GlmIndicator[]): string {
@@ -283,6 +416,88 @@ export class GlmService {
       indicators: normalizedIndicators,
       reason: reasoning,
       detail: buildDetail(normalizedIndicators),
+    };
+  }
+
+  async completeSlice(
+    sliceId: SliceId,
+    evidence: string,
+  ): Promise<GlmSliceAnalysis> {
+    let raw: string;
+    const prompt = [
+      `Slice: ${sliceId}`,
+      'Analyze only this slice evidence for fishing decision support. Higher score means more favorable fishing conditions.',
+      'Keep summary, supportingFacts, and dataGaps concise and grounded in the evidence.',
+      `Evidence:\n${evidence}`,
+    ].join('\n\n');
+
+    try {
+      const response = await this.client.chat.completions.create({
+        model: 'openai/gpt-oss-20b',
+        messages: [
+          {
+            role: 'system',
+            content:
+              'Return only JSON matching the schema. Analyze only the provided slice evidence and avoid inventing unavailable data.',
+          },
+          { role: 'user', content: prompt },
+        ],
+        response_format: SLICE_RESPONSE_FORMAT,
+      });
+      raw = response.choices[0]?.message?.content ?? '';
+    } catch (err) {
+      throw new GlmFallbackException(
+        err instanceof Error ? err.message : String(err),
+      );
+    }
+
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(raw);
+    } catch {
+      throw new GlmFallbackException('invalid JSON response');
+    }
+
+    if (!isRecord(parsed)) {
+      throw new GlmFallbackException('unexpected response shape');
+    }
+
+    const {
+      slice,
+      score,
+      confidence,
+      riskLevel,
+      summary,
+      supportingFacts,
+      metrics,
+      dataGaps,
+    } = parsed;
+
+    if (
+      !isSliceId(slice) ||
+      slice !== sliceId ||
+      !isBoundedUnitNumber(score) ||
+      !isBoundedUnitNumber(confidence) ||
+      !isRiskLevel(riskLevel) ||
+      typeof summary !== 'string'
+    ) {
+      throw new GlmFallbackException('unexpected response shape');
+    }
+
+    const normalizedSummary = summary.trim();
+    if (normalizedSummary.length === 0) {
+      throw new GlmFallbackException('unexpected response shape');
+    }
+
+    return {
+      slice,
+      score,
+      confidence,
+      riskLevel,
+      summary: normalizedSummary,
+      supportingFacts: normalizeStringList(supportingFacts),
+      metrics: normalizeMetrics(metrics),
+      dataGaps: normalizeStringList(dataGaps),
     };
   }
 }
