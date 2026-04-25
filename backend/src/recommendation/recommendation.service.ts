@@ -46,14 +46,13 @@ export class RecommendationService {
     );
     if (safetyResult) return safetyResult;
 
-    const prompt = await this.contextAssembler.assemble(
-      profile,
-      locationId,
-      district,
-      serverTime,
-    );
-
     try {
+      const prompt = await this.contextAssembler.assemble(
+        profile,
+        locationId,
+        district,
+        serverTime,
+      );
       const result = await this.glm.complete(prompt);
       return {
         verdict: result.verdict,

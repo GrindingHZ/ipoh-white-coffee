@@ -36,4 +36,40 @@ describe('RecommendationService', () => {
       analysis: null,
     });
   });
+
+  it('returns GLM fallback details for debugging when context assembly fails', async () => {
+    const users = {
+      getProfile: jest.fn().mockResolvedValue({
+        id: 'user-1',
+        locality: 'Perak',
+        language: 'en',
+        typicalDepartureTime: '06:00',
+      }),
+    };
+    const safety = {
+      check: jest.fn().mockResolvedValue(null),
+    };
+    const contextAssembler = {
+      assemble: jest
+        .fn()
+        .mockRejectedValue(new GlmFallbackException('slice weather failed')),
+    };
+    const glm = {
+      complete: jest.fn(),
+    };
+    const service = new RecommendationService(
+      users as any,
+      safety as any,
+      contextAssembler as any,
+      glm as any,
+    );
+
+    await expect(service.recommend('user-1', {})).resolves.toEqual({
+      verdict: 'ERROR',
+      reason: 'Unable to make an assessment right now. Please try again.',
+      detail: 'GLM unavailable: slice weather failed',
+      analysis: null,
+    });
+    expect(glm.complete).not.toHaveBeenCalled();
+  });
 });
