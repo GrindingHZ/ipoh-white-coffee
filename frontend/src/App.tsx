@@ -111,9 +111,16 @@ export default function App() {
   });
   const { navHidden, navHovered, setNavHovered, appScreenRef } = useScrollNav();
   const selectedZoneName = nearestCoast?.name ?? (userCoords ? "Your Location" : "Detecting...");
+  // BACKEND TODO:
+  // TRIP_METRICS is currently hardcoded in constants.ts. Replace this with
+  // decisionJson.metrics from the decision API response once the backend returns
+  // values such as Decision, Zone, and Expected Net.
   const displayedTripMetrics = TRIP_METRICS.map((metric) =>
     metric.label === "Zone" ? { ...metric, value: selectedZoneName } : metric
   );
+  // BACKEND TODO:
+  // AMBIENT_CONDITIONS is currently hardcoded in constants.ts. Keep the fuel
+  // chips API-driven, but replace tide/weather with decisionJson.ambientConditions.
   const displayedAmbientConditions = [...AMBIENT_CONDITIONS, dieselCondition, ron95Condition];
 
   useEffect(() => {
@@ -304,6 +311,16 @@ export default function App() {
     setIsLoading(true);
     startLoadingRipple();
 
+    // BACKEND TODO:
+    // This is still a fake decision API call. Replace the timeout with a backend
+    // request such as:
+    // const decisionJson = await getFishingDecision({
+    //   userId: currentUser?.id,
+    //   locality: currentUser?.locality,
+    //   coords: locationResult.coords
+    // });
+    // Then store decisionJson in React state and render that state below instead
+    // of TRIP_METRICS, BUYER_ROWS, WEEKLY_INSIGHTS, and hardcoded card text.
     // Run backend call + geolocation lookup in parallel
     const [, locationResult] = await Promise.all([
       // TODO: replace with real API call — await api.getDecision()
@@ -480,6 +497,9 @@ export default function App() {
             )}
 
             {hasChecked && (() => {
+              // BACKEND TODO:
+              // Verdict currently comes from hardcoded TRIP_METRICS. Replace with
+              // decisionJson.verdict or decisionJson.metrics.Decision.
               const verdict = TRIP_METRICS.find((m) => m.label === "Decision")?.value ?? "Go";
               const isGo = verdict.toLowerCase() === "go";
               const mapTarget = nearestCoast ?? userCoords;
@@ -490,6 +510,7 @@ export default function App() {
                 <>
                   <div className={isGo ? "verdict-badge verdict-badge--go" : "verdict-badge verdict-badge--stay"} aria-live="polite">
                     <span className="verdict-icon">{isGo ? "✓" : "✕"}</span>
+                    {/* BACKEND TODO: Replace verdict label/subtitle with API text if backend owns the recommendation copy. */}
                     <span className="verdict-label">{isGo ? "GO FISH" : "STAY HOME"}</span>
                     <span className="verdict-sub">{isGo ? "Conditions are good today" : "Not worth the trip today"}</span>
                   </div>
@@ -539,12 +560,16 @@ export default function App() {
 
           {showMore && (
             <div className="details-area">
+              {/* BACKEND TODO:
+                  Everything in this See more details area is currently placeholder
+                  content. Replace with a decisionJson.details object from the API. */}
               <div className="dashboard-grid">
                 <article className="feature-card">
                   <div className="card-topline">
                     <span className="icon-chip">☀</span>
                     <span>Trip Engine</span>
                   </div>
+                  {/* BACKEND TODO: Replace title/summary/profit values with decisionJson.tripEngine. */}
                   <h3>Go fishing at 6:30 AM</h3>
                   <p>
                     Low rain risk, moderate fuel cost, and stronger catch history near
@@ -563,6 +588,7 @@ export default function App() {
                     <span className="icon-chip">RM</span>
                     <span>Market Engine</span>
                   </div>
+                  {/* BACKEND TODO: Replace best buyer title and BUYER_ROWS with decisionJson.marketEngine.buyers. */}
                   <h3>Best buyer: Koperasi Jeti</h3>
                   <div className="buyer-table">
                     {BUYER_ROWS.map((buyer) => (
@@ -581,6 +607,7 @@ export default function App() {
                     <span className="icon-chip">✎</span>
                     <span>Catch Log</span>
                   </div>
+                  {/* BACKEND TODO: Replace sample message and explanation with decisionJson.catchLog. */}
                   <h3>Natural language input</h3>
                   <div className="message-bubble">
                     "Hari ni dapat 18kg kembung, minyak RM42, jual dekat koperasi."
@@ -592,6 +619,7 @@ export default function App() {
               </div>
 
               <div className="insight-list">
+                {/* BACKEND TODO: Replace WEEKLY_INSIGHTS with decisionJson.weeklyInsights. */}
                 {WEEKLY_INSIGHTS.map((insight) => (
                   <div className="insight-item" key={insight}>
                     <span aria-hidden="true">✓</span>

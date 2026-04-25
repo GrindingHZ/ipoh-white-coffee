@@ -54,7 +54,19 @@ export const COLOR_LERP_EXPONENT = 0.75;
 // ── Background fill ───────────────────────────────────────────────────────────
 export const CANVAS_BG = "rgba(8, 32, 38, 0.72)";
 
-// ── Data ──────────────────────────────────────────────────────────────────────
+// ── Temporary UI data ─────────────────────────────────────────────────────────
+// BACKEND TODO:
+// The values below are currently hardcoded placeholders for the Check / See more
+// result. When the decision API is ready, replace these arrays with fields from
+// the backend JSON response instead of importing static data into App.tsx.
+//
+// Suggested response shape:
+// {
+//   "metrics": [{ "label": "Decision", "value": "Go", "tone": "good" }],
+//   "buyers": [{ "name": "Koperasi Jeti", "price": "RM9.80/kg", "distance": "2.1 km", "net": "RM284" }],
+//   "weeklyInsights": ["Trips after light east wind returned 18% higher net income."],
+//   "ambientConditions": [{ "icon": "🌊", "label": "Tide", "value": "Low · 0.4 m", "sub": "Next high 11:20 AM" }]
+// }
 export interface Metric {
   label: string;
   value: string;
