@@ -102,3 +102,42 @@ export const LOADING_STEPS = [
   "Checking market prices…",
   "Crunching the numbers…",
 ] as const;
+
+// ── Result reveal timeline (ms after burst spawns) ───────────────────────────
+export const REVEAL_BURST_MS = 2400;
+export const REVEAL_MAP_MS = 3200;
+export const REVEAL_METRICS_MS = 4000;
+export const REVEAL_SEE_MORE_MS = 5200;
+export const METRIC_STAGGER_MS = 600;
+
+// ── Cursor glow & sparkles ───────────────────────────────────────────────────
+export const CURSOR_INTERACTIVE_SELECTOR =
+  'button, a, [role="button"], input, select, label, [tabindex="0"]';
+export const SPARKLE_COUNT = 6;
+export const SPARKLE_MIN_SIZE = 2;
+export const SPARKLE_SIZE_RANGE = 3;
+export const SPARKLE_MIN_DISTANCE = 14;
+export const SPARKLE_DISTANCE_RANGE = 20;
+export const SPARKLE_MIN_DURATION = 380;
+export const SPARKLE_DURATION_RANGE = 220;
+
+// ── Map embed ────────────────────────────────────────────────────────────────
+export const OSM_BBOX_PADDING = 0.06;
+
+// ── Fuel chip placeholders ───────────────────────────────────────────────────
+export const INITIAL_DIESEL_CONDITION = {
+  icon: "⛽",
+  label: "Diesel",
+  value: "Diesel loading",
+  sub: "Fetching latest price",
+} as const;
+
+export const INITIAL_RON95_CONDITION = {
+  icon: "⛽",
+  label: "RON95",
+  value: "RON95 loading",
+  sub: "Fetching latest price",
+} as const;
+
+// ── Storage keys ─────────────────────────────────────────────────────────────
+export const STORAGE_USER_KEY = "fisheriq_user";

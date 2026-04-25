@@ -52,7 +52,7 @@ export class AuthService {
       data: {
         name: dto.name,
         locality: dto.locality,
-        language: 'ms',
+        language: 'en',
         targetSpecies: [],
         icNumber: normalizedIc,
       },

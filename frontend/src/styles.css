@@ -1,5 +1,6 @@
-* {
+*, *::before, *::after {
   box-sizing: border-box;
+  cursor: none !important;
 }
 
 html {
@@ -16,6 +17,59 @@ body {
 
 button {
   font: inherit;
+}
+
+/* ── Custom glow cursor ──────────────────────────────────────────────────────── */
+
+.cursor-glow {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  /* solid teal-green, slightly transparent so it blends nicely */
+  background: radial-gradient(circle, rgba(30, 210, 170, 0.72) 0%, rgba(20, 184, 148, 0.40) 55%, transparent 100%);
+  box-shadow:
+    0 0 6px 2px rgba(30, 210, 170, 0.50),
+    0 0 14px 5px rgba(30, 210, 170, 0.22),
+    0 0 28px 10px rgba(30, 210, 170, 0.10);
+  transition:
+    width 0.18s ease,
+    height 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease,
+    opacity 0.25s ease;
+}
+
+/* Bright hover state — over buttons / links */
+.cursor-glow--hover {
+  width: 28px;
+  height: 28px;
+  background: radial-gradient(circle, rgba(30, 230, 180, 0.90) 0%, rgba(30, 210, 170, 0.55) 50%, transparent 100%);
+  box-shadow:
+    0 0 8px 4px rgba(30, 230, 180, 0.70),
+    0 0 20px 8px rgba(30, 210, 170, 0.45),
+    0 0 40px 16px rgba(30, 210, 170, 0.25),
+    0 0 70px 26px rgba(30, 210, 170, 0.12);
+}
+
+/* Sparkle particles spawned on hover entry */
+.cursor-sparkle {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  background: rgba(30, 230, 180, 0.90);
+  box-shadow: 0 0 4px 2px rgba(30, 210, 170, 0.80), 0 0 8px 3px rgba(30, 230, 180, 0.40);
+}
+
+@media (hover: none) {
+  /* Touch devices — restore normal cursor, hide glow */
+  *, *::before, *::after { cursor: auto !important; }
+  .cursor-glow, .cursor-sparkle { display: none; }
 }
 
 .app-shell {
@@ -331,11 +385,30 @@ button {
   border-radius: 50%;
   color: #062a2e;
   background: #f8fffb;
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.28);
+  box-shadow:
+    0 16px 45px rgba(0, 0, 0, 0.28),
+    0 0 0 0 rgba(30, 184, 166, 0.5);
   cursor: pointer;
   font-size: 14px;
   font-weight: 900;
-  transition: transform 160ms ease, background 160ms ease;
+  transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+  animation: check-button-breathe 2.6s ease-in-out infinite;
+}
+
+@keyframes check-button-breathe {
+  0%, 100% {
+    box-shadow:
+      0 16px 45px rgba(0, 0, 0, 0.28),
+      0 0 0 0 rgba(30, 184, 166, 0.45),
+      0 0 18px 4px rgba(30, 184, 166, 0.10);
+  }
+  50% {
+    box-shadow:
+      0 16px 45px rgba(0, 0, 0, 0.28),
+      0 0 0 14px rgba(30, 184, 166, 0.0),
+      0 0 32px 12px rgba(30, 184, 166, 0.28),
+      0 0 60px 24px rgba(30, 184, 166, 0.12);
+  }
 }
 
 .pulse-button span {
@@ -346,14 +419,36 @@ button {
 
 .pulse-button.is-hovered,
 .pulse-button:hover {
-  transform: translate(-50%, -50%) scale(1.05);
+  transform: translate(-50%, -50%) scale(1.07);
   background: #fff6dc;
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.32),
+    0 0 30px 10px rgba(30, 184, 166, 0.35),
+    0 0 60px 22px rgba(30, 184, 166, 0.18);
+  animation: none;
 }
 
 .pulse-button.is-loading {
   cursor: wait;
   background: #e8faf7;
   animation: pulse-glow 1.1s ease-in-out infinite;
+}
+
+/* ── Staggered reveal animation ──────────────────────────────────────────────── */
+
+@keyframes slideInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-slide {
+  animation: slideInBottom 0.75s cubic-bezier(0.34, 1.2, 0.64, 1) both;
 }
 
 @keyframes pulse-glow {
