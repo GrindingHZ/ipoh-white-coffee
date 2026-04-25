@@ -33,6 +33,7 @@ describe('RecommendationService', () => {
       verdict: 'ERROR',
       reason: 'Unable to make an assessment right now. Please try again.',
       detail: 'GLM unavailable: invalid JSON response',
+      analysis: null,
     });
   });
 });

@@ -59,6 +59,15 @@ export class RecommendationService {
         verdict: result.verdict,
         reason: result.reason,
         detail: result.detail,
+        analysis: {
+          shouldFishToday: result.shouldFishToday,
+          profitConfidence: result.profitConfidence,
+          riskLevel: result.riskLevel,
+          reasoning: result.reasoning,
+          estimatedFuelCostRm: result.estimatedFuelCostRm,
+          keySignals: result.keySignals,
+          indicators: result.indicators,
+        },
       };
     } catch (err) {
       if (err instanceof GlmFallbackException) {
@@ -66,6 +75,7 @@ export class RecommendationService {
           verdict: 'ERROR',
           reason: language === 'ms' ? ERROR_REASON_MS : ERROR_REASON_EN,
           detail: err.message,
+          analysis: null,
         };
       }
       throw err;

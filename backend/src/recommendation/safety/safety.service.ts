@@ -38,6 +38,7 @@ export class SafetyService {
               ? 'Tidak dapat menilai keadaan cuaca sekarang.'
               : 'Unable to assess weather conditions right now.',
           detail: null,
+          analysis: null,
         };
       }
       throw err;
@@ -73,6 +74,7 @@ export class SafetyService {
           ? `Tidak selamat untuk ke laut: ${reason}`
           : `Not safe to go out: ${reason}`,
       detail: null,
+      analysis: null,
     };
   }
 }
