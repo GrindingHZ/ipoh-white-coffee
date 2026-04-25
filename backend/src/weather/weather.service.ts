@@ -65,15 +65,15 @@ export class WeatherService {
         return text.includes(stateLower);
       })
       .map((w) => ({
-        title_en: w.title_en ?? '',
-        title_bm: w.title_bm ?? '',
+        title_en: w.warning_issue?.title_en ?? '',
+        title_bm: w.warning_issue?.title_bm ?? '',
         text_en: w.text_en ?? '',
         text_bm: w.text_bm ?? '',
         valid_from: w.valid_from,
         valid_to: w.valid_to,
         isThunderstorm:
-          (w.title_en ?? '').includes(THUNDERSTORM_EN) ||
-          (w.title_bm ?? '').includes(THUNDERSTORM_BM),
+          (w.warning_issue?.title_en ?? '').includes(THUNDERSTORM_EN) ||
+          (w.warning_issue?.title_bm ?? '').includes(THUNDERSTORM_BM),
         waveHeightMetres: this.parseWaveHeight(w.text_en ?? ''),
       }));
   }
@@ -174,6 +174,20 @@ export class WeatherService {
     const entry = data[0];
     if (!entry) return null;
     return entry[slot] ?? entry[`${slot}_bm`] ?? null;
+  }
+
+  async reverseGeocodeState(lat: number, lng: number): Promise<string | null> {
+    try {
+      const url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`;
+      const res = await fetch(url, {
+        headers: { 'User-Agent': 'UMIpohWhiteCoffee/1.0' },
+      });
+      if (!res.ok) return null;
+      const json = await res.json();
+      return (json?.address?.state as string) ?? null;
+    } catch {
+      return null;
+    }
   }
 
   private districtFromLocationId(locationId: string): string {

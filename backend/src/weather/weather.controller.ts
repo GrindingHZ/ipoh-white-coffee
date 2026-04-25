@@ -1,4 +1,4 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller, Get, ParseFloatPipe, Query } from '@nestjs/common';
 import { WeatherService, Warning, ForecastSlotResult } from './weather.service';
 
 @Controller('weather')
@@ -8,6 +8,15 @@ export class WeatherController {
   @Get('warnings')
   warnings(@Query('state') state: string): Promise<Warning[]> {
     return this.weather.getActiveWarnings(state);
+  }
+
+  @Get('state')
+  async stateFromCoords(
+    @Query('lat', ParseFloatPipe) lat: number,
+    @Query('lng', ParseFloatPipe) lng: number,
+  ): Promise<{ state: string | null }> {
+    const state = await this.weather.reverseGeocodeState(lat, lng);
+    return { state };
   }
 
   @Get('forecast')
