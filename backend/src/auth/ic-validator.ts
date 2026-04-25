@@ -36,10 +36,25 @@ function isValidDate(yy: number, mm: number, dd: number): boolean {
   return dd <= maxDay;
 }
 
+function assertValidIcSemantics(normalized: string): void {
+  const yy = parseInt(normalized.substring(0, 2), 10);
+  const mm = parseInt(normalized.substring(2, 4), 10);
+  const dd = parseInt(normalized.substring(4, 6), 10);
+  const pb = parseInt(normalized.substring(6, 8), 10);
+
+  if (!isValidDate(yy, mm, dd)) {
+    throw new Error('Invalid IC date');
+  }
+
+  if (pb < 1 || pb > 59) {
+    throw new Error('Invalid IC place-of-birth code');
+  }
+}
+
 /**
  * Normalizes an IC string to 12 digits.
  * Accepts both hyphenated (DDDDDD-DD-DDDD) and non-hyphenated (12 digits) formats.
- * Throws an Error if the format is invalid (does not validate date/PB semantics).
+ * Throws an Error if the format, date, or place-of-birth code is invalid.
  */
 export function normalizeIc(raw: string): string {
   if (typeof raw !== 'string') {
@@ -47,6 +62,7 @@ export function normalizeIc(raw: string): string {
   }
 
   const trimmed = raw.trim();
+  let normalized: string;
 
   // Check if hyphenated format
   if (trimmed.includes('-')) {
@@ -56,15 +72,15 @@ export function normalizeIc(raw: string): string {
     if (!match) {
       throw new Error('Invalid IC format: hyphenated IC must match YYMMDD-PB-###G');
     }
-    return match[1] + match[2] + match[3];
-  }
-
-  // Non-hyphenated: must be exactly 12 digits
-  if (!/^\d{12}$/.test(trimmed)) {
+    normalized = match[1] + match[2] + match[3];
+  } else if (/^\d{12}$/.test(trimmed)) {
+    normalized = trimmed;
+  } else {
     throw new Error('Invalid IC: must be 12 digits (no hyphens)');
   }
 
-  return trimmed;
+  assertValidIcSemantics(normalized);
+  return normalized;
 }
 
 /**
@@ -77,29 +93,7 @@ export function normalizeIc(raw: string): string {
  */
 export function isValidIc(raw: string): boolean {
   try {
-    const normalized = normalizeIc(raw);
-
-    // Extract components
-    const yyStr = normalized.substring(0, 2);
-    const mmStr = normalized.substring(2, 4);
-    const ddStr = normalized.substring(4, 6);
-    const pbStr = normalized.substring(6, 8);
-
-    const yy = parseInt(yyStr, 10);
-    const mm = parseInt(mmStr, 10);
-    const dd = parseInt(ddStr, 10);
-    const pb = parseInt(pbStr, 10);
-
-    // Validate date
-    if (!isValidDate(yy, mm, dd)) {
-      return false;
-    }
-
-    // Validate place-of-birth code (01-59, not 00)
-    if (pb < 1 || pb > 59) {
-      return false;
-    }
-
+    normalizeIc(raw);
     return true;
   } catch {
     return false;

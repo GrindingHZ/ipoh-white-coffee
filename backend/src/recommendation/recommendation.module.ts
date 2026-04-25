@@ -9,11 +9,14 @@ import { TideModule } from '../tide/tide.module';
 import { FuelModule } from '../fuel/fuel.module';
 import { UserModule } from '../user/user.module';
 import { GlmModule } from '../glm/glm.module';
+import { AuthModule } from '../auth/auth.module';
+import { AuthGuard } from './auth.guard';
 
 @Module({
-  imports: [WeatherModule, TideModule, FuelModule, UserModule, GlmModule],
+  imports: [WeatherModule, TideModule, FuelModule, UserModule, GlmModule, AuthModule],
   controllers: [RecommendationController],
   providers: [
+    AuthGuard,
     RecommendationService,
     SafetyService,
     ContextAssemblerService,

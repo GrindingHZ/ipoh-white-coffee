@@ -15,8 +15,14 @@ describe('IC Validator', () => {
       expect(normalizeIc('901231015678')).toHaveLength(12);
     });
 
-    it('does not reject semantically invalid IC (format-only validation)', () => {
-      expect(() => normalizeIc('901300-01-5678')).not.toThrow();
+    it('rejects invalid date', () => {
+      expect(() => normalizeIc('901300-01-5678')).toThrow(/Invalid IC date/);
+    });
+
+    it('rejects invalid place-of-birth code', () => {
+      expect(() => normalizeIc('901231-00-5678')).toThrow(
+        /Invalid IC place-of-birth code/,
+      );
     });
 
     it('rejects non-digits', () => {

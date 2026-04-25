@@ -98,6 +98,11 @@ describe('AuthService', () => {
     it('throws BadRequestException for malformed IC', async () => {
       await expect(service.register({ ...dto, icNumber: 'not-an-ic' })).rejects.toThrow(BadRequestException);
     });
+
+    it('throws BadRequestException for semantically invalid IC', async () => {
+      await expect(service.register({ ...dto, icNumber: '901300-01-1234' })).rejects.toThrow(BadRequestException);
+      expect(prisma.user.findUnique).not.toHaveBeenCalled();
+    });
   });
 
   describe('login', () => {
@@ -123,6 +128,11 @@ describe('AuthService', () => {
 
     it('throws BadRequestException for malformed IC', async () => {
       await expect(service.login({ icNumber: 'bad' })).rejects.toThrow(BadRequestException);
+    });
+
+    it('throws BadRequestException for semantically invalid IC', async () => {
+      await expect(service.login({ icNumber: '901231-00-1234' })).rejects.toThrow(BadRequestException);
+      expect(prisma.user.findUnique).not.toHaveBeenCalled();
     });
 
     it('looks up user by normalized IC', async () => {

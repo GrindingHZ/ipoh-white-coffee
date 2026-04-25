@@ -10,16 +10,7 @@ import {
 } from '@nestjs/common';
 import { AuthService, RegisterDto, LoginDto } from './auth.service';
 import { UserService } from '../user/user.service';
-
-const COOKIE_NAME = 'fisheriq_session';
-
-const COOKIE_OPTIONS = {
-  httpOnly: true,
-  sameSite: 'lax' as const,
-  path: '/',
-  maxAge: 31536000,
-  secure: process.env.NODE_ENV === 'production',
-};
+import { getSessionCookieOptions, SESSION_COOKIE_NAME } from './session-cookie';
 
 @Controller('auth')
 export class AuthController {
@@ -31,7 +22,7 @@ export class AuthController {
   @Post('register')
   async register(@Body() dto: RegisterDto, @Res({ passthrough: true }) res: any) {
     const { profile, rawToken } = await this.auth.register(dto);
-    res.cookie(COOKIE_NAME, rawToken, COOKIE_OPTIONS);
+    res.cookie(SESSION_COOKIE_NAME, rawToken, getSessionCookieOptions());
     return profile;
   }
 
@@ -39,13 +30,13 @@ export class AuthController {
   @HttpCode(200)
   async login(@Body() dto: LoginDto, @Res({ passthrough: true }) res: any) {
     const { profile, rawToken } = await this.auth.login(dto);
-    res.cookie(COOKIE_NAME, rawToken, COOKIE_OPTIONS);
+    res.cookie(SESSION_COOKIE_NAME, rawToken, getSessionCookieOptions());
     return profile;
   }
 
   @Get('me')
   async me(@Req() req: any) {
-    const rawToken = req.cookies?.[COOKIE_NAME] as string | undefined;
+    const rawToken = req.cookies?.[SESSION_COOKIE_NAME] as string | undefined;
     if (!rawToken) throw new UnauthorizedException();
 
     const userId = await this.auth.validateSession(rawToken);
@@ -58,8 +49,8 @@ export class AuthController {
   @Post('logout')
   @HttpCode(204)
   async logout(@Req() req: any, @Res({ passthrough: true }) res: any) {
-    const rawToken = req.cookies?.[COOKIE_NAME] as string | undefined;
+    const rawToken = req.cookies?.[SESSION_COOKIE_NAME] as string | undefined;
     if (rawToken) await this.auth.logout(rawToken);
-    res.clearCookie(COOKIE_NAME, { path: '/' });
+    res.clearCookie(SESSION_COOKIE_NAME, { path: '/' });
   }
 }
