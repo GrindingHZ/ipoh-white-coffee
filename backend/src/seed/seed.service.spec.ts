@@ -9,6 +9,7 @@ describe('SeedService', () => {
     marineLandingStateMonthly: { upsert: jest.Mock };
     marineLandingSpeciesMonthly: { upsert: jest.Mock };
     fishingEffortStateTotal: { upsert: jest.Mock };
+    user: { upsert: jest.Mock };
   };
   let service: SeedService;
 
@@ -21,6 +22,7 @@ describe('SeedService', () => {
       marineLandingStateMonthly: { upsert: jest.fn() },
       marineLandingSpeciesMonthly: { upsert: jest.fn() },
       fishingEffortStateTotal: { upsert: jest.fn() },
+      user: { upsert: jest.fn() },
     };
     service = new SeedService(prisma as never);
 
@@ -146,6 +148,33 @@ west,Perlis,fishing_units,3710`,
         value: 3710,
       },
       update: { value: 3710 },
+    });
+  });
+
+  it('seeds a test user that can log in by IC for recommendation curl tests', async () => {
+    await service.seed();
+
+    expect(prisma.user.upsert).toHaveBeenCalledWith({
+      where: { icNumber: '900101015555' },
+      create: {
+        icNumber: '900101015555',
+        name: 'FisherIQ Curl Test User',
+        language: 'en',
+        locality: 'Mersing',
+        homeJetty: 'Mersing Jetty',
+        fuelCapacity: 40,
+        targetSpecies: ['Selar', 'Kembung'],
+        typicalDepartureTime: '06:00',
+      },
+      update: {
+        name: 'FisherIQ Curl Test User',
+        language: 'en',
+        locality: 'Mersing',
+        homeJetty: 'Mersing Jetty',
+        fuelCapacity: 40,
+        targetSpecies: ['Selar', 'Kembung'],
+        typicalDepartureTime: '06:00',
+      },
     });
   });
 });

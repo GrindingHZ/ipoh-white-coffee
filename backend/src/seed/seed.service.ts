@@ -11,6 +11,17 @@ import {
   parseMarinePriceRows,
 } from './fisheries-csv-parser';
 
+const RECOMMENDATION_CURL_TEST_USER = {
+  icNumber: '900101015555',
+  name: 'FisherIQ Curl Test User',
+  language: 'en',
+  locality: 'Mersing',
+  homeJetty: 'Mersing Jetty',
+  fuelCapacity: 40,
+  targetSpecies: ['Selar', 'Kembung'],
+  typicalDepartureTime: '06:00',
+};
+
 @Injectable()
 export class SeedService {
   private readonly logger = new Logger(SeedService.name);
@@ -26,8 +37,19 @@ export class SeedService {
       this.seedMarineLandingStateMonthly(),
       this.seedMarineLandingSpeciesMonthly(),
       this.seedFishingEffortStateTotals(),
+      this.seedRecommendationCurlTestUser(),
     ]);
     this.logger.log('Seeding complete');
+  }
+
+  private async seedRecommendationCurlTestUser() {
+    const { icNumber, ...profileData } = RECOMMENDATION_CURL_TEST_USER;
+    await this.prisma.user.upsert({
+      where: { icNumber },
+      create: { icNumber, ...profileData },
+      update: profileData,
+    });
+    this.logger.log('Seeded recommendation curl test user');
   }
 
   private async seedFuel() {
