@@ -36,7 +36,6 @@ export class ContextAssemblerService {
 
   async assemble(
     profile: User,
-    locationId: string,
     district: string,
     serverTime: Date,
   ): Promise<string> {
@@ -49,7 +48,7 @@ export class ContextAssemblerService {
       await Promise.all([
         this.weather.getActiveWarnings(district).catch(() => []),
         this.weather
-          .getForecastForTripWindow(locationId, serverTime, departureHour)
+          .getForecastForTripWindow(district, serverTime, departureHour)
           .catch(() => null),
         this.tide.getTideForDay(district, serverTime),
         this.fuel.getLatestPriceForLocality(district).catch(() => null),

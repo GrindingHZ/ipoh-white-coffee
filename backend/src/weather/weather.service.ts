@@ -1,5 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
+import locationMap from '../data/location-map.json';
 import {
   THUNDERSTORM_EN,
   THUNDERSTORM_BM,
@@ -7,6 +8,8 @@ import {
   ForecastSlot,
   SLOT_HOUR_RANGES,
 } from '../data/forecast-values';
+
+type LocationMapValue = string | string[];
 
 export interface Warning {
   title_en: string;
@@ -46,7 +49,8 @@ export class WeatherService {
         payload = await this.fetchWarnings();
         await this.upsertCache('warning', state, payload);
       } catch (err) {
-        this.logger.warn(`Warning fetch failed: ${err.message}`);
+        const message = err instanceof Error ? err.message : String(err);
+        this.logger.warn(`Warning fetch failed: ${message}`);
         if (cacheEntry) {
           payload = cacheEntry.payload as any[];
         } else {
@@ -79,11 +83,11 @@ export class WeatherService {
   }
 
   async getForecastForTripWindow(
-    locationId: string,
+    district: string,
     date: Date,
     departureHour: number,
   ): Promise<ForecastSlotResult | null> {
-    const district = this.districtFromLocationId(locationId);
+    const locationIds = this.locationIdsFromDistrict(district);
     const cacheEntry = await this.getCacheEntry('forecast', district);
     let payload: any;
 
@@ -91,10 +95,11 @@ export class WeatherService {
       payload = cacheEntry.payload;
     } else {
       try {
-        payload = await this.fetchForecast(locationId, date);
+        payload = await this.fetchForecastForLocationIds(locationIds, date);
         await this.upsertCache('forecast', district, payload);
       } catch (err) {
-        this.logger.warn(`Forecast fetch failed: ${err.message}`);
+        const message = err instanceof Error ? err.message : String(err);
+        this.logger.warn(`Forecast fetch failed: ${message}`);
         if (cacheEntry) {
           payload = cacheEntry.payload;
         } else {
@@ -104,13 +109,20 @@ export class WeatherService {
     }
 
     const slot = this.hourToSlot(departureHour);
-    const value = this.extractSlotValue(payload, slot);
-    if (!value) return null;
+    const values = this.extractSlotValues(payload, slot);
+    if (values.length === 0) return null;
+    const hasThunderstorm = values.some((value) =>
+      value.startsWith(THUNDERSTORM_FORECAST_PREFIX),
+    );
+    const value =
+      values.find((forecastValue) =>
+        forecastValue.startsWith(THUNDERSTORM_FORECAST_PREFIX),
+      ) ?? values[0];
 
     return {
       slot,
       value,
-      isThunderstorm: value.startsWith(THUNDERSTORM_FORECAST_PREFIX),
+      isThunderstorm: hasThunderstorm,
     };
   }
 
@@ -128,6 +140,35 @@ export class WeatherService {
     );
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return res.json();
+  }
+
+  private async fetchForecastForLocationIds(
+    locationIds: string[],
+    date: Date,
+  ): Promise<any[]> {
+    const responses = await Promise.allSettled(
+      locationIds.map((locationId) => this.fetchForecast(locationId, date)),
+    );
+
+    const merged: any[] = [];
+    for (const response of responses) {
+      if (response.status !== 'fulfilled') {
+        continue;
+      }
+
+      const data = Array.isArray(response.value)
+        ? response.value
+        : (response.value?.data ?? []);
+      if (Array.isArray(data)) {
+        merged.push(...data);
+      }
+    }
+
+    if (merged.length === 0) {
+      throw new Error('NO_FORECAST_DATA');
+    }
+
+    return merged;
   }
 
   private async getCacheEntry(type: string, district: string) {
@@ -168,11 +209,10 @@ export class WeatherService {
     return 'night';
   }
 
-  private extractSlotValue(payload: any, slot: ForecastSlot): string | null {
-    if (!payload) return null;
+  private extractSlotValues(payload: any, slot: ForecastSlot): string[] {
+    if (!payload) return [];
     const data: any[] = Array.isArray(payload) ? payload : (payload.data ?? []);
-    const entry = data[0];
-    if (!entry) return null;
+    if (data.length === 0) return [];
 
     const slotCandidates = [
       slot,
@@ -181,14 +221,22 @@ export class WeatherService {
       `${slot}_forecast_bm`,
     ];
 
-    for (const key of slotCandidates) {
-      const value = entry[key];
-      if (typeof value === 'string' && value.trim().length > 0) {
-        return value;
+    const values: string[] = [];
+    for (const entry of data) {
+      if (!entry || typeof entry !== 'object') {
+        continue;
+      }
+
+      for (const key of slotCandidates) {
+        const value = entry[key];
+        if (typeof value === 'string' && value.trim().length > 0) {
+          values.push(value);
+          break;
+        }
       }
     }
 
-    return null;
+    return values;
   }
 
   async reverseGeocodeState(lat: number, lng: number): Promise<string | null> {
@@ -205,7 +253,66 @@ export class WeatherService {
     }
   }
 
-  private districtFromLocationId(locationId: string): string {
-    return locationId;
+  private locationIdsFromDistrict(district: string): string[] {
+    const map = locationMap as Record<string, LocationMapValue>;
+    const directIds = this.toLocationIds(map[district]);
+    if (directIds.length > 0) {
+      return directIds;
+    }
+
+    const normalized = this.normalizeDistrict(district);
+    if (!normalized) return [district];
+
+    const entries = Object.entries(map).map(
+      ([name, value]) =>
+        [this.normalizeDistrict(name), this.toLocationIds(value)] as [
+          string,
+          string[],
+        ],
+    );
+
+    const exact = entries.find(([n]) => n === normalized);
+    if (exact) return exact[1];
+
+    const firstSegment = district.split(',')[0]?.trim();
+    if (firstSegment) {
+      const firstSegmentIds = this.toLocationIds(map[firstSegment]);
+      if (firstSegmentIds.length > 0) {
+        return firstSegmentIds;
+      }
+    }
+
+    const normSegment = this.normalizeDistrict(firstSegment);
+    if (normSegment) {
+      const segmentMatch = entries.find(([n]) => n === normSegment);
+      if (segmentMatch) return segmentMatch[1];
+    }
+
+    const fuzzy = entries.find(
+      ([n]) => normalized.includes(n) || n.includes(normalized),
+    );
+    return fuzzy?.[1] ?? [district];
+  }
+
+  private toLocationIds(value: LocationMapValue | undefined): string[] {
+    if (!value) {
+      return [];
+    }
+
+    const ids = Array.isArray(value) ? value : [value];
+    return [
+      ...new Set(
+        ids.filter((id) => typeof id === 'string' && id.trim().length > 0),
+      ),
+    ];
+  }
+
+  private normalizeDistrict(value: string | undefined): string {
+    if (!value) return '';
+    return value
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
   }
 }

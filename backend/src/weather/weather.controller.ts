@@ -18,12 +18,12 @@ export class WeatherController {
 
   @Get('forecast')
   forecast(
-    @Query('locationId') locationId: string,
+    @Query('district') district: string,
     @Query('date') date: string,
     @Query('departureHour') departureHour: string,
   ): Promise<ForecastSlotResult | null> {
     return this.weather.getForecastForTripWindow(
-      locationId,
+      district,
       new Date(date),
       parseInt(departureHour, 10),
     );

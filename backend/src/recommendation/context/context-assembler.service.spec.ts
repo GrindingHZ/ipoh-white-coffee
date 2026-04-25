@@ -83,7 +83,6 @@ describe('ContextAssemblerService', () => {
         fuelCapacity: 40,
         targetSpecies: [],
       } as any,
-      'SND',
       'Sandakan',
       new Date('2026-04-16T06:00:00.000Z'),
     );
@@ -179,7 +178,6 @@ describe('ContextAssemblerService', () => {
         fuelCapacity: 40,
         targetSpecies: [],
       } as any,
-      'UNK',
       'Unknown District',
       new Date('2026-04-16T06:00:00.000Z'),
     );
@@ -258,7 +256,6 @@ describe('ContextAssemblerService', () => {
         fuelCapacity: 40,
         targetSpecies: [],
       } as any,
-      'UNK',
       'Unknown District',
       new Date('2026-04-16T06:00:00.000Z'),
     );
