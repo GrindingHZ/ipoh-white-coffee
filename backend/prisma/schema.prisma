@@ -16,8 +16,22 @@ model User {
   targetSpecies        String[]
   typicalDepartureTime String?
   createdAt            DateTime  @default(now())
+  icNumber             String?   @unique
+  sessions             AuthSession[]
 
   @@map("users")
+}
+
+model AuthSession {
+  id          String    @id @default(uuid()) @db.Uuid
+  userId      String    @db.Uuid
+  tokenHash   String    @unique
+  createdAt   DateTime  @default(now())
+  expiresAt   DateTime
+  lastUsedAt  DateTime?
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("auth_sessions")
 }
 
 model TideEntry {
