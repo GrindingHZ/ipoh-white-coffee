@@ -43,8 +43,14 @@ export class SeedService {
         lowHeight: row.low_height ? parseFloat(row.low_height) : null,
       };
       await this.prisma.tideEntry.upsert({
-        where: { district_date: { district: row.district, date: new Date(row.date) } },
-        create: { district: row.district, date: new Date(row.date), ...tideData },
+        where: {
+          district_date: { district: row.district, date: new Date(row.date) },
+        },
+        create: {
+          district: row.district,
+          date: new Date(row.date),
+          ...tideData,
+        },
         update: tideData,
       });
     }
@@ -76,9 +82,24 @@ export class SeedService {
     const json = JSON.parse(this.readData('seasonal-patterns.json'));
     for (const item of json) {
       await this.prisma.seasonalPattern.upsert({
-        where: { species_month_district: { species: item.species, month: item.month, district: item.district } },
-        create: { species: item.species, month: item.month, district: item.district, activityLevel: item.activityLevel, notes: item.notes ?? null },
-        update: { activityLevel: item.activityLevel, notes: item.notes ?? null },
+        where: {
+          species_month_district: {
+            species: item.species,
+            month: item.month,
+            district: item.district,
+          },
+        },
+        create: {
+          species: item.species,
+          month: item.month,
+          district: item.district,
+          activityLevel: item.activityLevel,
+          notes: item.notes ?? null,
+        },
+        update: {
+          activityLevel: item.activityLevel,
+          notes: item.notes ?? null,
+        },
       });
     }
     this.logger.log(`Seeded ${json.length} seasonal pattern entries`);
@@ -93,7 +114,9 @@ export class SeedService {
       const date = new Date(row.date);
       const landingsKg = parseInt(row.landings, 10);
       await this.prisma.fishLanding.upsert({
-        where: { date_coast_state: { date, coast: row.coast, state: row.state } },
+        where: {
+          date_coast_state: { date, coast: row.coast, state: row.state },
+        },
         create: { date, coast: row.coast, state: row.state, landingsKg },
         update: { landingsKg },
       });

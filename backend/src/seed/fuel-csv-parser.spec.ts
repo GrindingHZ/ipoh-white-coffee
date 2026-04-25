@@ -1,6 +1,7 @@
 import { parseLatestFuelPrice } from './fuel-csv-parser';
 
-const HEADER = 'series_type,date,ron95,ron97,diesel,diesel_eastmsia,ron95_budi95,ron95_skps';
+const HEADER =
+  'series_type,date,ron95,ron97,diesel,diesel_eastmsia,ron95_budi95,ron95_skps';
 
 describe('parseLatestFuelPrice', () => {
   it('returns null when no data rows exist', () => {

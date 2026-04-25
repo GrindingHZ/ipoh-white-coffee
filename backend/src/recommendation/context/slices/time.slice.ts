@@ -1,4 +1,7 @@
-export function timeSlice(serverTime: Date, typicalDepartureTime: string | null): string {
+export function timeSlice(
+  serverTime: Date,
+  typicalDepartureTime: string | null,
+): string {
   const hour = serverTime.getHours();
   const typicalHour = typicalDepartureTime
     ? parseInt(typicalDepartureTime.split(':')[0], 10)

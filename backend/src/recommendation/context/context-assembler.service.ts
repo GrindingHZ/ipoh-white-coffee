@@ -4,6 +4,7 @@ import { WeatherService } from '../../weather/weather.service';
 import { TideService } from '../../tide/tide.service';
 import { FuelService } from '../../fuel/fuel.service';
 import { PrismaService } from '../../prisma/prisma.service';
+import { FishingSignalService } from '../fishing-signal.service';
 import { languageSlice } from './slices/language.slice';
 import { warningSlice, forecastSlice } from './slices/weather.slice';
 import { timeSlice } from './slices/time.slice';
@@ -21,6 +22,7 @@ export class ContextAssemblerService {
     private readonly weather: WeatherService,
     private readonly tide: TideService,
     private readonly fuel: FuelService,
+    private readonly signals: FishingSignalService,
     private readonly prisma: PrismaService,
   ) {}
 
@@ -44,15 +46,35 @@ export class ContextAssemblerService {
       this.fuel.getLatestPrice(),
     ]);
 
+    const signals = this.signals.score(
+      district,
+      warnings,
+      serverTime.getMonth() + 1,
+    );
+
     const slices: string[] = [
       languageSlice(language),
-      warningSlice(warnings),
+      warningSlice(warnings, signals),
       forecastSlice(forecast, district),
       timeSlice(serverTime, profile.typicalDepartureTime),
       tideSlice(tideInfo, serverTime),
-      fuelSlice(fuelInfo, profile.fuelCapacity ? Number(profile.fuelCapacity) : null),
-      await seasonalSlice(this.prisma, district, profile.targetSpecies, serverTime.getMonth() + 1),
-      await landingsSlice(this.prisma, district, serverTime.getMonth() + 1),
+      fuelSlice(
+        fuelInfo,
+        profile.fuelCapacity ? Number(profile.fuelCapacity) : null,
+      ),
+      await seasonalSlice(
+        this.prisma,
+        district,
+        profile.targetSpecies,
+        serverTime.getMonth() + 1,
+        signals,
+      ),
+      await landingsSlice(
+        this.prisma,
+        district,
+        serverTime.getMonth() + 1,
+        signals,
+      ),
     ];
 
     return this.applyTokenBudget(slices);
@@ -72,5 +94,4 @@ export class ContextAssemblerService {
 
     return prompt.trim();
   }
-
 }

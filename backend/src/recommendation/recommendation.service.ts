@@ -8,8 +8,10 @@ import { TapRequestDto } from './dto/tap-request.dto';
 import { RecommendationResponseDto } from './dto/recommendation-response.dto';
 import locationMap from '../data/location-map.json';
 
-const ERROR_REASON_MS = 'Tidak dapat membuat penilaian sekarang. Cuba sebentar lagi.';
-const ERROR_REASON_EN = 'Unable to make an assessment right now. Please try again.';
+const ERROR_REASON_MS =
+  'Tidak dapat membuat penilaian sekarang. Cuba sebentar lagi.';
+const ERROR_REASON_EN =
+  'Unable to make an assessment right now. Please try again.';
 
 @Injectable()
 export class RecommendationService {
@@ -20,12 +22,16 @@ export class RecommendationService {
     private readonly glm: GlmService,
   ) {}
 
-  async recommend(userId: string, dto: TapRequestDto): Promise<RecommendationResponseDto> {
+  async recommend(
+    userId: string,
+    dto: TapRequestDto,
+  ): Promise<RecommendationResponseDto> {
     const profile = await this.users.getProfile(userId);
     const language = (profile.language ?? 'ms') as 'ms' | 'en';
 
     const district = this.resolveDistrict(dto, profile.locality);
-    const locationId = (locationMap as Record<string, string>)[district] ?? district;
+    const locationId =
+      (locationMap as Record<string, string>)[district] ?? district;
     const serverTime = new Date();
     const departureHour = profile.typicalDepartureTime
       ? parseInt(profile.typicalDepartureTime.split(':')[0], 10)
@@ -49,7 +55,11 @@ export class RecommendationService {
 
     try {
       const result = await this.glm.complete(prompt);
-      return { verdict: result.verdict, reason: result.reason, detail: result.detail };
+      return {
+        verdict: result.verdict,
+        reason: result.reason,
+        detail: result.detail,
+      };
     } catch (err) {
       if (err instanceof GlmFallbackException) {
         return {
