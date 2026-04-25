@@ -2,7 +2,7 @@ import { GlmFallbackException } from '../glm/glm-fallback.exception';
 import { RecommendationService } from './recommendation.service';
 
 describe('RecommendationService', () => {
-  it('returns GLM fallback details for debugging when completion fails', async () => {
+  it('returns GLM fallback error detail when completion fails', async () => {
     const users = {
       getProfile: jest.fn().mockResolvedValue({
         id: 'user-1',
@@ -32,12 +32,12 @@ describe('RecommendationService', () => {
     await expect(service.recommend('user-1', {})).resolves.toEqual({
       verdict: 'ERROR',
       reason: 'Unable to make an assessment right now. Please try again.',
-      detail: 'GLM unavailable: invalid JSON response',
+      errorDetail: 'GLM unavailable: invalid JSON response',
       analysis: null,
     });
   });
 
-  it('returns GLM fallback details for debugging when context assembly fails', async () => {
+  it('returns GLM fallback error detail when context assembly fails', async () => {
     const users = {
       getProfile: jest.fn().mockResolvedValue({
         id: 'user-1',
@@ -67,7 +67,7 @@ describe('RecommendationService', () => {
     await expect(service.recommend('user-1', {})).resolves.toEqual({
       verdict: 'ERROR',
       reason: 'Unable to make an assessment right now. Please try again.',
-      detail: 'GLM unavailable: slice weather failed',
+      errorDetail: 'GLM unavailable: slice weather failed',
       analysis: null,
     });
     expect(glm.complete).not.toHaveBeenCalled();
@@ -103,7 +103,7 @@ describe('RecommendationService', () => {
     await expect(service.recommend('user-1', {})).resolves.toEqual({
       verdict: 'ERROR',
       reason: 'Tidak dapat membuat penilaian sekarang. Cuba sebentar lagi.',
-      detail: 'GLM unavailable: slice weather failed',
+      errorDetail: 'GLM unavailable: slice weather failed',
       analysis: null,
     });
     expect(glm.complete).not.toHaveBeenCalled();

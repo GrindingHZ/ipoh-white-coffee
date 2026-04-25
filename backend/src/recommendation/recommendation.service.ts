@@ -57,7 +57,6 @@ export class RecommendationService {
       return {
         verdict: result.verdict,
         reason: result.reason,
-        detail: result.detail,
         analysis: {
           shouldFishToday: result.shouldFishToday,
           profitConfidence: result.profitConfidence,
@@ -73,7 +72,7 @@ export class RecommendationService {
         return {
           verdict: 'ERROR',
           reason: language === 'ms' ? ERROR_REASON_MS : ERROR_REASON_EN,
-          detail: err.message,
+          errorDetail: err.message,
           analysis: null,
         };
       }

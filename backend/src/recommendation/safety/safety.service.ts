@@ -30,14 +30,13 @@ export class SafetyService {
         departureHour,
       );
     } catch (err) {
-      if (err.message === 'NO_CACHE') {
+      if (err instanceof Error && err.message === 'NO_CACHE') {
         return {
           verdict: 'NO_GO',
           reason:
             language === 'ms'
               ? 'Tidak dapat menilai keadaan cuaca sekarang.'
               : 'Unable to assess weather conditions right now.',
-          detail: null,
           analysis: null,
         };
       }
@@ -73,7 +72,6 @@ export class SafetyService {
         language === 'ms'
           ? `Tidak selamat untuk ke laut: ${reason}`
           : `Not safe to go out: ${reason}`,
-      detail: null,
       analysis: null,
     };
   }

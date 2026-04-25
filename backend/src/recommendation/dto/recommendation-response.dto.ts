@@ -19,6 +19,6 @@ export interface RecommendationAnalysisDto {
 export class RecommendationResponseDto {
   verdict: 'GO' | 'NO_GO' | 'ERROR';
   reason: string;
-  detail: string | null;
+  errorDetail?: string;
   analysis: RecommendationAnalysisDto | null;
 }
