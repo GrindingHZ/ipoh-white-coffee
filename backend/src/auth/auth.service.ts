@@ -55,6 +55,7 @@ export class AuthService {
         language: 'en',
         targetSpecies: [],
         icNumber: normalizedIc,
+        fuelCapacity: 80,
       },
     });
 
