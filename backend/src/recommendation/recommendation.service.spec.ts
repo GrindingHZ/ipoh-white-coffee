@@ -109,7 +109,7 @@ describe('RecommendationService', () => {
     expect(glm.complete).not.toHaveBeenCalled();
   });
 
-  it('maps comma-separated locality text to updated location IDs', async () => {
+  it('forwards comma-separated locality text to safety checks', async () => {
     const users = {
       getProfile: jest.fn().mockResolvedValue({
         id: 'user-1',
@@ -144,14 +144,13 @@ describe('RecommendationService', () => {
     );
     expect(safety.check).toHaveBeenCalledWith(
       'Johor Bahru, Johor',
-      'Tn139',
       expect.any(Date),
       6,
       'en',
     );
   });
 
-  it('maps legacy locality aliases to current API IDs', async () => {
+  it('forwards legacy locality aliases to safety checks', async () => {
     const users = {
       getProfile: jest.fn().mockResolvedValue({
         id: 'user-1',
@@ -186,7 +185,6 @@ describe('RecommendationService', () => {
     );
     expect(safety.check).toHaveBeenCalledWith(
       'Cameron Highlands',
-      'Ds038',
       expect.any(Date),
       6,
       'en',
