@@ -22,18 +22,6 @@ function saveUser(user: AuthUser): void {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
 }
 
-function loadAllUsers(): Record<string, AuthUser> {
-  try {
-    const raw = localStorage.getItem("fisheriq_users");
-    return raw ? (JSON.parse(raw) as Record<string, AuthUser>) : {};
-  } catch {
-    return {};
-  }
-}
-
-function saveAllUsers(users: Record<string, AuthUser>): void {
-  localStorage.setItem("fisheriq_users", JSON.stringify(users));
-}
 
 interface Props {
   onSuccess: (user: AuthUser) => void;
@@ -99,9 +87,6 @@ export default function AuthModal({ onSuccess, onClose }: Props) {
         name: trimmedName,
         locality: trimmedLocality,
       });
-      const users = loadAllUsers();
-      users[trimmedIc] = user;
-      saveAllUsers(users);
       saveUser(user);
       setVisible(false);
       setTimeout(() => onSuccess(user), 280);

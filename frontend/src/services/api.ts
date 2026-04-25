@@ -64,7 +64,7 @@ function getDistanceKm(lat1: number, lng1: number, lat2: number, lng2: number): 
 }
 
 function getApiBaseUrl(): string {
-  return process.env.REACT_APP_API_BASE_URL ?? "http://localhost:3000";
+  return process.env.REACT_APP_API_BASE_URL ?? "";
 }
 
 function apiUrl(path: string, params?: URLSearchParams): string {
@@ -129,6 +129,16 @@ export async function registerWithIc(profile: {
 
   if (!res.ok) throw new Error(`Registration failed: ${res.status}`);
   return res.json() as Promise<AuthProfile>;
+}
+
+export async function getMe(): Promise<AuthProfile> {
+  const res = await fetch(apiUrl("/auth/me"), { credentials: "include" });
+  if (!res.ok) throw new Error(`Session invalid: ${res.status}`);
+  return res.json() as Promise<AuthProfile>;
+}
+
+export async function logoutUser(): Promise<void> {
+  await fetch(apiUrl("/auth/logout"), { method: "POST", credentials: "include" });
 }
 
 // ── Overpass / coast lookup ───────────────────────────────────────────────────

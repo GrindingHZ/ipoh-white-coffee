@@ -45,14 +45,16 @@ export class ContextAssemblerService {
       ? parseInt(profile.typicalDepartureTime.split(':')[0], 10)
       : serverTime.getHours();
 
-    const [warnings, forecast, tideInfo, fuelInfo] = await Promise.all([
-      this.weather.getActiveWarnings(district).catch(() => []),
-      this.weather
-        .getForecastForTripWindow(locationId, serverTime, departureHour)
-        .catch(() => null),
-      this.tide.getTideForDay(district, serverTime),
-      this.fuel.getLatestPriceForLocality(district).catch(() => null),
-    ]);
+    const [warnings, forecast, tideInfo, fuelInfo, previousWeekDieselPrice] =
+      await Promise.all([
+        this.weather.getActiveWarnings(district).catch(() => []),
+        this.weather
+          .getForecastForTripWindow(locationId, serverTime, departureHour)
+          .catch(() => null),
+        this.tide.getTideForDay(district, serverTime),
+        this.fuel.getLatestPriceForLocality(district).catch(() => null),
+        this.fuel.getPreviousWeekDieselPrice(district).catch(() => null),
+      ]);
 
     const signals = this.signals.score(
       district,
@@ -90,6 +92,7 @@ export class ContextAssemblerService {
         raw: fuelSlice(
           fuelInfo,
           profile.fuelCapacity ? Number(profile.fuelCapacity) : null,
+          previousWeekDieselPrice,
         ),
       },
       { slice: 'seasonal', raw: seasonalInfo },

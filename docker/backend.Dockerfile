@@ -18,4 +18,4 @@ COPY backend/src/data ./dist/src/data/
 COPY backend/prisma ./prisma/
 COPY backend/prisma.config.ts ./
 EXPOSE 3000
-CMD ["sh", "-c", "npx prisma migrate deploy && node dist/src/main"]
+CMD ["sh", "-c", "npx prisma migrate deploy && node dist/src/seed/seed.js && node dist/src/main"]

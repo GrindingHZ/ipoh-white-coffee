@@ -60,6 +60,19 @@ export class FuelService {
     };
   }
 
+  async getPreviousWeekDieselPrice(locality?: string): Promise<number | null> {
+    const entries = await this.prisma.fuelPrice.findMany({
+      orderBy: { effectiveDate: 'desc' },
+      take: 2,
+    });
+    if (entries.length < 2) return null;
+    const prev = entries[1];
+    const requestedRegion = resolveDieselRegion(locality);
+    return requestedRegion === 'east_malaysia' && prev.dieselEastMsiaPrice !== null
+      ? Number(prev.dieselEastMsiaPrice)
+      : Number(prev.dieselPrice);
+  }
+
   estimateTripCost(fuelCapacityLitres: number, ron95Price: number): number {
     return Math.round(fuelCapacityLitres * ron95Price * 100) / 100;
   }
