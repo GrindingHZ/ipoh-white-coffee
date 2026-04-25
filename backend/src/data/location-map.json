@@ -1,113 +1,516 @@
 {
-  "Mersing": "Ds011",
-  "Kota Tinggi": "Ds012",
-  "Johor Bahru": "Ds013",
-  "Pontian": "Ds014",
-  "Batu Pahat": "Ds015",
-  "Muar": "Ds016",
-  "Segamat": "Ds017",
-  "Kluang": "Ds018",
-  "Kulai": "Ds019",
-  "Kuantan": "Ds021",
-  "Pekan": "Ds022",
-  "Rompin": "Ds023",
-  "Muadzam Shah": "Ds024",
-  "Jerantut": "Ds025",
-  "Temerloh": "Ds026",
-  "Bentong": "Ds027",
-  "Raub": "Ds028",
-  "Lipis": "Ds029",
-  "Cameron Highlands": "Ds030",
-  "Kuala Lipis": "Ds031",
-  "Kota Bharu": "Ds041",
-  "Tumpat": "Ds042",
-  "Pasir Mas": "Ds043",
-  "Tanah Merah": "Ds044",
-  "Machang": "Ds045",
-  "Kuala Krai": "Ds046",
-  "Gua Musang": "Ds047",
-  "Bachok": "Ds048",
-  "Pasir Puteh": "Ds049",
-  "Jeli": "Ds050",
-  "Kuala Terengganu": "Ds051",
+  "Alor Gajah": [
+    "Tn112",
+    "Ds075"
+  ],
+  "Alor Setar": "Tn003",
+  "Alor Star": "Tn003",
+  "Ampang": "Tn081",
+  "Asajaya": "Ds507",
+  "Ayer Hitam": "Tn130",
+  "Ayer Itam": "Tn010",
+  "Ayer Keroh": "Tn118",
+  "Bachok": [
+    "Tn037",
+    "Ds028"
+  ],
+  "Bagan Datuk": [
+    "Tn049",
+    "Ds036"
+  ],
+  "Bagan Serai": "Tn026",
+  "Balik Pulau": "Tn009",
+  "Baling": [
+    "Tn021",
+    "Ds015"
+  ],
+  "Bandar Baharu": "Ds018",
+  "Bandar Permaisuri": "Tn055",
+  "Bandaraya Melaka": "Tn119",
+  "Bangi": "Tn092",
+  "Bangsar": "Tn078",
+  "Banting": "Tn084",
+  "Barat Daya": "Ds011",
+  "Batang Padang": "Ds041",
+  "Batu Caves": "Tn069",
+  "Batu Feringgi": "Rc003",
+  "Batu Gajah": "Tn043",
+  "Batu Kawan": "Tn019",
+  "Batu Pahat": [
+    "Tn129",
+    "Ds084"
+  ],
+  "Bau": "Ds502",
+  "Bayan Lepas": "Tn015",
+  "Beaufort": "Ds545",
+  "Belaga": "Ds533",
+  "Beluran": "Ds564",
+  "Beluru": "Ds535",
+  "Bentong": [
+    "Tn072",
+    "Ds059"
+  ],
+  "Bera": [
+    "Tn102",
+    "Ds071"
+  ],
+  "Besut": [
+    "Tn047",
+    "Ds037"
+  ],
+  "Betong": [
+    "Dv505",
+    "Ds511"
+  ],
+  "Bintulu": [
+    "Dv510",
+    "Ds531"
+  ],
+  "Bukit Bendera": "Rc004",
+  "Bukit Bintang": "Tn080",
+  "Bukit Fraser": "Rc014",
+  "Bukit Mabong": "Ds529",
+  "Bukit Mertajam": "Tn018",
+  "Bukit Tengah": "Tn017",
+  "Bukit Tinggi": "Rc017",
+  "Butterworth": "Tn014",
+  "Cameron Highland": "Rc008",
+  "Cameron Highlands": "Ds038",
+  "Cheras": "Tn086",
+  "Cherating": "Rc023",
+  "Cyberjaya": "Tn087",
+  "Dalat": "Ds525",
+  "Damansara": "Tn074",
+  "Daro": "Ds520",
+  "Desaru": "Rc026",
+  "Dungun": [
+    "Tn082",
+    "Ds056"
+  ],
+  "Durian Tunggal": "Tn115",
+  "FP Labuan": [
+    "Dv513",
+    "Ds542"
+  ],
+  "Gemas": "Tn117",
+  "Georgetown": "Tn013",
+  "Gerik": "Tn027",
+  "Gombak": "Ds055",
+  "Gopeng": "Tn046",
+  "Gua Musang": [
+    "Tn053",
+    "Ds039"
+  ],
+  "Hilir Perak": "Ds040",
+  "Hulu Langat": "Ds063",
+  "Hulu Perak": "Ds021",
+  "Hulu Selangor": "Ds051",
+  "Hulu Terengganu": "Ds047",
+  "Ipoh": "Tn041",
+  "Iskandar Puteri": "Tn138",
+  "Jalan Duta": "Tn073",
+  "Jasin": [
+    "Tn120",
+    "Ds079"
+  ],
+  "Jelebu": [
+    "Tn100",
+    "Ds067"
+  ],
+  "Jeli": [
+    "Tn034",
+    "Ds025"
+  ],
+  "Jempol": [
+    "Tn109",
+    "Ds074"
+  ],
+  "Jerantut": [
+    "Tn068",
+    "Ds053"
+  ],
+  "Jerteh": "Tn048",
+  "Jitra": "Tn002",
+  "Johor": "St013",
+  "Johor Bahru": [
+    "Tn139",
+    "Ds090"
+  ],
+  "Julau": "Ds518",
+  "Kabong": "Ds513",
+  "Kajang": "Tn090",
+  "Kampar": [
+    "Tn050",
+    "Ds035"
+  ],
+  "Kanowit": "Ds522",
+  "Kapit": [
+    "Dv509",
+    "Ds528"
+  ],
+  "Kedah": "St002",
+  "Kelantan": "St005",
+  "Kemaman": [
+    "Tn098",
+    "Ds065"
+  ],
+  "Keningau": "Ds547",
+  "Kepala Batas": "Tn012",
+  "Kepong": "Tn067",
+  "Kerian": "Ds019",
+  "Kertih": "Tn094",
+  "Kijal": "Rc022",
+  "Kinabatangan": "Ds563",
+  "Kinta": "Ds032",
+  "Klang": "Ds054",
+  "Kluang": [
+    "Tn131",
+    "Ds085"
+  ],
+  "Kota Belud": "Ds558",
+  "Kota Bharu": [
+    "Tn033",
+    "Ds024"
+  ],
+  "Kota Kinabalu": "Ds554",
+  "Kota Marudu": "Ds561",
+  "Kota Setar": "Ds004",
+  "Kota Tinggi": [
+    "Tn137",
+    "Ds089"
+  ],
+  "Kuala Kangsar": [
+    "Tn035",
+    "Ds026"
+  ],
+  "Kuala Klawang": "Tn099",
+  "Kuala Krai": [
+    "Tn045",
+    "Ds034"
+  ],
+  "Kuala Kubu Bharu": "Tn063",
+  "Kuala Langat": "Ds060",
+  "Kuala Lipis": "Tn060",
+  "Kuala Lumpur": [
+    "Tn079",
+    "Ds058"
+  ],
+  "Kuala Muda": "Ds009",
+  "Kuala Nerang": "Tn005",
+  "Kuala Nerus": [
+    "Tn058",
+    "Ds046"
+  ],
+  "Kuala Penyu": "Ds544",
+  "Kuala Pilah": [
+    "Tn106",
+    "Ds072"
+  ],
+  "Kuala Rompin": "Tn127",
+  "Kuala Selangor": [
+    "Tn061",
+    "Ds049"
+  ],
+  "Kuala Terengganu": [
+    "Tn059",
+    "Ds048"
+  ],
+  "Kuantan": [
+    "Tn108",
+    "Ds069"
+  ],
+  "Kubang Pasu": "Ds003",
+  "Kuching": [
+    "Dv501",
+    "Ds504"
+  ],
+  "Kudat": [
+    "Dv518",
+    "Ds567"
+  ],
+  "Kulai": [
+    "Tn135",
+    "Ds088"
+  ],
+  "Kulim": [
+    "Tn020",
+    "Ds016"
+  ],
+  "Kunak": "Ds557",
+  "Labis": "Tn126",
+  "Lahad Datu": "Ds562",
+  "Langkawi": [
+    "Rc001",
+    "Ds001"
+  ],
+  "Larut Matang": "Ds020",
+  "Larut, Matang Dan Selama": "Ds020",
+  "Lawas": "Ds540",
+  "Lenggong": "Tn028",
+  "Limbang": [
+    "Dv512",
+    "Ds539"
+  ],
+  "Lipis": "Ds044",
+  "Lojing": "Tn141",
+  "Lubok Antu": "Ds514",
+  "Lumut": "Rc006",
+  "Lundu": "Ds503",
+  "Machang": [
+    "Tn039",
+    "Ds030"
+  ],
+  "Manjung": "Ds029",
+  "Maran": [
+    "Tn103",
+    "Ds066"
+  ],
   "Marang": "Ds052",
-  "Dungun": "Ds053",
-  "Kemaman": "Ds054",
-  "Hulu Terengganu": "Ds055",
-  "Besut": "Ds056",
-  "Setiu": "Ds057",
-  "Alor Setar": "Ds061",
-  "Kota Setar": "Ds062",
-  "Kubang Pasu": "Ds063",
-  "Padang Terap": "Ds064",
-  "Pendang": "Ds065",
-  "Yan": "Ds066",
-  "Sik": "Ds067",
-  "Baling": "Ds068",
-  "Kulim": "Ds069",
-  "Bandar Baharu": "Ds070",
-  "Langkawi": "Ds071",
-  "Pokok Sena": "Ds072",
-  "Georgetown": "Ds081",
-  "Timur Laut": "Ds082",
-  "Barat Daya": "Ds083",
-  "Seberang Perai Utara": "Ds084",
-  "Seberang Perai Tengah": "Ds085",
-  "Seberang Perai Selatan": "Ds086",
-  "Ipoh": "Ds091",
-  "Kinta": "Ds092",
-  "Larut Matang": "Ds093",
-  "Hilir Perak": "Ds094",
-  "Manjung": "Ds095",
-  "Kerian": "Ds096",
-  "Kuala Kangsar": "Ds097",
-  "Hulu Perak": "Ds098",
-  "Perak Tengah": "Ds099",
-  "Bagan Datuk": "Ds100",
-  "Muallim": "Ds101",
-  "Kampar": "Ds102",
-  "Batang Padang": "Ds103",
-  "Banjir": "Ds104",
-  "Shah Alam": "Ds111",
-  "Petaling": "Ds112",
-  "Gombak": "Ds113",
-  "Hulu Langat": "Ds114",
-  "Hulu Selangor": "Ds115",
-  "Sabak Bernam": "Ds116",
-  "Kuala Selangor": "Ds117",
-  "Klang": "Ds118",
-  "Sepang": "Ds119",
-  "Kuala Lumpur": "Ds121",
-  "Seremban": "Ds131",
-  "Port Dickson": "Ds132",
-  "Jelebu": "Ds133",
-  "Kuala Pilah": "Ds134",
-  "Rembau": "Ds135",
-  "Tampin": "Ds136",
-  "Jempol": "Ds137",
-  "Melaka Tengah": "Ds141",
-  "Alor Gajah": "Ds142",
-  "Jasin": "Ds143",
-  "Sandakan": "Ds201",
-  "Tawau": "Ds202",
-  "Lahad Datu": "Ds203",
-  "Semporna": "Ds204",
-  "Kunak": "Ds205",
-  "Beluran": "Ds206",
-  "Kinabatangan": "Ds207",
-  "Kota Kinabalu": "Ds211",
-  "Penampang": "Ds212",
-  "Putatan": "Ds213",
-  "Papar": "Ds214",
-  "Ranau": "Ds215",
-  "Kota Belud": "Ds216",
-  "Tuaran": "Ds217",
-  "Menggatal": "Ds218",
-  "Kuching": "Ds221",
-  "Bau": "Ds222",
-  "Lundu": "Ds223",
-  "Samarahan": "Ds224",
-  "Sibu": "Ds231",
-  "Miri": "Ds241",
-  "Bintulu": "Ds251"
+  "Marudi": "Ds538",
+  "Masjid Tanah": "Tn111",
+  "Matu": "Ds524",
+  "Melaka": "St012",
+  "Melaka Tengah": "Ds078",
+  "Menggatal": "Ds554",
+  "Mentakab": "Tn091",
+  "Meradong": "Ds519",
+  "Merlimau": "Tn122",
+  "Mersing": [
+    "Tn132",
+    "Ds086"
+  ],
+  "Miri": [
+    "Dv511",
+    "Ds537"
+  ],
+  "Muadzam Shah": "Tn116",
+  "Muallim": "Ds045",
+  "Muar": [
+    "Tn124",
+    "Ds083"
+  ],
+  "Mukah": [
+    "Dv508",
+    "Ds527"
+  ],
+  "Nabawan": "Ds546",
+  "Negeri Sembilan": "St011",
+  "Nibong Tebal": "Tn022",
+  "Nilai": "Tn096",
+  "Padang Terap": "Ds006",
+  "Pagoh": "Tn125",
+  "Pahang": "St007",
+  "Paka": "Tn089",
+  "Pakan": "Ds515",
+  "Pantai Barat": "Dv515",
+  "Papar": "Ds548",
+  "Parit Buntar": "Tn024",
+  "Pasir Gudang": "Tn140",
+  "Pasir Mas": [
+    "Tn032",
+    "Ds023"
+  ],
+  "Pasir Puteh": [
+    "Tn042",
+    "Ds031"
+  ],
+  "Paya Indah Wetlands": "Rc021",
+  "Pedalaman": "Dv514",
+  "Pekan": [
+    "Tn114",
+    "Ds076"
+  ],
+  "Pelabuhan Klang": "Tn066",
+  "Penampang": "Ds550",
+  "Pendang": [
+    "Tn006",
+    "Ds008"
+  ],
+  "Perai": "Tn016",
+  "Perak": "St004",
+  "Perak Tengah": "Ds033",
+  "Perlis": [
+    "Tn001",
+    "Ds002",
+    "St001"
+  ],
+  "Petaling": "Ds057",
+  "Petaling Jaya": "Tn076",
+  "Pitas": "Ds566",
+  "Pokok Sena": [
+    "Tn004",
+    "Ds005"
+  ],
+  "Pontian": [
+    "Tn134",
+    "Ds087"
+  ],
+  "Port Dickson": [
+    "Tn105",
+    "Ds070"
+  ],
+  "Pulau Kapas": "Rc015",
+  "Pulau Pangkor": "Rc005",
+  "Pulau Perhentian": "Rc007",
+  "Pulau Pinang": "St003",
+  "Pulau Redang": "Rc009",
+  "Pulau Sibu": "Rc025",
+  "Pulau Sipadan": "Rc502",
+  "Pulau Tioman": "Rc024",
+  "Pusa": "Ds510",
+  "Pusat Konservasi Gajah Kebangsaan": "Rc018",
+  "Putatan": "Ds549",
+  "Putrajaya": [
+    "Tn088",
+    "Ds062"
+  ],
+  "Ranau": "Ds556",
+  "Rantau Panjang": "Tn030",
+  "Raub": [
+    "Tn062",
+    "Ds050"
+  ],
+  "Rawang": "Tn064",
+  "Rembau": [
+    "Tn107",
+    "Ds073"
+  ],
+  "Rompin": "Ds080",
+  "Sabah": "St502",
+  "Sabak Bernam": [
+    "Tn054",
+    "Ds043"
+  ],
+  "Samarahan": [
+    "Dv503",
+    "Ds506"
+  ],
+  "Sandakan": [
+    "Dv517",
+    "Ds565"
+  ],
+  "Saratok": "Ds512",
+  "Sarawak": "St501",
+  "Sarikei": [
+    "Dv506",
+    "Ds516"
+  ],
+  "Sebauh": "Ds532",
+  "Seberang Perai Selatan": "Ds017",
+  "Seberang Perai Tengah": "Ds014",
+  "Seberang Perai Utara": "Ds013",
+  "Segamat": [
+    "Tn123",
+    "Ds082"
+  ],
+  "Selama": "Tn025",
+  "Selangau": "Ds526",
+  "Selangor": "St008",
+  "Selayang": "Tn065",
+  "Semenyih": "Tn093",
+  "Semporna": "Ds559",
+  "Senai": "Tn136",
+  "Sentul": "Tn071",
+  "Sepang": [
+    "Tn097",
+    "Ds064"
+  ],
+  "Serdang": "Tn023",
+  "Seremban": [
+    "Tn104",
+    "Ds068"
+  ],
+  "Seri Iskandar": "Tn044",
+  "Seri Kembangan": "Tn085",
+  "Serian": [
+    "Dv502",
+    "Ds505"
+  ],
+  "Setapak": "Tn075",
+  "Setiu": [
+    "Tn056",
+    "Ds042"
+  ],
+  "Shah Alam": "Tn070",
+  "Sibu": [
+    "Dv507",
+    "Ds521"
+  ],
+  "Sik": [
+    "Tn011",
+    "Ds010"
+  ],
+  "Simpang Renggam": "Tn133",
+  "Simunjan": "Ds508",
+  "Sipitang": "Ds541",
+  "Sitiawan": "Tn040",
+  "Slim River": "Tn057",
+  "Song": "Ds523",
+  "Sri Aman": [
+    "Dv504",
+    "Ds509"
+  ],
+  "Subang Jaya": "Tn077",
+  "Subis": "Ds534",
+  "Sungai Besi": "Tn083",
+  "Sungai Petani": "Tn008",
+  "Sungai Siput": "Tn036",
+  "Taiping": "Tn029",
+  "Taman Nasional Kinabalu": "Rc501",
+  "Taman Negara": "Rc013",
+  "Taman Negara Kelantan": "Rc010",
+  "Taman Negara Pulau Pinang": "Rc002",
+  "Taman Negara Terengganu": "Rc012",
+  "Tambunan": "Ds551",
+  "Tampin": [
+    "Tn110",
+    "Ds077"
+  ],
+  "Tanah Merah": [
+    "Tn038",
+    "Ds027"
+  ],
+  "Tanah Tinggi Cameron": "Ds038",
+  "Tanah Tinggi Genting": "Rc016",
+  "Tangga Batu": "Tn113",
+  "Tangkak": [
+    "Tn121",
+    "Ds081"
+  ],
+  "Tanjung Jara": "Rc020",
+  "Tanjung Manis": "Ds517",
+  "Tapah": "Tn052",
+  "Tasik Bera": "Rc019",
+  "Tasik Kenyir": "Rc011",
+  "Tatau": "Ds530",
+  "Tawau": [
+    "Dv516",
+    "Ds552"
+  ],
+  "Tebedu": "Ds501",
+  "Telang Usan": "Ds536",
+  "Teluk Intan": "Tn051",
+  "Telupid": "Ds560",
+  "Temerloh": [
+    "Tn095",
+    "Ds061"
+  ],
+  "Tenom": "Ds543",
+  "Terengganu": "St006",
+  "Timur Laut": "Ds012",
+  "Tongod": "Ds553",
+  "Triang": "Tn101",
+  "Tuaran": "Ds555",
+  "Tumpat": [
+    "Tn031",
+    "Ds022"
+  ],
+  "WP Kuala Lumpur": "St009",
+  "WP Labuan": "St503",
+  "WP Putrajaya": "St010",
+  "Yan": [
+    "Tn007",
+    "Ds007"
+  ],
+  "Yong Peng": "Tn128"
 }

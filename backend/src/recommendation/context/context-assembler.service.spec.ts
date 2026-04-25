@@ -30,6 +30,7 @@ describe('ContextAssemblerService', () => {
         ron95Price: 1.99,
         dieselPrice: 2.15,
       }),
+      getPreviousWeekDieselPrice: jest.fn().mockResolvedValue(2.1),
     };
     const signals = {
       score: jest.fn().mockReturnValue({
@@ -83,7 +84,6 @@ describe('ContextAssemblerService', () => {
         fuelCapacity: 40,
         targetSpecies: [],
       } as any,
-      'SND',
       'Sandakan',
       new Date('2026-04-16T06:00:00.000Z'),
     );
@@ -113,8 +113,8 @@ describe('ContextAssemblerService', () => {
 
     expect(weatherCall?.[1]).toContain('Active weather warnings:');
     expect(weatherCall?.[1]).toContain('Weather forecast for Sandakan');
-    expect(fuelCall?.[1]).toContain('Diesel: RM2.15/litre');
-    expect(fuelCall?.[1]).toContain('Estimated round-trip fuel cost: RM86.00');
+    expect(fuelCall?.[1]).toContain('Boat fuel (diesel): RM2.15/L');
+    expect(fuelCall?.[1]).toContain('estimated RM86.00 for a full tank (40L)');
 
     expect(prompt).toContain('Respond in English.');
     expect(prompt).toContain('Structured slice analyses (compact JSON):');
@@ -134,6 +134,7 @@ describe('ContextAssemblerService', () => {
     };
     const fuel = {
       getLatestPriceForLocality: jest.fn().mockResolvedValue(null),
+      getPreviousWeekDieselPrice: jest.fn().mockResolvedValue(null),
     };
     const signals = {
       score: jest.fn().mockReturnValue({
@@ -179,7 +180,6 @@ describe('ContextAssemblerService', () => {
         fuelCapacity: 40,
         targetSpecies: [],
       } as any,
-      'UNK',
       'Unknown District',
       new Date('2026-04-16T06:00:00.000Z'),
     );
@@ -203,6 +203,7 @@ describe('ContextAssemblerService', () => {
     };
     const fuel = {
       getLatestPriceForLocality: jest.fn().mockResolvedValue(null),
+      getPreviousWeekDieselPrice: jest.fn().mockResolvedValue(null),
     };
     const signals = {
       score: jest.fn().mockReturnValue({
@@ -258,7 +259,6 @@ describe('ContextAssemblerService', () => {
         fuelCapacity: 40,
         targetSpecies: [],
       } as any,
-      'UNK',
       'Unknown District',
       new Date('2026-04-16T06:00:00.000Z'),
     );

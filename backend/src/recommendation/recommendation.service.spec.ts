@@ -108,4 +108,86 @@ describe('RecommendationService', () => {
     });
     expect(glm.complete).not.toHaveBeenCalled();
   });
+
+  it('maps comma-separated locality text to a state for safety checks', async () => {
+    const users = {
+      getProfile: jest.fn().mockResolvedValue({
+        id: 'user-1',
+        locality: 'Johor Bahru, Johor',
+        language: 'en',
+        typicalDepartureTime: '06:00',
+      }),
+    };
+    const safetyResult = {
+      verdict: 'NO_GO',
+      reason: 'Unsafe conditions',
+      analysis: null,
+    };
+    const safety = {
+      check: jest.fn().mockResolvedValue(safetyResult),
+    };
+    const contextAssembler = {
+      assemble: jest.fn(),
+    };
+    const glm = {
+      complete: jest.fn(),
+    };
+    const service = new RecommendationService(
+      users as any,
+      safety as any,
+      contextAssembler as any,
+      glm as any,
+    );
+
+    await expect(service.recommend('user-1', {})).resolves.toEqual(
+      safetyResult,
+    );
+    expect(safety.check).toHaveBeenCalledWith(
+      'Johor',
+      expect.any(Date),
+      6,
+      'en',
+    );
+  });
+
+  it('maps district locality names to their owning state for safety checks', async () => {
+    const users = {
+      getProfile: jest.fn().mockResolvedValue({
+        id: 'user-1',
+        locality: 'Cameron Highlands',
+        language: 'en',
+        typicalDepartureTime: '06:00',
+      }),
+    };
+    const safetyResult = {
+      verdict: 'NO_GO',
+      reason: 'Unsafe conditions',
+      analysis: null,
+    };
+    const safety = {
+      check: jest.fn().mockResolvedValue(safetyResult),
+    };
+    const contextAssembler = {
+      assemble: jest.fn(),
+    };
+    const glm = {
+      complete: jest.fn(),
+    };
+    const service = new RecommendationService(
+      users as any,
+      safety as any,
+      contextAssembler as any,
+      glm as any,
+    );
+
+    await expect(service.recommend('user-1', {})).resolves.toEqual(
+      safetyResult,
+    );
+    expect(safety.check).toHaveBeenCalledWith(
+      'Pahang',
+      expect.any(Date),
+      6,
+      'en',
+    );
+  });
 });

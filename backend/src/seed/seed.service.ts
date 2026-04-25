@@ -10,6 +10,7 @@ import {
   parseMarineLandingStateRows,
   parseMarinePriceRows,
 } from './fisheries-csv-parser';
+import { Prisma } from '@prisma/client';
 
 const RECOMMENDATION_CURL_TEST_USER = {
   icNumber: '900101015555',
@@ -21,6 +22,7 @@ const RECOMMENDATION_CURL_TEST_USER = {
   targetSpecies: ['Selar', 'Kembung'],
   typicalDepartureTime: '06:00',
 };
+const INITIAL_DATASET_SEED_KEY = 'initial-datasets-v1';
 
 @Injectable()
 export class SeedService {
@@ -29,6 +31,14 @@ export class SeedService {
   constructor(private readonly prisma: PrismaService) {}
 
   async seed() {
+    const existingSeedRun = await this.prisma.seedRun.findUnique({
+      where: { key: INITIAL_DATASET_SEED_KEY },
+    });
+    if (existingSeedRun) {
+      this.logger.log('Initial dataset seed already completed; skipping');
+      return;
+    }
+
     await Promise.all([
       this.seedFuel(),
       this.seedFishLandings(),
@@ -39,6 +49,20 @@ export class SeedService {
       this.seedFishingEffortStateTotals(),
       this.seedRecommendationCurlTestUser(),
     ]);
+    try {
+      await this.prisma.seedRun.create({
+        data: { key: INITIAL_DATASET_SEED_KEY },
+      });
+    } catch (err: unknown) {
+      if (
+        err instanceof Prisma.PrismaClientKnownRequestError &&
+        err.code === 'P2002'
+      ) {
+        this.logger.log('Initial dataset seed marker already exists; skipping');
+        return;
+      }
+      throw err;
+    }
     this.logger.log('Seeding complete');
   }
 

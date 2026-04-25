@@ -14,7 +14,6 @@ export class SafetyService {
 
   async check(
     state: string,
-    locationId: string,
     date: Date,
     departureHour: number,
     language: 'ms' | 'en',
@@ -25,7 +24,7 @@ export class SafetyService {
     try {
       warnings = await this.weather.getActiveWarnings(state);
       forecast = await this.weather.getForecastForTripWindow(
-        locationId,
+        state,
         date,
         departureHour,
       );

@@ -7,11 +7,39 @@ import { GlmFallbackException } from '../glm/glm-fallback.exception';
 import { TapRequestDto } from './dto/tap-request.dto';
 import { RecommendationResponseDto } from './dto/recommendation-response.dto';
 import locationMap from '../data/location-map.json';
+import stateDistricts from '../data/state-districts.json';
 
 const ERROR_REASON_MS =
   'Tidak dapat membuat penilaian sekarang. Cuba sebentar lagi.';
 const ERROR_REASON_EN =
   'Unable to make an assessment right now. Please try again.';
+
+const STATE_BY_LOCATION = buildStateLookup(
+  stateDistricts as Record<string, string[]>,
+);
+
+function buildStateLookup(
+  districtsByState: Record<string, string[]>,
+): Map<string, string> {
+  const stateByLocation = new Map<string, string>();
+
+  for (const [state, districts] of Object.entries(districtsByState)) {
+    stateByLocation.set(normalizeLocation(state), state);
+    for (const district of districts) {
+      stateByLocation.set(normalizeLocation(district), state);
+    }
+  }
+
+  return stateByLocation;
+}
+
+function normalizeLocation(value: string): string {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
 
 @Injectable()
 export class RecommendationService {
@@ -30,16 +58,14 @@ export class RecommendationService {
     const language = (profile.language ?? 'en') as 'ms' | 'en';
 
     const district = this.resolveDistrict(dto, profile.locality);
-    const locationId =
-      (locationMap as Record<string, string>)[district] ?? district;
+    const weatherWarningState = this.resolveWeatherWarningState(district);
     const serverTime = new Date();
     const departureHour = profile.typicalDepartureTime
       ? parseInt(profile.typicalDepartureTime.split(':')[0], 10)
       : serverTime.getHours();
 
     const safetyResult = await this.safety.check(
-      district,
-      locationId,
+      weatherWarningState,
       serverTime,
       departureHour,
       language,
@@ -49,7 +75,6 @@ export class RecommendationService {
     try {
       const prompt = await this.contextAssembler.assemble(
         profile,
-        locationId,
         district,
         serverTime,
       );
@@ -85,6 +110,26 @@ export class RecommendationService {
       return this.nearestCoastalDistrict(dto.lat, dto.lng);
     }
     return locality;
+  }
+
+  private resolveWeatherWarningState(localityOrDistrict: string): string {
+    const parts = localityOrDistrict
+      .split(',')
+      .map((part) => part.trim())
+      .filter(Boolean);
+
+    const candidates = [parts.at(-1), parts[0], localityOrDistrict].filter(
+      (value): value is string => Boolean(value),
+    );
+
+    for (const candidate of candidates) {
+      const state = STATE_BY_LOCATION.get(normalizeLocation(candidate));
+      if (state) {
+        return state;
+      }
+    }
+
+    return localityOrDistrict;
   }
 
   private nearestCoastalDistrict(_lat: number, _lng: number): string {
