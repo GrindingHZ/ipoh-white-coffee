@@ -108,4 +108,88 @@ describe('RecommendationService', () => {
     });
     expect(glm.complete).not.toHaveBeenCalled();
   });
+
+  it('maps comma-separated locality text to updated location IDs', async () => {
+    const users = {
+      getProfile: jest.fn().mockResolvedValue({
+        id: 'user-1',
+        locality: 'Johor Bahru, Johor',
+        language: 'en',
+        typicalDepartureTime: '06:00',
+      }),
+    };
+    const safetyResult = {
+      verdict: 'NO_GO',
+      reason: 'Unsafe conditions',
+      analysis: null,
+    };
+    const safety = {
+      check: jest.fn().mockResolvedValue(safetyResult),
+    };
+    const contextAssembler = {
+      assemble: jest.fn(),
+    };
+    const glm = {
+      complete: jest.fn(),
+    };
+    const service = new RecommendationService(
+      users as any,
+      safety as any,
+      contextAssembler as any,
+      glm as any,
+    );
+
+    await expect(service.recommend('user-1', {})).resolves.toEqual(
+      safetyResult,
+    );
+    expect(safety.check).toHaveBeenCalledWith(
+      'Johor Bahru, Johor',
+      'Tn139',
+      expect.any(Date),
+      6,
+      'en',
+    );
+  });
+
+  it('maps legacy locality aliases to current API IDs', async () => {
+    const users = {
+      getProfile: jest.fn().mockResolvedValue({
+        id: 'user-1',
+        locality: 'Cameron Highlands',
+        language: 'en',
+        typicalDepartureTime: '06:00',
+      }),
+    };
+    const safetyResult = {
+      verdict: 'NO_GO',
+      reason: 'Unsafe conditions',
+      analysis: null,
+    };
+    const safety = {
+      check: jest.fn().mockResolvedValue(safetyResult),
+    };
+    const contextAssembler = {
+      assemble: jest.fn(),
+    };
+    const glm = {
+      complete: jest.fn(),
+    };
+    const service = new RecommendationService(
+      users as any,
+      safety as any,
+      contextAssembler as any,
+      glm as any,
+    );
+
+    await expect(service.recommend('user-1', {})).resolves.toEqual(
+      safetyResult,
+    );
+    expect(safety.check).toHaveBeenCalledWith(
+      'Cameron Highlands',
+      'Ds038',
+      expect.any(Date),
+      6,
+      'en',
+    );
+  });
 });

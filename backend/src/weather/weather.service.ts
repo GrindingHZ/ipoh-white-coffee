@@ -173,7 +173,22 @@ export class WeatherService {
     const data: any[] = Array.isArray(payload) ? payload : (payload.data ?? []);
     const entry = data[0];
     if (!entry) return null;
-    return entry[slot] ?? entry[`${slot}_bm`] ?? null;
+
+    const slotCandidates = [
+      slot,
+      `${slot}_forecast`,
+      `${slot}_bm`,
+      `${slot}_forecast_bm`,
+    ];
+
+    for (const key of slotCandidates) {
+      const value = entry[key];
+      if (typeof value === 'string' && value.trim().length > 0) {
+        return value;
+      }
+    }
+
+    return null;
   }
 
   async reverseGeocodeState(lat: number, lng: number): Promise<string | null> {

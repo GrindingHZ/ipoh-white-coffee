@@ -30,8 +30,7 @@ export class RecommendationService {
     const language = (profile.language ?? 'en') as 'ms' | 'en';
 
     const district = this.resolveDistrict(dto, profile.locality);
-    const locationId =
-      (locationMap as Record<string, string>)[district] ?? district;
+    const locationId = this.resolveLocationId(district);
     const serverTime = new Date();
     const departureHour = profile.typicalDepartureTime
       ? parseInt(profile.typicalDepartureTime.split(':')[0], 10)
@@ -90,5 +89,62 @@ export class RecommendationService {
   private nearestCoastalDistrict(_lat: number, _lng: number): string {
     // Placeholder: full geo-resolution is a future concern
     return Object.keys(locationMap)[0];
+  }
+
+  private resolveLocationId(locality: string): string {
+    const map = locationMap as Record<string, string>;
+
+    if (map[locality]) {
+      return map[locality];
+    }
+
+    const normalizedLocality = this.normalizeLocality(locality);
+    if (!normalizedLocality) {
+      return locality;
+    }
+
+    const normalizedExact = Object.entries(map).find(
+      ([name]) => this.normalizeLocality(name) === normalizedLocality,
+    );
+    if (normalizedExact) {
+      return normalizedExact[1];
+    }
+
+    const firstSegment = locality.split(',')[0]?.trim();
+    if (firstSegment && map[firstSegment]) {
+      return map[firstSegment];
+    }
+
+    const normalizedSegment = this.normalizeLocality(firstSegment);
+    if (normalizedSegment) {
+      const segmentMatch = Object.entries(map).find(
+        ([name]) => this.normalizeLocality(name) === normalizedSegment,
+      );
+      if (segmentMatch) {
+        return segmentMatch[1];
+      }
+    }
+
+    const fuzzyMatch = Object.entries(map).find(([name]) => {
+      const normalizedName = this.normalizeLocality(name);
+      return (
+        normalizedLocality.includes(normalizedName) ||
+        normalizedName.includes(normalizedLocality)
+      );
+    });
+
+    return fuzzyMatch?.[1] ?? locality;
+  }
+
+  private normalizeLocality(value: string | undefined): string {
+    if (!value) {
+      return '';
+    }
+
+    return value
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
   }
 }
