@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import type { MouseEvent } from "react";
 import "./styles.css";
 import heroBg from "./assets/fisheriq-hero.png";
-import { getFuelPrice, getLocationCoast } from "./services/api";
-import type { CoastResult } from "./services/api";
+import { getFuelPrice, getLocationCoast, getRecommendation } from "./services/api";
+import type { CoastResult, RecommendationResponse } from "./services/api";
 import { useScrollNav } from "./hooks/useScrollNav";
 import AuthModal, { loadStoredUser } from "./components/AuthModal";
 import type { AuthUser } from "./components/AuthModal";
@@ -38,8 +38,6 @@ import {
   COLOR_OUTER,
   COLOR_LERP_EXPONENT,
   TRIP_METRICS,
-  BUYER_ROWS,
-  WEEKLY_INSIGHTS,
   AMBIENT_CONDITIONS,
   LOADING_STEPS,
 } from "./constants";
@@ -95,6 +93,8 @@ export default function App() {
   const [hasChecked, setHasChecked] = useState(false);
   const [seeMoreReady, setSeeMoreReady] = useState(false);
   const [showMore, setShowMore] = useState(false);
+  const [recommendation, setRecommendation] = useState<RecommendationResponse | null>(null);
+  const [recommendationError, setRecommendationError] = useState<string | null>(null);
   const [userCoords, setUserCoords] = useState<{ lat: number; lng: number } | null>(null);
   const [nearestCoast, setNearestCoast] = useState<CoastResult | null>(null);
   const [dieselCondition, setDieselCondition] = useState<AmbientCondition>({
@@ -111,17 +111,70 @@ export default function App() {
   });
   const { navHidden, navHovered, setNavHovered, appScreenRef } = useScrollNav();
   const selectedZoneName = nearestCoast?.name ?? (userCoords ? "Your Location" : "Detecting...");
-  // BACKEND TODO:
-  // TRIP_METRICS is currently hardcoded in constants.ts. Replace this with
-  // decisionJson.metrics from the decision API response once the backend returns
-  // values such as Decision, Zone, and Expected Net.
-  const displayedTripMetrics = TRIP_METRICS.map((metric) =>
-    metric.label === "Zone" ? { ...metric, value: selectedZoneName } : metric
-  );
-  // BACKEND TODO:
-  // AMBIENT_CONDITIONS is currently hardcoded in constants.ts. Keep the fuel
-  // chips API-driven, but replace tide/weather with decisionJson.ambientConditions.
-  const displayedAmbientConditions = [...AMBIENT_CONDITIONS, dieselCondition, ron95Condition];
+  const recommendationAnalysis = recommendation?.analysis ?? null;
+  const recommendationRisk = recommendationAnalysis?.riskLevel ?? "unknown";
+  const recommendationIndicators = recommendationAnalysis?.indicators ?? [];
+  const recommendationKeySignals = recommendationAnalysis?.keySignals ?? [];
+  const shouldFishToday = recommendationAnalysis?.shouldFishToday ?? (recommendation?.verdict === "GO");
+  const displayedTripMetrics = recommendation
+    ? [
+        {
+          label: "Decision",
+          value: recommendation.verdict,
+          tone: shouldFishToday ? ("good" as const) : ("warn" as const),
+        },
+        {
+          label: "Confidence",
+          value: formatPercent(recommendationAnalysis?.profitConfidence),
+          tone: (recommendationAnalysis?.profitConfidence ?? 0) >= 0.65 ? ("good" as const) : ("neutral" as const),
+        },
+        {
+          label: "Risk",
+          value: titleCase(recommendationRisk),
+          tone: recommendationRisk.toLowerCase() === "low" ? ("good" as const) : ("warn" as const),
+        },
+      ]
+    : TRIP_METRICS.map((metric) =>
+        metric.label === "Zone" ? { ...metric, value: selectedZoneName } : metric
+      );
+  const displayedAmbientConditions = [
+    ...getRecommendationConditions(recommendation),
+    dieselCondition,
+    ron95Condition,
+  ];
+
+  function titleCase(value?: string | null) {
+    if (!value) return "Unknown";
+    return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+  }
+
+  function formatPercent(value?: number | null) {
+    if (typeof value !== "number" || Number.isNaN(value)) return "N/A";
+    return `${Math.round(value * 100)}%`;
+  }
+
+  function getRecommendationConditions(result: RecommendationResponse | null): AmbientCondition[] {
+    if (!result?.analysis) return [...AMBIENT_CONDITIONS];
+
+    const indicators = result.analysis.indicators ?? [];
+    const weather = indicators.find((item) => item.indicator?.toLowerCase() === "weather");
+    const tide = indicators.find((item) => item.indicator?.toLowerCase() === "tide");
+
+    return [
+      {
+        icon: "🌊",
+        label: "Tide",
+        value: tide ? `${formatPercent(tide.score)} Tide` : "Tide unknown",
+        sub: tide?.summary ?? "No tide signal returned",
+      },
+      {
+        icon: "🌤",
+        label: "Weather",
+        value: weather ? `${formatPercent(weather.score)} Weather` : "Weather unknown",
+        sub: weather?.summary ?? "No weather signal returned",
+      },
+    ];
+  }
 
   useEffect(() => {
     let cancelled = false;
@@ -269,6 +322,8 @@ export default function App() {
     setHasChecked(false);
     setSeeMoreReady(false);
     setShowMore(false);
+    setRecommendation(null);
+    setRecommendationError(null);
   }
 
   function getGreeting() {
@@ -309,33 +364,29 @@ export default function App() {
   async function fetchDecision() {
     if (isLoading || hasChecked) return;
     setIsLoading(true);
+    setRecommendationError(null);
     startLoadingRipple();
 
-    // BACKEND TODO:
-    // This is still a fake decision API call. Replace the timeout with a backend
-    // request such as:
-    // const decisionJson = await getFishingDecision({
-    //   userId: currentUser?.id,
-    //   locality: currentUser?.locality,
-    //   coords: locationResult.coords
-    // });
-    // Then store decisionJson in React state and render that state below instead
-    // of TRIP_METRICS, BUYER_ROWS, WEEKLY_INSIGHTS, and hardcoded card text.
-    // Run backend call + geolocation lookup in parallel
-    const [, locationResult] = await Promise.all([
-      // TODO: replace with real API call — await api.getDecision()
-      new Promise<void>((resolve) => setTimeout(resolve, FAKE_BACKEND_DELAY_MS)),
-      getLocationCoast(),
-    ]);
+    try {
+      const [decisionJson, locationResult] = await Promise.all([
+        getRecommendation(),
+        getLocationCoast(),
+      ]);
 
-    setUserCoords(locationResult.coords);
-    setNearestCoast(locationResult.coast);
-    stopLoadingRipple();
-    spawnBurst();
-    setIsLoading(false);
-    setHasChecked(true);
-    // Show "See more" after all 3 cards finish floating up (1000ms delay + 1400ms duration + buffer)
-    window.setTimeout(() => setSeeMoreReady(true), 2600);
+      setRecommendation(decisionJson);
+      setUserCoords(locationResult.coords);
+      setNearestCoast(locationResult.coast);
+      spawnBurst();
+      setHasChecked(true);
+      // Show "See more" after all 3 cards finish floating up (1000ms delay + 1400ms duration + buffer)
+      window.setTimeout(() => setSeeMoreReady(true), 2600);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Recommendation request failed";
+      setRecommendationError(message);
+    } finally {
+      stopLoadingRipple();
+      setIsLoading(false);
+    }
   }
 
   function handleMouseMove(e: MouseEvent<HTMLCanvasElement>) {
@@ -497,11 +548,8 @@ export default function App() {
             )}
 
             {hasChecked && (() => {
-              // BACKEND TODO:
-              // Verdict currently comes from hardcoded TRIP_METRICS. Replace with
-              // decisionJson.verdict or decisionJson.metrics.Decision.
-              const verdict = TRIP_METRICS.find((m) => m.label === "Decision")?.value ?? "Go";
-              const isGo = verdict.toLowerCase() === "go";
+              const verdict = recommendation?.verdict ?? "GO";
+              const isGo = verdict === "GO";
               const mapTarget = nearestCoast ?? userCoords;
               const mapSrc = mapTarget
                 ? `https://www.openstreetmap.org/export/embed.html?bbox=${mapTarget.lng - 0.06},${mapTarget.lat - 0.06},${mapTarget.lng + 0.06},${mapTarget.lat + 0.06}&layer=mapnik&marker=${mapTarget.lat},${mapTarget.lng}`
@@ -510,9 +558,10 @@ export default function App() {
                 <>
                   <div className={isGo ? "verdict-badge verdict-badge--go" : "verdict-badge verdict-badge--stay"} aria-live="polite">
                     <span className="verdict-icon">{isGo ? "✓" : "✕"}</span>
-                    {/* BACKEND TODO: Replace verdict label/subtitle with API text if backend owns the recommendation copy. */}
-                    <span className="verdict-label">{isGo ? "GO FISH" : "STAY HOME"}</span>
-                    <span className="verdict-sub">{isGo ? "Conditions are good today" : "Not worth the trip today"}</span>
+                    <span className="verdict-label">{isGo ? "GO FISH" : verdict === "ERROR" ? "TRY AGAIN" : "STAY HOME"}</span>
+                    <span className="verdict-sub">
+                      {recommendation?.reason ?? (isGo ? "Conditions are good today" : "Not worth the trip today")}
+                    </span>
                   </div>
 
                   {mapSrc && (
@@ -554,78 +603,103 @@ export default function App() {
                 {showMore ? "Hide more" : "See more"}
               </button>
             ) : (
-              <p>{hasChecked ? "\u00a0" : "Tap Check to see today's fishing decision."}</p>
+              <p>
+                {recommendationError
+                  ? `Could not load recommendation: ${recommendationError}`
+                  : hasChecked
+                    ? "\u00a0"
+                    : "Tap Check to see today's fishing decision."}
+              </p>
             )}
           </div>
 
-          {showMore && (
+          {showMore && recommendation && (
             <div className="details-area">
-              {/* BACKEND TODO:
-                  Everything in this See more details area is currently placeholder
-                  content. Replace with a decisionJson.details object from the API. */}
               <div className="dashboard-grid">
                 <article className="feature-card">
                   <div className="card-topline">
                     <span className="icon-chip">☀</span>
-                    <span>Trip Engine</span>
+                    <span>Recommendation</span>
                   </div>
-                  {/* BACKEND TODO: Replace title/summary/profit values with decisionJson.tripEngine. */}
-                  <h3>Go fishing at 6:30 AM</h3>
-                  <p>
-                    Low rain risk, moderate fuel cost, and stronger catch history near
-                    {` ${selectedZoneName} make the trip profitable.`}
-                  </p>
+                  <h3>{shouldFishToday ? "Reasonable fishing day" : "Skip the trip today"}</h3>
+                  <p>{recommendationAnalysis?.reasoning ?? recommendation.reason ?? "Recommendation details are unavailable."}</p>
                   <div className="profit-strip">
-                    <span>Without FisherIQ</span>
-                    <strong className="warn">-RM12</strong>
-                    <span>With FisherIQ</span>
-                    <strong className="good">+RM46</strong>
+                    <span>Profit confidence</span>
+                    <strong className={(recommendationAnalysis?.profitConfidence ?? 0) >= 0.65 ? "good" : "neutral"}>
+                      {formatPercent(recommendationAnalysis?.profitConfidence)}
+                    </strong>
+                    <span>Fuel cost</span>
+                    <strong className={recommendationAnalysis?.estimatedFuelCostRm == null ? "warn" : "neutral"}>
+                      {recommendationAnalysis?.estimatedFuelCostRm == null
+                        ? "Unavailable"
+                        : `RM${recommendationAnalysis.estimatedFuelCostRm.toFixed(2)}`}
+                    </strong>
                   </div>
                 </article>
 
                 <article className="feature-card" id="market">
                   <div className="card-topline">
                     <span className="icon-chip">RM</span>
-                    <span>Market Engine</span>
+                    <span>Key Signals</span>
                   </div>
-                  {/* BACKEND TODO: Replace best buyer title and BUYER_ROWS with decisionJson.marketEngine.buyers. */}
-                  <h3>Best buyer: Koperasi Jeti</h3>
-                  <div className="buyer-table">
-                    {BUYER_ROWS.map((buyer) => (
-                      <div className="buyer-row" key={buyer.name}>
-                        <span>{buyer.name}</span>
-                        <span>{buyer.price}</span>
-                        <span>{buyer.distance}</span>
-                        <strong>{buyer.net}</strong>
+                  <h3>Risk is {recommendationRisk.toLowerCase()}</h3>
+                  <div className="signal-list">
+                    {recommendationKeySignals.map((signal) => (
+                      <div className="signal-row" key={signal}>
+                        <span aria-hidden="true">✓</span>
+                        <p>{signal}</p>
                       </div>
                     ))}
+                    {recommendationKeySignals.length === 0 && (
+                      <div className="signal-row">
+                        <span aria-hidden="true">!</span>
+                        <p>No key signals were returned.</p>
+                      </div>
+                    )}
                   </div>
                 </article>
 
                 <article className="feature-card log-card" id="insights">
                   <div className="card-topline">
                     <span className="icon-chip">✎</span>
-                    <span>Catch Log</span>
+                    <span>Signal Scores</span>
                   </div>
-                  {/* BACKEND TODO: Replace sample message and explanation with decisionJson.catchLog. */}
-                  <h3>Natural language input</h3>
-                  <div className="message-bubble">
-                    "Hari ni dapat 18kg kembung, minyak RM42, jual dekat koperasi."
+                  <h3>Indicator detail</h3>
+                  <div className="indicator-table">
+                    {recommendationIndicators.map((item, index) => (
+                      <div className="indicator-row" key={item.indicator ?? index}>
+                        <span>{titleCase(item.indicator)}</span>
+                        <strong>{formatPercent(item.score)}</strong>
+                        <em>{titleCase(item.riskLevel)}</em>
+                      </div>
+                    ))}
+                    {recommendationIndicators.length === 0 && (
+                      <div className="indicator-row">
+                        <span>Signals</span>
+                        <strong>N/A</strong>
+                        <em>Unknown</em>
+                      </div>
+                    )}
                   </div>
-                  <p>
-                    GLM turns the message into structured catch, cost, buyer, and income data.
-                  </p>
                 </article>
               </div>
 
               <div className="insight-list">
-                {/* BACKEND TODO: Replace WEEKLY_INSIGHTS with decisionJson.weeklyInsights. */}
-                {WEEKLY_INSIGHTS.map((insight) => (
-                  <div className="insight-item" key={insight}>
+                {recommendationIndicators.map((indicator, index) => (
+                  <div className="insight-item" key={indicator.indicator ?? index}>
                     <span aria-hidden="true">✓</span>
-                    <p>{insight}</p>
+                    <p>
+                      <strong>{titleCase(indicator.indicator)}:</strong>{" "}
+                      {indicator.summary ?? "No summary returned."} Confidence {formatPercent(indicator.confidence)}.
+                    </p>
                   </div>
                 ))}
+                {recommendationIndicators.length === 0 && (
+                  <div className="insight-item">
+                    <span aria-hidden="true">!</span>
+                    <p>{recommendation.errorDetail ?? "No indicator detail was returned."}</p>
+                  </div>
+                )}
               </div>
             </div>
           )}

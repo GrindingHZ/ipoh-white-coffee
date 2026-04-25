@@ -18,6 +18,37 @@ export interface FuelPriceResponse {
   dieselPrice: number;
 }
 
+export interface AuthProfile {
+  id: string;
+  name: string;
+  locality: string;
+}
+
+export interface RecommendationIndicator {
+  indicator: string;
+  score: number;
+  confidence: number;
+  riskLevel: "low" | "medium" | "high";
+  summary: string;
+}
+
+export interface RecommendationAnalysis {
+  shouldFishToday: boolean;
+  profitConfidence: number;
+  riskLevel: "low" | "medium" | "high";
+  reasoning: string;
+  estimatedFuelCostRm: number | null;
+  keySignals: string[];
+  indicators: RecommendationIndicator[];
+}
+
+export interface RecommendationResponse {
+  verdict: "GO" | "NO_GO" | "ERROR";
+  reason: string;
+  errorDetail?: string;
+  analysis: RecommendationAnalysis | null;
+}
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 function getDistanceKm(lat1: number, lng1: number, lat2: number, lng2: number): number {
@@ -52,6 +83,52 @@ export async function getFuelPrice(locality?: string): Promise<FuelPriceResponse
   const res = await fetch(apiUrl("/fuel/latest", params));
   if (!res.ok) throw new Error(`Fuel price request failed: ${res.status}`);
   return res.json() as Promise<FuelPriceResponse>;
+}
+
+// ── Fishing recommendation ───────────────────────────────────────────────────
+
+export async function getRecommendation(): Promise<RecommendationResponse> {
+  const res = await fetch(apiUrl("/recommendation"), {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify({}),
+  });
+
+  if (!res.ok) throw new Error(`Recommendation request failed: ${res.status}`);
+  return res.json() as Promise<RecommendationResponse>;
+}
+
+// ── Backend auth ──────────────────────────────────────────────────────────────
+
+export async function loginWithIc(icNumber: string): Promise<AuthProfile> {
+  const res = await fetch(apiUrl("/auth/login"), {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include",
+    body: JSON.stringify({ icNumber }),
+  });
+
+  if (!res.ok) throw new Error(`Login failed: ${res.status}`);
+  return res.json() as Promise<AuthProfile>;
+}
+
+export async function registerWithIc(profile: {
+  icNumber: string;
+  name: string;
+  locality: string;
+}): Promise<AuthProfile> {
+  const res = await fetch(apiUrl("/auth/register"), {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include",
+    body: JSON.stringify(profile),
+  });
+
+  if (!res.ok) throw new Error(`Registration failed: ${res.status}`);
+  return res.json() as Promise<AuthProfile>;
 }
 
 // ── Overpass / coast lookup ───────────────────────────────────────────────────

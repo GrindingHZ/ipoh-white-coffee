@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { loginWithIc, registerWithIc } from "../services/api";
 
 export interface AuthUser {
   id: string;
@@ -68,20 +69,22 @@ export default function AuthModal({ onSuccess, onClose }: Props) {
     setStep(s);
   }
 
-  function handleLogin(e: React.FormEvent) {
+  async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
     setError("");
     const trimmed = ic.trim();
     if (!trimmed) { setError("Please enter your IC number."); return; }
-    const users = loadAllUsers();
-    const found = users[trimmed];
-    if (!found) { setError("IC not registered. Please register first."); return; }
-    saveUser(found);
-    setVisible(false);
-    setTimeout(() => onSuccess(found), 280);
+    try {
+      const found = await loginWithIc(trimmed);
+      saveUser(found);
+      setVisible(false);
+      setTimeout(() => onSuccess(found), 280);
+    } catch {
+      setError("IC not registered. Please register first.");
+    }
   }
 
-  function handleRegister(e: React.FormEvent) {
+  async function handleRegister(e: React.FormEvent) {
     e.preventDefault();
     setError("");
     const trimmedIc = ic.trim();
@@ -90,14 +93,21 @@ export default function AuthModal({ onSuccess, onClose }: Props) {
     if (!trimmedIc) { setError("Please enter your IC number."); return; }
     if (!trimmedName) { setError("Please enter your name."); return; }
     if (!trimmedLocality) { setError("Please enter your locality."); return; }
-    const users = loadAllUsers();
-    if (users[trimmedIc]) { setError("IC already registered. Please log in."); return; }
-    const user: AuthUser = { id: trimmedIc, name: trimmedName, locality: trimmedLocality };
-    users[trimmedIc] = user;
-    saveAllUsers(users);
-    saveUser(user);
-    setVisible(false);
-    setTimeout(() => onSuccess(user), 280);
+    try {
+      const user = await registerWithIc({
+        icNumber: trimmedIc,
+        name: trimmedName,
+        locality: trimmedLocality,
+      });
+      const users = loadAllUsers();
+      users[trimmedIc] = user;
+      saveAllUsers(users);
+      saveUser(user);
+      setVisible(false);
+      setTimeout(() => onSuccess(user), 280);
+    } catch {
+      setError("Could not create account. If this IC exists, please log in.");
+    }
   }
 
   return (

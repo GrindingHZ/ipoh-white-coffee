@@ -589,6 +589,66 @@ button {
   color: #102326;
 }
 
+.signal-list,
+.indicator-table {
+  margin-top: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.signal-row {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 8px;
+  align-items: start;
+  padding: 11px 12px;
+  border-radius: 8px;
+  background: #eef5f0;
+}
+
+.signal-row span {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #062a2e;
+  background: #f4b84c;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.signal-row p {
+  margin: 0;
+  color: #405a57;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.indicator-row {
+  display: grid;
+  grid-template-columns: minmax(82px, 1fr) auto auto;
+  gap: 10px;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 10px;
+  border-radius: 8px;
+  background: #eef5f0;
+  color: #405a57;
+  font-size: 13px;
+}
+
+.indicator-row strong {
+  color: #102326;
+}
+
+.indicator-row em {
+  min-width: 58px;
+  text-align: right;
+  color: #58706c;
+  font-style: normal;
+}
+
 .message-bubble {
   margin: 18px 0 14px;
   padding: 15px;
