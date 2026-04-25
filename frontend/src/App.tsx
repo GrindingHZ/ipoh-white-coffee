@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import type { MouseEvent } from "react";
 import "./styles.css";
 import heroBg from "./assets/fisheriq-hero.png";
-import { getFuelPrice, getLocationCoast, getRecommendation } from "./services/api";
+import { getFuelPrice, getLocationCoast, getRecommendation, getMe, logoutUser } from "./services/api";
 import type { CoastResult, RecommendationResponse } from "./services/api";
 import { useScrollNav } from "./hooks/useScrollNav";
 import AuthModal, { loadStoredUser } from "./components/AuthModal";
@@ -177,6 +177,20 @@ export default function App() {
   }
 
   useEffect(() => {
+    const stored = loadStoredUser();
+    if (!stored) return;
+
+    getMe().then((profile) => {
+      setCurrentUser(profile);
+      localStorage.setItem("fisheriq_user", JSON.stringify(profile));
+    }).catch(() => {
+      resetAppState();
+      setShowAuthModal(true);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
     let cancelled = false;
 
     async function loadFuelPrice() {
@@ -315,15 +329,22 @@ export default function App() {
     };
   }, [showProfileMenu]);
 
-  function handleLogout() {
+  function resetAppState() {
     localStorage.removeItem("fisheriq_user");
     setCurrentUser(null);
-    setShowProfileMenu(false);
     setHasChecked(false);
     setSeeMoreReady(false);
     setShowMore(false);
     setRecommendation(null);
     setRecommendationError(null);
+  }
+
+  function handleLogout() {
+    setShowProfileMenu(false);
+    logoutUser().finally(() => {
+      resetAppState();
+      setShowAuthModal(true);
+    });
   }
 
   function getGreeting() {
